@@ -15,7 +15,7 @@ namespace mSim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new sForm());
+            Application.Run(new drawForm());
         }
     }
 }

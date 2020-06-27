@@ -9,21 +9,21 @@ using System.Windows.Forms;
 
 namespace mSim
 {
-    public partial class sForm : Form
+    public partial class drawForm : Form
     {
-        public sForm()
+        public drawForm()
         {
             InitializeComponent();
         }
 
-        private void sForm_Load(object sender, EventArgs e)
-        {
-            LoadSettings();
-        }
-
         private void LoadSettings()
         {
-            throw new NotImplementedException();
+           
+        }
+
+        private void DrawAxis()
+        {
+
         }
     }
 }
