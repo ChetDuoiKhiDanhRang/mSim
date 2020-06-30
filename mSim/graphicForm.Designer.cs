@@ -1,6 +1,6 @@
 ﻿namespace mSim
 {
-    partial class drawForm
+    partial class sForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picDraw = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picDraw)).BeginInit();
             this.SuspendLayout();
             // 
-            // picDraw
-            // 
-            this.picDraw.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picDraw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picDraw.Location = new System.Drawing.Point(12, 12);
-            this.picDraw.Name = "picDraw";
-            this.picDraw.Size = new System.Drawing.Size(984, 709);
-            this.picDraw.TabIndex = 0;
-            this.picDraw.TabStop = false;
-            // 
-            // drawForm
+            // sForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 761);
-            this.Controls.Add(this.picDraw);
-            this.DoubleBuffered = true;
-            this.Name = "drawForm";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "sForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.picDraw)).EndInit();
+            this.Load += new System.EventHandler(this.sForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picDraw;
     }
 }
 
