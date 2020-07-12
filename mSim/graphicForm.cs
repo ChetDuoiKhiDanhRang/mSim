@@ -11,9 +11,11 @@ namespace mSim
 {
     public partial class drawForm : Form
     {
+        Image backGround;
         public drawForm()
         {
             InitializeComponent();
+            backGround = new Image();
         }
 
         private void LoadSettings()
@@ -21,7 +23,7 @@ namespace mSim
            
         }
 
-        private void DrawAxis()
+        private void DrawAxis(PictureBox pictureBox, int ox=0, int oy = 0)
         {
 
         }
