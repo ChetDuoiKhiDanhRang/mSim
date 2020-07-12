@@ -15,7 +15,7 @@ namespace mSim
         public drawForm()
         {
             InitializeComponent();
-            backGround = new Image();
+            backGround = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         }
 
         private void LoadSettings()
@@ -23,9 +23,11 @@ namespace mSim
            
         }
 
-        private void DrawAxis(PictureBox pictureBox, int ox=0, int oy = 0)
+        private Bitmap DrawAxis(int imageWidth, int imageHeight, int ox=0, int oy = 0, string xlabel = "x", string ylabel = "y")
         {
 
+
+            return null;
         }
     }
 }
