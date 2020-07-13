@@ -29,63 +29,44 @@
         private void InitializeComponent()
         {
             this.graphBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
             // 
             // graphBox
             // 
+            this.graphBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.graphBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graphBox.Location = new System.Drawing.Point(12, 12);
             this.graphBox.Name = "graphBox";
             this.graphBox.Size = new System.Drawing.Size(767, 348);
             this.graphBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
+            this.graphBox.SizeChanged += new System.EventHandler(this.graphBox_SizeChanged);
             this.graphBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseDown);
             this.graphBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseMove);
             this.graphBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseUp);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 367);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(526, 455);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
             // 
             // drawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 592);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.graphBox);
             this.Name = "drawForm";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.drawForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox graphBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 }
 
