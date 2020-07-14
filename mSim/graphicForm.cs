@@ -11,22 +11,69 @@ namespace mSim
 {
     public partial class drawForm : Form
     {
-        string fontname = "consolas";
-        float fontsize = 9F;
+        string fontname = "Consolas";
+        float fontsize = 10F;
         Font myFont;
+        Font myFont_Intervals;
+
         float scaleF = 1F;
 
-        float BASE_X0 = 25F;
-        float BASE_Y0 = 25F;
-        float x0;
-        float y0;
+        int BASE_X0 = 90;
+        int BASE_Y0 = 90;
+        int x0;
+        int y0;
+
+        int baseStepX = 50;
+        int baseStepY = 50;
+        int stepX;
+        int stepY;
+
+        int MAX_STEP_X = 50;
+        int MIN_STEP_X = 25;
+        int MAX_STEP_Y = 50;
+        int MIN_STEP_Y = 25;
+
+        int MAX_COUNT_X = 30;
+        int MAX_COUNT_Y = 30;
+        int MIN_COUNT_X = 8;
+        int MIN_COUNT_Y = 8;
+
+        float stepValueX = 1F;
+        float stepValueY = 0.5F;
+
+        Bitmap axisLayer;
+        public Bitmap AxisLayer
+        {
+            get => axisLayer;
+            set
+            {
+                axisLayer = value;
+                //if (value != null)
+                //{
+                //    Intervals?.Dispose();
+                //    Intervals = background.Clone() as Bitmap; 
+                //}
+            }
+        }
 
 
-        Bitmap background;
-        Bitmap intervals;
-        Bitmap moveingLine;
-        int Delta_X;
-        int Delta_Y;
+        Bitmap intervalsLayer;
+        public Bitmap IntervalsLayer
+        {
+            get => intervalsLayer;
+            set
+            {
+                intervalsLayer = value;
+                //if (value != null)
+                //{
+                //    movingLine?.Dispose();
+                //    movingLine = intervals.Clone() as Bitmap; 
+                //}
+            }
+        }
+
+
+        Bitmap movingLine;
 
         Point[] points_ox;
         Point[] points_oy;
@@ -36,53 +83,47 @@ namespace mSim
             InitializeComponent();
             LoadSettings();
 
+            stepX = baseStepX;
+            stepY = baseStepY;
+
             myFont = new Font(fontname, fontsize, FontStyle.Bold);
-            background = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            myFont_Intervals = new Font(fontname, fontsize - 2, FontStyle.Regular);
+            
         }
 
         private void LoadSettings()
         {
+
+
         }
 
-        private void DrawAxis(Bitmap bitmap, float _x0 = 0, float _y0 = 0, string xlabel = "x", string ylabel = "y")
-        {
-            //Image img = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            int width = bitmap.Width;
-            int height = bitmap.Height;
-
-            Graphics g = Graphics.FromImage(bitmap);
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
-
-            Pen p = new Pen(Brushes.Black, 1F);
-
-            g.FillRectangle(Brushes.LightGray, 0, 0, width, height);
-
-            g.DrawLine(p, 0, height - _y0, width, height - _y0);
-            g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 - 5);
-            g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 + 5);
-
-            g.DrawLine(p, _x0, height, _x0, 0);
-            g.DrawLine(p, _x0, 0, _x0 + 5, 11);
-            g.DrawLine(p, _x0, 0, _x0 - 5, 11);
-
-            g.DrawString(xlabel, myFont, Brushes.Black, width - 20, height - _y0);
-            g.DrawString(ylabel, myFont, Brushes.Black, _x0 - 15, 8);
-            g.DrawString("0", myFont, Brushes.Black, _x0 - 10, height - _y0);
-        }
 
         bool drag = false;
-        int mX = 0;
-        int mY = 0;
+        int mouseDownX = 0;
+        int mouseDownY = 0;
         int offsetX = 0;
         int offsetY = 0;
+
+        private void drawForm_Shown(object sender, EventArgs e)
+        {
+            x0 = BASE_X0;
+            y0 = BASE_Y0;
+
+            IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+            AxisLayer = IntervalsLayer.Clone() as Bitmap;
+            DrawAxis(AxisLayer, x0, y0);
+            graphBox.BackgroundImage = AxisLayer;
+        }
+
+        //graphbox events
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Middle)
             {
                 drag = true;
-                mX = e.Location.X;
-                mY = e.Location.Y;
+                mouseDownX = e.Location.X;
+                mouseDownY = e.Location.Y;
                 graphBox.Cursor = Cursors.NoMove2D;
             }
         }
@@ -91,14 +132,22 @@ namespace mSim
         {
             if (drag)
             {
-                offsetX = e.Location.X - mX;
-                offsetY = e.Location.Y - mY;
+                offsetX = e.Location.X - mouseDownX;
+                offsetY = e.Location.Y - mouseDownY;
 
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
 
-                DrawAxis(background, x0, y0);
-                graphBox.Refresh();
+                //AxisLayer.Dispose();
+                //AxisLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                IntervalsLayer.Dispose();
+                AxisLayer.Dispose();
+                IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+                AxisLayer = IntervalsLayer.Clone() as Bitmap;
+                DrawAxis(AxisLayer, x0, y0);
+                graphBox.BackgroundImage = AxisLayer;
+                //graphBox.Refresh();
             }
         }
 
@@ -113,30 +162,118 @@ namespace mSim
             }
         }
 
-        private void drawForm_Shown(object sender, EventArgs e)
-        {
-            DrawAxis(background, BASE_X0, BASE_Y0);
-            x0 = BASE_X0;
-            y0 = BASE_Y0;
-            CalculateIntervals(graphBox, Delta_X, Delta_Y);
-            graphBox.BackgroundImage = background;
-        }
-
-        private void CalculateIntervals(PictureBox graphBox, int delta_X, int delta_Y)
-        {
-
-        }
-
         private void graphBox_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
-                background = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                DrawAxis(background, x0, y0);
-                graphBox.BackgroundImage = background;
-                graphBox.Refresh();
-                GC.Collect();
+                IntervalsLayer.Dispose();
+                AxisLayer.Dispose();
+                IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+                AxisLayer = IntervalsLayer.Clone() as Bitmap;
+                DrawAxis(AxisLayer, x0, y0);
+                graphBox.BackgroundImage = AxisLayer;
+                //graphBox.Refresh();
+                //GC.Collect();
             }
         }
+
+        //METHODS----------------------------------------------
+
+        private void DrawAxis(Bitmap bitmap, int _x0 = 0, int _y0 = 0, string xlabel = "x", string ylabel = "y")
+        {
+            //Image img = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            int width = bitmap.Width;
+            int height = bitmap.Height;
+
+            Graphics g = Graphics.FromImage(bitmap);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+            //g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            //g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+            Pen p = new Pen(Brushes.Black, 2F);
+
+            //g.FillRectangle(Brushes.WhiteSmoke, 0, 0, width, height);
+
+            //draw x axis
+            g.DrawLine(p, 0, height - _y0, width, height - _y0);
+            g.DrawLine(p, width - 3, height - _y0, width - 11, height - _y0 - 5);
+            g.DrawLine(p, width - 3, height - _y0, width - 11, height - _y0 + 5);
+
+            //draw y axis
+            g.DrawLine(p, _x0, height, _x0, 0);
+            g.DrawLine(p, _x0, 0, _x0 + 5, 11);
+            g.DrawLine(p, _x0, 0, _x0 - 5, 11);
+
+            //draw axis label
+            g.DrawString(xlabel, myFont, Brushes.Black, width - 20, height - _y0 - 20);
+            g.DrawString(ylabel, myFont, Brushes.Black, _x0 + 10, 5);
+            //g.DrawString("0", myFont, Brushes.Black, _x0 - 12, height - _y0 +4);
+
+            g.Dispose();
+        }
+
+        private void DrawIntervals(Bitmap bitmap, int _x0, int _y0, int _stepX, int _stepY, float _stepValueX, float _stepValueY)
+        {
+
+            int x_step = _stepX / 5;
+            int startX = (_x0 % x_step);
+            int endX = bitmap.Width - (bitmap.Width - _x0) % x_step;
+
+            int y_step = _stepY / 5;
+            int startY = bitmap.Height - (_y0 % y_step);
+            int endY = (bitmap.Height - _y0) % y_step;
+
+            Graphics g = Graphics.FromImage(bitmap);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+            Pen p1 = new Pen(Brushes.Gray, 2F);
+            Pen p2 = new Pen(Brushes.Gray, 1F);
+            g.FillRectangle(Brushes.WhiteSmoke, 0,0, bitmap.Width, bitmap.Height);
+
+            for (int i = startX; i <= endX; i += x_step)
+            {
+                if ((i - _x0) % _stepX == 0)
+                {
+                    g.DrawLine(p1, i, bitmap.Height - _y0 - 4, i, bitmap.Height - _y0 + 4);
+                    if (i != _x0)
+                    {
+                        string va;
+
+                        va = ((float)((i - _x0) / _stepX) * _stepValueX).ToString();
+                        g.DrawString(va, myFont_Intervals, Brushes.Black, i - (int)((g.MeasureString(va, myFont_Intervals).Width) / 2),
+                            bitmap.Height - _y0 + (int)(g.MeasureString(va, myFont_Intervals).Height -5));
+                    }
+                }
+                else
+                {
+                    g.DrawLine(p2, i, bitmap.Height - _y0 - 2, i, bitmap.Height - _y0 + 2);
+                }
+            }
+
+            for (int i = startY; i >= endY; i -= y_step)
+            {
+                if ((i - (bitmap.Height - _y0)) % _stepY == 0)
+                {
+                    g.DrawLine(p1, _x0 - 4, i, _x0 + 4, i);
+                    if (i != (bitmap.Height - _y0))
+                    {
+                        string va;
+                        va = ((float)(((bitmap.Height - _y0) - i) / _stepY) * _stepValueY).ToString();
+                        //g.DrawString(va, myFont_Intervals, Brushes.Black, i - 9, bitmap.Height - _y0 + 4);
+                        g.DrawString(va, myFont_Intervals, Brushes.Black, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
+                            i - (int)(g.MeasureString(va, myFont_Intervals).Height / 2));
+                    }
+                }
+                else
+                {
+                    g.DrawLine(p2, _x0 - 2, i, _x0 + 2, i); ;
+                }
+            }
+
+            g.Dispose();
+        }
+
     }
 }
