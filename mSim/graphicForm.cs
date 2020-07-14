@@ -11,9 +11,13 @@ namespace mSim
 {
     public partial class drawForm : Form
     {
-        string fontname = "Consolas";
-        float fontsize = 10F;
-        Font myFont;
+        string axis_fontname = "Consolas";
+        float axis_fontsize = 12F;
+
+        string interval_fontname = "consolas";
+        float interval_fontsize = 9F;
+
+        Font myFont_axis;
         Font myFont_Intervals;
 
         float scaleF = 1F;
@@ -28,15 +32,15 @@ namespace mSim
         int stepX;
         int stepY;
 
-        int MAX_STEP_X = 50;
-        int MIN_STEP_X = 25;
-        int MAX_STEP_Y = 50;
-        int MIN_STEP_Y = 25;
+        //int MAX_STEP_X = 50;
+        //int MIN_STEP_X = 25;
+        //int MAX_STEP_Y = 50;
+        //int MIN_STEP_Y = 25;
 
-        int MAX_COUNT_X = 30;
-        int MAX_COUNT_Y = 30;
-        int MIN_COUNT_X = 8;
-        int MIN_COUNT_Y = 8;
+        //int MAX_COUNT_X = 30;
+        //int MAX_COUNT_Y = 30;
+        //int MIN_COUNT_X = 8;
+        //int MIN_COUNT_Y = 8;
 
         float stepValueX = 1F;
         float stepValueY = 0.5F;
@@ -86,9 +90,9 @@ namespace mSim
             stepX = baseStepX;
             stepY = baseStepY;
 
-            myFont = new Font(fontname, fontsize, FontStyle.Bold);
-            myFont_Intervals = new Font(fontname, fontsize - 2, FontStyle.Regular);
-            
+            myFont_axis = new Font(axis_fontname, axis_fontsize, FontStyle.Regular);
+            myFont_Intervals = new Font(interval_fontname, interval_fontsize, FontStyle.Regular);
+
         }
 
         private void LoadSettings()
@@ -110,7 +114,7 @@ namespace mSim
             y0 = BASE_Y0;
 
             IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
             graphBox.BackgroundImage = AxisLayer;
@@ -138,12 +142,12 @@ namespace mSim
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
 
-                //AxisLayer.Dispose();
-                //AxisLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
                 IntervalsLayer.Dispose();
                 AxisLayer.Dispose();
+                graphBox.BackgroundImage.Dispose();
                 IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY);
                 AxisLayer = IntervalsLayer.Clone() as Bitmap;
                 DrawAxis(AxisLayer, x0, y0);
                 graphBox.BackgroundImage = AxisLayer;
@@ -159,6 +163,7 @@ namespace mSim
                 BASE_Y0 = BASE_Y0 - offsetY;
                 drag = false;
                 graphBox.Cursor = Cursors.Default;
+                GC.Collect();
             }
         }
 
@@ -169,7 +174,7 @@ namespace mSim
                 IntervalsLayer.Dispose();
                 AxisLayer.Dispose();
                 IntervalsLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepX, stepValueX, stepValueY);
+                DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY);
                 AxisLayer = IntervalsLayer.Clone() as Bitmap;
                 DrawAxis(AxisLayer, x0, y0);
                 graphBox.BackgroundImage = AxisLayer;
@@ -207,48 +212,52 @@ namespace mSim
             g.DrawLine(p, _x0, 0, _x0 - 5, 11);
 
             //draw axis label
-            g.DrawString(xlabel, myFont, Brushes.Black, width - 20, height - _y0 - 20);
-            g.DrawString(ylabel, myFont, Brushes.Black, _x0 + 10, 5);
+            g.DrawString(xlabel, myFont_axis, Brushes.DarkRed, width - 15, height - _y0 + 6);
+            g.DrawString(ylabel, myFont_axis, Brushes.DarkRed, _x0 - 20, 5);
             //g.DrawString("0", myFont, Brushes.Black, _x0 - 12, height - _y0 +4);
 
             g.Dispose();
         }
 
+        bool showGridLines = false;
         private void DrawIntervals(Bitmap bitmap, int _x0, int _y0, int _stepX, int _stepY, float _stepValueX, float _stepValueY)
         {
 
             int x_step = _stepX / 5;
             int startX = (_x0 % x_step);
-            int endX = bitmap.Width - (bitmap.Width - _x0) % x_step;
+            int endX = bitmap.Width - (bitmap.Width - _x0) % x_step - (showGridLines? 0: (2 * x_step));
 
             int y_step = _stepY / 5;
             int startY = bitmap.Height - (_y0 % y_step);
-            int endY = (bitmap.Height - _y0) % y_step;
+            int endY = (bitmap.Height - _y0) % y_step + (showGridLines? 0: (2 * y_step));
 
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
             Pen p1 = new Pen(Brushes.Gray, 2F);
             Pen p2 = new Pen(Brushes.Gray, 1F);
-            g.FillRectangle(Brushes.WhiteSmoke, 0,0, bitmap.Width, bitmap.Height);
+            Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
+            Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
+
+            g.FillRectangle(Brushes.WhiteSmoke, 0, 0, bitmap.Width, bitmap.Height);
 
             for (int i = startX; i <= endX; i += x_step)
             {
                 if ((i - _x0) % _stepX == 0)
                 {
-                    g.DrawLine(p1, i, bitmap.Height - _y0 - 4, i, bitmap.Height - _y0 + 4);
+                    g.DrawLine(showGridLines ? p1g : p1, i, showGridLines ? 0 : (bitmap.Height - _y0 - 4), i, showGridLines ? bitmap.Height : (bitmap.Height - _y0 + 4));
                     if (i != _x0)
                     {
                         string va;
 
                         va = ((float)((i - _x0) / _stepX) * _stepValueX).ToString();
                         g.DrawString(va, myFont_Intervals, Brushes.Black, i - (int)((g.MeasureString(va, myFont_Intervals).Width) / 2),
-                            bitmap.Height - _y0 + (int)(g.MeasureString(va, myFont_Intervals).Height -5));
+                            bitmap.Height - _y0 + (int)(g.MeasureString(va, myFont_Intervals).Height - 5));
                     }
                 }
                 else
                 {
-                    g.DrawLine(p2, i, bitmap.Height - _y0 - 2, i, bitmap.Height - _y0 + 2);
+                    g.DrawLine(showGridLines ? p2g : p2, i, showGridLines ? 0 : (bitmap.Height - _y0 - 2), i, showGridLines ? bitmap.Height : (bitmap.Height - _y0 + 2));
                 }
             }
 
@@ -256,7 +265,7 @@ namespace mSim
             {
                 if ((i - (bitmap.Height - _y0)) % _stepY == 0)
                 {
-                    g.DrawLine(p1, _x0 - 4, i, _x0 + 4, i);
+                    g.DrawLine(showGridLines ? p1g : p1, showGridLines ? 0 : (_x0 - 4), i, showGridLines ? bitmap.Width : (_x0 + 4), i);
                     if (i != (bitmap.Height - _y0))
                     {
                         string va;
@@ -268,7 +277,7 @@ namespace mSim
                 }
                 else
                 {
-                    g.DrawLine(p2, _x0 - 2, i, _x0 + 2, i); ;
+                    g.DrawLine(showGridLines ? p2g : p2, showGridLines ? 0 : (_x0 - 2), i, showGridLines ? bitmap.Width : (_x0 + 2), i);
                 }
             }
 

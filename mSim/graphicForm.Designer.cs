@@ -39,9 +39,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.graphBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.graphBox.Location = new System.Drawing.Point(12, 12);
+            this.graphBox.Location = new System.Drawing.Point(12, 46);
             this.graphBox.Name = "graphBox";
-            this.graphBox.Size = new System.Drawing.Size(767, 348);
+            this.graphBox.Size = new System.Drawing.Size(1020, 498);
             this.graphBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 592);
+            this.ClientSize = new System.Drawing.Size(1044, 649);
             this.Controls.Add(this.graphBox);
             this.Name = "drawForm";
             this.Text = "Form1";

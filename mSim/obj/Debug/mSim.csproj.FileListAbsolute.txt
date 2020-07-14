@@ -1,6 +1,5 @@
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.pdb
-C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.Properties.Resources.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.drawForm.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csproj.GenerateResource.cache
