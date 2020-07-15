@@ -102,7 +102,7 @@ namespace mSim
         public drawForm()
         {
             InitializeComponent();
-            
+
 
             stepX = baseStepX;
             stepY = baseStepY;
@@ -117,7 +117,7 @@ namespace mSim
         {
             var x = Properties.Settings.Default;
             showGrid = ckbGid.Checked = x.showGrid;
-            showCoordinates = ckbCoordinates.Checked = x.showCoodinates; 
+            showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
 
         }
 
@@ -140,14 +140,14 @@ namespace mSim
         {
             x0 = BASE_X0;
             y0 = BASE_Y0;
-            
 
-            BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+            BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
             Graphics g = Graphics.FromImage(BackgroundLayer);
             g.Clear(Color.WhiteSmoke);
             g.Dispose();
             IntervalsLayer = BackgroundLayer.Clone() as Bitmap;
-            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY);
+            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
             graphBox.BackgroundImage = AxisLayer;
@@ -156,6 +156,30 @@ namespace mSim
             LoadSettings();
         }
 
+        private void drawForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control)
+            {
+                zoomMode = true;
+            }
+
+        }
+
+        private void drawForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Control)
+            {
+                zoomMode = false;
+            }
+        }
+
+        private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveSettings();
+        }
+
+
+        //Controls events--------------------------------------------------------------------------------------------------------------------
         private void GraphBox_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta > 0)
@@ -169,39 +193,6 @@ namespace mSim
             ReDrawGraphic();
         }
 
-        private void ZoomIn()
-        {
-            stepX -= 10;
-            stepY -= 10;
-            if (stepX < MIN_STEP_X)
-            {
-                stepX = MAX_STEP_X;
-                stepValueX = stepValueX * 2;
-            }
-            if (stepY < MIN_STEP_Y)
-            {
-                stepY = MAX_STEP_Y;
-                stepValueY = stepValueY * 2;
-            }
-        }
-
-        private void ZoomOut()
-        {
-            stepX += 10;
-            stepY += 10;
-            if (stepX > MAX_STEP_X)
-            {
-                stepX = MIN_STEP_X;
-                stepValueX = stepValueX / 2;
-            }
-            if (stepY > MAX_STEP_Y)
-            {
-                stepY = MIN_STEP_Y;
-                stepValueY = stepValueY / 2;
-            }
-        }
-
-        //graphbox events
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Middle)
@@ -246,7 +237,7 @@ namespace mSim
             if (this.WindowState != FormWindowState.Minimized)
             {
                 BackgroundLayer.Dispose();
-                BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
                 Graphics g = Graphics.FromImage(BackgroundLayer);
                 g.Clear(Color.WhiteSmoke);
                 g.Dispose();
@@ -254,13 +245,32 @@ namespace mSim
             }
         }
 
-        //METHODS----------------------------------------------
+        private void ckbGid_CheckedChanged(object sender, EventArgs e)
+        {
+            showGrid = ckbGid.Checked;
+            if (!isRunning)
+            {
+                ReDrawGraphic();
+            }
+        }
+
+        private void ckbCoordinates_CheckedChanged(object sender, EventArgs e)
+        {
+            showCoordinates = ckbCoordinates.Checked;
+            if (!isRunning)
+            {
+                ReDrawGraphic();
+            }
+        }
+
+
+        //METHODS-----------------------------------------------------------------------------------------------------------------------------
         private void ReDrawGraphic()
         {
             IntervalsLayer.Dispose();
             AxisLayer.Dispose();
             IntervalsLayer = BackgroundLayer.Clone() as Bitmap;
-            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY);
+            DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
             //graphBox.Refresh();
@@ -283,12 +293,12 @@ namespace mSim
 
             //g.FillRectangle(Brushes.WhiteSmoke, 0, 0, width, height);
 
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             //draw x axis
             g.DrawLine(p, 0, height - _y0, width, height - _y0);
             g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 - 5);
             g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 + 5);
 
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             //draw y axis
             g.DrawLine(p, _x0, height, _x0, 0);
             g.DrawLine(p, _x0, 0, _x0 + 5, 11);
@@ -302,19 +312,20 @@ namespace mSim
             g.Dispose();
         }
 
-        private void DrawIntervals(Bitmap bitmap, int _x0, int _y0, int _stepX, int _stepY, float _stepValueX, float _stepValueY)
+        private void DrawIntervals(Bitmap bitmap, int _x0, int _y0, int _stepX, int _stepY, float _stepValueX, float _stepValueY, bool _showGrid, bool _showCoordinates)
         {
-            int x_step = _stepX / 5;
-            int startX = (_x0 % x_step);
-            int endX = bitmap.Width - (bitmap.Width - _x0) % x_step - (showGrid ? 0 : (2 * x_step));
 
-            int y_step = _stepY / 5;
-            int startY = bitmap.Height - (_y0 % y_step);
-            int endY = (bitmap.Height - _y0) % y_step + (showGrid ? 0 : (2 * y_step));
+            int subStepX = _stepX / 5;
+            int startX = (_x0 % subStepX);
+            int endX = bitmap.Width - (bitmap.Width - _x0) % subStepX - (showGrid ? 0 : (2 * subStepX));
+
+            int subStepY = _stepY / 5;
+            int startY = bitmap.Height - (_y0 % subStepY);
+            int endY = (bitmap.Height - _y0) % subStepY + (showGrid ? 0 : (2 * subStepY));
 
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
             g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighSpeed;
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
 
@@ -323,18 +334,18 @@ namespace mSim
             Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
             Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
 
-            for (int i = startX; i <= endX; i += x_step)
+            for (int i = startX; i <= endX; i += subStepX)
             {
-                g.DrawLine(showGrid ? p2g : p2, i, showGrid ? 0 : (bitmap.Height - _y0 - 2), i, showGrid ? bitmap.Height : (bitmap.Height - _y0 + 2));
+                g.DrawLine(_showGrid ? p2g : p2, i, showGrid ? 0 : (bitmap.Height - _y0 - 2), i, showGrid ? bitmap.Height : (bitmap.Height - _y0 + 2));
             }
 
-            for (int i = startY; i >= endY; i -= y_step)
+            for (int i = startY; i >= endY; i -= subStepY)
             {
-                g.DrawLine(showGrid ? p2g : p2, showGrid ? 0 : (_x0 - 2), i, showGrid ? bitmap.Width : (_x0 + 2), i);
+                g.DrawLine(_showGrid ? p2g : p2, _showGrid ? 0 : (_x0 - 2), i, _showGrid ? bitmap.Width : (_x0 + 2), i);
                 if ((i - (bitmap.Height - _y0)) % _stepY == 0)
                 {
-                    g.DrawLine(showGrid ? p1g : p1, showGrid ? 0 : (_x0 - 4), i, showGrid ? bitmap.Width : (_x0 + 4), i);
-                    if (i != (bitmap.Height - _y0) && showCoordinates)
+                    g.DrawLine(_showGrid ? p1g : p1, _showGrid ? 0 : (_x0 - 4), i, _showGrid ? bitmap.Width : (_x0 + 4), i);
+                    if (i != (bitmap.Height - _y0) && _showCoordinates)
                     {
                         string va;
                         va = ((float)(((bitmap.Height - _y0) - i) / _stepY) * _stepValueY).ToString();
@@ -349,13 +360,22 @@ namespace mSim
             {
                 if ((i != _x0))
                 {
-                    g.DrawLine(showGrid ? p1g : p1, i, showGrid ? 0 : (bitmap.Height - _y0 - 4), i, showGrid ? bitmap.Height : (bitmap.Height - _y0 + 4));
-                    if (showCoordinates)
+
+                    if (!_showGrid)
+                    {
+                        g.DrawLine(p1, i, (bitmap.Height - _y0 - 4), i, (bitmap.Height - _y0 + 4));
+                    }
+                    else
+                    {
+                        g.DrawLine(p1g, i, 0, i, bitmap.Height);
+                    }
+
+                    if (_showCoordinates)
                     {
                         string va;
                         va = ((float)((i - _x0) / _stepX) * _stepValueX).ToString();
                         g.DrawString(va, myFont_Intervals, Brushes.DarkBlue, i - (int)((g.MeasureString(va, myFont_Intervals).Width) / 2),
-                            bitmap.Height - _y0 + (int)(g.MeasureString(va, myFont_Intervals).Height * 0.3F)); 
+                            bitmap.Height - _y0 + (int)(g.MeasureString(va, myFont_Intervals).Height * 0.3F));
                     }
                 }
             }
@@ -363,45 +383,40 @@ namespace mSim
             g.Dispose();
         }
 
-        bool zoomMode = false;
-        private void drawForm_KeyDown(object sender, KeyEventArgs e)
+
+
+        private void ZoomIn()
         {
-            if (e.KeyCode == Keys.Control)
+            stepX -= 10;
+            stepY -= 10;
+            if (stepX < MIN_STEP_X)
             {
-                zoomMode = true;
+                stepX = MAX_STEP_X;
+                stepValueX = stepValueX * 2;
             }
-
-        }
-
-        private void drawForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Control)
+            if (stepY < MIN_STEP_Y)
             {
-                zoomMode = false;
-            }
-        }
-
-        private void ckbGid_CheckedChanged(object sender, EventArgs e)
-        {
-            showGrid = ckbGid.Checked;
-            if (!isRunning)
-            {
-                ReDrawGraphic();
-            }    
-        }
-
-        private void ckbCoordinates_CheckedChanged(object sender, EventArgs e)
-        {
-            showCoordinates = ckbCoordinates.Checked;
-            if (!isRunning)
-            {
-                ReDrawGraphic();
+                stepY = MAX_STEP_Y;
+                stepValueY = stepValueY * 2;
             }
         }
 
-        private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void ZoomOut()
         {
-            SaveSettings();
+            stepX += 10;
+            stepY += 10;
+            if (stepX > MAX_STEP_X)
+            {
+                stepX = MIN_STEP_X;
+                stepValueX = stepValueX / 2;
+            }
+            if (stepY > MAX_STEP_Y)
+            {
+                stepY = MIN_STEP_Y;
+                stepValueY = stepValueY / 2;
+            }
         }
+
+
     }
 }
