@@ -6,5 +6,4 @@ C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csproj.Generate
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.pdb
-C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.exe.config

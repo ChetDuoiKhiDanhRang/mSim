@@ -125,6 +125,7 @@
             this.Controls.Add(this.graphBox);
             this.Name = "drawForm";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.drawForm_FormClosed);
             this.Shown += new System.EventHandler(this.drawForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyUp);

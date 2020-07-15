@@ -125,7 +125,7 @@ namespace mSim
         {
             var x = Properties.Settings.Default;
             x.showGrid = showGrid;
-
+            x.showCoodinates = showCoordinates;
             x.Save();
         }
 
@@ -397,6 +397,11 @@ namespace mSim
             {
                 ReDrawGraphic();
             }
+        }
+
+        private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveSettings();
         }
     }
 }
