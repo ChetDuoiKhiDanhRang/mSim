@@ -46,7 +46,7 @@
             this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graphBox.Location = new System.Drawing.Point(14, 13);
             this.graphBox.Name = "graphBox";
-            this.graphBox.Size = new System.Drawing.Size(926, 482);
+            this.graphBox.Size = new System.Drawing.Size(983, 588);
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
             this.graphBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseDown);
@@ -62,7 +62,7 @@
             this.groupBox1.Controls.Add(this.ckbCoordinates);
             this.groupBox1.Controls.Add(this.ckbGid);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(816, 501);
+            this.groupBox1.Location = new System.Drawing.Point(873, 607);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(123, 110);
             this.groupBox1.TabIndex = 1;
@@ -120,15 +120,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(951, 623);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.graphBox);
             this.Name = "drawForm";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.drawForm_FormClosed);
             this.Shown += new System.EventHandler(this.drawForm_Shown);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

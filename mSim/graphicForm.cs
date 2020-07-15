@@ -156,22 +156,6 @@ namespace mSim
             LoadSettings();
         }
 
-        private void drawForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Control)
-            {
-                zoomMode = true;
-            }
-
-        }
-
-        private void drawForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Control)
-            {
-                zoomMode = false;
-            }
-        }
 
         private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -190,7 +174,8 @@ namespace mSim
             {
                 ZoomIn();
             }
-            ReDrawGraphic();
+            ReDraw_Background_Intervals_Axis();
+            graphBox.BackgroundImage = AxisLayer;
         }
 
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
@@ -208,14 +193,15 @@ namespace mSim
         {
             if (drag)
             {
-                offsetX = e.Location.X - mouseDownX;
-                offsetY = e.Location.Y - mouseDownY;
+                offsetX = (e.Location.X - mouseDownX)/4;
+                offsetY = (e.Location.Y - mouseDownY)/4;
 
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
 
 
-                ReDrawGraphic();
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
                 //graphBox.Refresh();
             }
         }
@@ -241,7 +227,8 @@ namespace mSim
                 Graphics g = Graphics.FromImage(BackgroundLayer);
                 g.Clear(Color.WhiteSmoke);
                 g.Dispose();
-                ReDrawGraphic();
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
             }
         }
 
@@ -250,7 +237,8 @@ namespace mSim
             showGrid = ckbGid.Checked;
             if (!isRunning)
             {
-                ReDrawGraphic();
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
             }
         }
 
@@ -259,13 +247,14 @@ namespace mSim
             showCoordinates = ckbCoordinates.Checked;
             if (!isRunning)
             {
-                ReDrawGraphic();
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
             }
         }
 
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
-        private void ReDrawGraphic()
+        private void ReDraw_Background_Intervals_Axis()
         {
             IntervalsLayer.Dispose();
             AxisLayer.Dispose();
@@ -274,7 +263,7 @@ namespace mSim
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
             //graphBox.Refresh();
-            graphBox.BackgroundImage = AxisLayer;
+
         }
 
         private void DrawAxis(Bitmap bitmap, int _x0 = 0, int _y0 = 0, string xlabel = "x", string ylabel = "y")
@@ -284,21 +273,22 @@ namespace mSim
             int height = bitmap.Height;
 
             Graphics g = Graphics.FromImage(bitmap);
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
-            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighSpeed;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.None;
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
 
             Pen p = new Pen(Brushes.Black, 1F);
 
             //g.FillRectangle(Brushes.WhiteSmoke, 0, 0, width, height);
 
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             //draw x axis
             g.DrawLine(p, 0, height - _y0, width, height - _y0);
             g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 - 5);
             g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 + 5);
 
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             //draw y axis
             g.DrawLine(p, _x0, height, _x0, 0);
             g.DrawLine(p, _x0, 0, _x0 + 5, 11);
@@ -309,6 +299,7 @@ namespace mSim
             g.DrawString(ylabel, myFont_axis, Brushes.DarkRed, _x0 - 20, 5);
             //g.DrawString("0", myFont, Brushes.Black, _x0 - 12, height - _y0 +4);
 
+            p.Dispose();
             g.Dispose();
         }
 
@@ -324,19 +315,30 @@ namespace mSim
             int endY = (bitmap.Height - _y0) % subStepY + (showGrid ? 0 : (2 * subStepY));
 
             Graphics g = Graphics.FromImage(bitmap);
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
-            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighSpeed;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.None;
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
 
             Pen p1 = new Pen(Brushes.Black, 1F);
             Pen p2 = new Pen(Brushes.Gray, 1F);
             Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
             Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
 
-            for (int i = startX; i <= endX; i += subStepX)
+            if (_showGrid)
             {
-                g.DrawLine(_showGrid ? p2g : p2, i, showGrid ? 0 : (bitmap.Height - _y0 - 2), i, showGrid ? bitmap.Height : (bitmap.Height - _y0 + 2));
+                for (int i = startX; i <= endX; i += subStepX)
+                {
+                    g.DrawLine(p2g, i, 0, i, bitmap.Height);
+                }
+            }
+            else
+            {
+                for (int i = startX; i <= endX; i += subStepX)
+                {
+                    g.DrawLine(p2, i, (bitmap.Height - _y0 - 2), i, (bitmap.Height - _y0 + 2));
+                }
             }
 
             for (int i = startY; i >= endY; i -= subStepY)
@@ -380,6 +382,10 @@ namespace mSim
                 }
             }
 
+            p1.Dispose();
+            p2.Dispose();
+            p1g.Dispose();
+            p2g.Dispose();
             g.Dispose();
         }
 
