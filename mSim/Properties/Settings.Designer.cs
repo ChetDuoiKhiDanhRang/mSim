@@ -82,5 +82,17 @@ namespace mSim.Properties {
                 this["highQuality"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool XYSpeedMode {
+            get {
+                return ((bool)(this["XYSpeedMode"]));
+            }
+            set {
+                this["XYSpeedMode"] = value;
+            }
+        }
     }
 }

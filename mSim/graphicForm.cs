@@ -14,6 +14,8 @@ namespace mSim
 {
     public partial class drawForm : Form
     {
+        public event EventHandler<bool> SpeedModeChanged;
+
         string axis_fontname = "Consolas";
         float axis_fontsize = 10F;
 
@@ -96,19 +98,68 @@ namespace mSim
         bool showSpeeds;
         bool highQuality;
 
+        bool xYSpeedMode;
+        public bool XYSpeedMode 
+        { 
+            get => xYSpeedMode; 
+            set
+            {
+                xYSpeedMode = value;
+                SpeedModeChanged?.Invoke(this, xYSpeedMode);
+            }
+        }
+
         bool isRunning = false;
+        public bool IsRunning { get => isRunning; set => isRunning = value; }
+
         public drawForm()
         {
             InitializeComponent();
 
-            rtb_x0.LoadFile(Application.StartupPath + @"\rtf\x0", RichTextBoxStreamType.RichText);
-            rtb_y0.LoadFile(Application.StartupPath + @"\rtf\y0", RichTextBoxStreamType.RichText);
-            rtb_v0x.LoadFile(Application.StartupPath + @"\rtf\v0x", RichTextBoxStreamType.RichText);
-            rtb_v0y.LoadFile(Application.StartupPath + @"\rtf\v0y", RichTextBoxStreamType.RichText);
-            rtb_v0.LoadFile(Application.StartupPath + @"\rtf\v0", RichTextBoxStreamType.RichText);
-            rtb_alpha0.LoadFile(Application.StartupPath + @"\rtf\alpha0", RichTextBoxStreamType.RichText);
-            rtb_ax.LoadFile(Application.StartupPath + @"\rtf\ax", RichTextBoxStreamType.RichText);
-            rtb_ay.LoadFile(Application.StartupPath + @"\rtf\ay", RichTextBoxStreamType.RichText);
+            SpeedModeChanged += DrawForm_SpeedModeChanged; 
+
+            Font labelFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size*0.8F));
+
+            rtb_x0.Text = "x0:";
+            rtb_x0.Select(1, rtb_x0.Text.Length -2);
+            rtb_x0.SelectionFont = labelFont;
+            rtb_x0.SelectionCharOffset = -5;
+
+            rtb_y0.Text = "y0:";
+            rtb_y0.Select(1, rtb_y0.Text.Length - 2);
+            rtb_y0.SelectionFont = labelFont;
+            rtb_y0.SelectionCharOffset = -5;
+
+            rtb_ax.Text = "ax:";
+            rtb_ax.Select(1, rtb_ax.Text.Length - 2);
+            rtb_ax.SelectionFont = labelFont;
+            rtb_ax.SelectionCharOffset = -5;
+
+            rtb_ay.Text = "ay:";
+            rtb_ay.Select(1, rtb_ay.Text.Length - 2);
+            rtb_ay.SelectionFont = labelFont;
+            rtb_ay.SelectionCharOffset = -5;
+
+            rtb_v0x.Text = "v0x:";
+            rtb_v0x.Select(1, rtb_v0x.Text.Length - 2);
+            rtb_v0x.SelectionFont = labelFont;
+            rtb_v0x.SelectionCharOffset = -5;
+
+            rtb_v0y.Text = "v0y:";
+            rtb_v0y.Select(1, rtb_v0y.Text.Length - 2);
+            rtb_v0y.SelectionFont = labelFont;
+            rtb_v0y.SelectionCharOffset = -5;
+
+            rtb_v0.Text = "v0:";
+            rtb_v0.Select(1, rtb_v0.Text.Length - 2);
+            rtb_v0.SelectionFont = labelFont;
+            rtb_v0.SelectionCharOffset = -5;
+
+            rtb_alpha0.Text = "α0:";
+            rtb_alpha0.Select(1, rtb_alpha0.Text.Length - 2);
+            rtb_alpha0.SelectionFont = labelFont;
+            rtb_alpha0.SelectionCharOffset = -5;
+
 
             stepX = baseStepX;
             stepY = baseStepY;
@@ -119,6 +170,7 @@ namespace mSim
 
         }
 
+
         private void LoadSettings()
         {
             var x = Properties.Settings.Default;
@@ -126,15 +178,19 @@ namespace mSim
             showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
             showTrails = ckbTrail.Checked = x.showTrails;
             showSpeeds = ckbSpeed.Checked = x.showSpeeds;
-
             highQuality = ckbHighQuality.Checked = x.highQuality;
+            XYSpeedMode = rad_speedmode.Checked = x.XYSpeedMode;
         }
-
         private void SaveSettings()
         {
             var x = Properties.Settings.Default;
             x.showGrid = showGrid;
             x.showCoodinates = showCoordinates;
+            x.showTrails = showTrails;
+            x.showSpeeds = showSpeeds;
+            x.highQuality = highQuality;
+            x.XYSpeedMode = XYSpeedMode;
+
             x.Save();
         }
 
@@ -167,14 +223,18 @@ namespace mSim
             graphBox.MouseWheel += GraphBox_MouseWheel;
             LoadSettings();
         }
-
         private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             SaveSettings();
         }
+        private void DrawForm_SpeedModeChanged(object sender, bool e)
+        {
+            rtb_v0x.Enabled = rtb_v0y.Enabled = txb_v0x.Enabled = txb_v0y.Enabled = XYSpeedMode;
+            rtb_v0.Enabled = rtb_alpha0.Enabled = txb_v0.Enabled = txb_alpha0.Enabled = !XYSpeedMode;
+        }
 
 
-        //Controls events--------------------------------------------------------------------------------------------------------------------
+        //CONTROLS EVENTS====================================================================================================================
         private void GraphBox_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta > 0)
@@ -243,10 +303,12 @@ namespace mSim
             }
         }
 
+        //---------------------------------------------------------------------------
+
         private void ckbGid_CheckedChanged(object sender, EventArgs e)
         {
             showGrid = ckbGid.Checked;
-            if (!isRunning)
+            if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
                 graphBox.BackgroundImage = AxisLayer;
@@ -256,7 +318,7 @@ namespace mSim
         private void ckbCoordinates_CheckedChanged(object sender, EventArgs e)
         {
             showCoordinates = ckbCoordinates.Checked;
-            if (!isRunning)
+            if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
                 graphBox.BackgroundImage = AxisLayer;
@@ -266,14 +328,117 @@ namespace mSim
         private void ckbHighQuality_CheckedChanged(object sender, EventArgs e)
         {
             highQuality = ckbHighQuality.Checked;
-            if (!isRunning)
+            if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
                 graphBox.BackgroundImage = AxisLayer;
             }
         }
 
-        //METHODS-----------------------------------------------------------------------------------------------------------------------------
+        private void ckbTrail_CheckedChanged(object sender, EventArgs e)
+        {
+            showTrails = ckbTrail.Checked;
+            if (!IsRunning)
+            {
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
+        }
+
+        private void ckbSpeed_CheckedChanged(object sender, EventArgs e)
+        {
+            showSpeeds = ckbSpeed.Checked;
+            if (!IsRunning)
+            {
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
+        }
+
+        //---------------------------------------------------------------------------
+
+        private void txbs_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txb = (TextBox)sender;
+            if (txb.Enabled)
+            {
+                if (txb.Text.Length == 0)
+                {
+                    txb.Text = "0";
+                    return;
+                }
+                string txt;
+                string decimalChar = System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator;
+                if (decimalChar == ",")
+                {
+                    txt = txb.Text.Replace(".", decimalChar);
+                }
+                else
+                {
+                    txt = txb.Text.Replace(",", decimalChar);
+                }
+
+                if (float.TryParse(txt, out float value))
+                {
+                    txb.ForeColor = Color.Black;
+                }
+                else
+                {
+                    txb.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        //---------------------------------------------------------------------------
+
+        private void rtb_x0_Enter(object sender, EventArgs e)
+        {
+            txb_x0.Focus();
+        }
+
+        private void rtb_y0_Enter(object sender, EventArgs e)
+        {
+            txb_y0.Focus();
+        }
+
+        private void rtb_ax_Enter(object sender, EventArgs e)
+        {
+            txb_ax.Focus();
+        }
+
+        private void rtb_ay_Enter(object sender, EventArgs e)
+        {
+            txb_ay.Focus();
+        }
+
+        private void rtb_v0x_Enter(object sender, EventArgs e)
+        {
+            txb_v0x.Focus();
+        }
+
+        private void rtb_v0y_Enter(object sender, EventArgs e)
+        {
+            txb_v0y.Focus();
+        }
+
+        private void rtb_v0_Enter(object sender, EventArgs e)
+        {
+            txb_v0.Focus();
+        }
+
+        private void rtb_alpha0_Enter(object sender, EventArgs e)
+        {
+            txb_alpha0.Focus();
+        }
+
+        //---------------------------------------------------------------------------
+
+        private void rad_speedmode_CheckedChanged(object sender, EventArgs e)
+        {
+            XYSpeedMode = ((RadioButton)sender).Checked;
+        }
+
+        //METHODS====================================================================================================================
         private void ReDraw_Background_Intervals_Axis()
         {
             IntervalsLayer.Dispose();
@@ -428,8 +593,6 @@ namespace mSim
             g.Dispose();
         }
 
-
-
         private void ZoomIn()
         {
             stepX -= 10;
@@ -462,64 +625,8 @@ namespace mSim
             }
         }
 
-        private void ckbTrail_CheckedChanged(object sender, EventArgs e)
-        {
-            showTrails = ckbTrail.Checked;
-            if (!isRunning)
-            {
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
-            }
-        }
 
-        private void ckbSpeed_CheckedChanged(object sender, EventArgs e)
-        {
-            showSpeeds = ckbSpeed.Checked;
-            if (!isRunning)
-            {
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
-            }
-        }
 
-        private void txbs_TextChanged(object sender, EventArgs e)
-        {
-            TextBox txb = (TextBox)sender;
-            if (txb.Enabled)
-            {
-                if (txb.Text.Length == 0)
-                {
-                    txb.Text = "0";
-                    return;
-                }
-                string txt;
-                string decimalChar = System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator; //CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator;
-                if (decimalChar == ",")
-                {
-                    txt = txb.Text.Replace(".", decimalChar);
-                }
-                else
-                {
-                    txt = txb.Text.Replace(",", decimalChar);
-                }
 
-                if (float.TryParse(txt, out float value))
-                {
-                    txb.ForeColor = Color.Black;
-                }
-                else
-                {
-                    txb.ForeColor = Color.Red;
-                }
-            }
-        }
-
-        bool speedMode;
-        private void rad_speedmode_CheckedChanged(object sender, EventArgs e)
-        {
-            speedMode = rad_speedmode.Checked;
-            txb_v0x.Enabled = txb_v0y.Enabled = speedMode;
-            txb_v0.Enabled = txb_alpha0.Enabled= !speedMode;
-        }
     }
 }

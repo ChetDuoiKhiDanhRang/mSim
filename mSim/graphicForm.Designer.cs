@@ -35,12 +35,12 @@
             this.ckbTrail = new System.Windows.Forms.CheckBox();
             this.ckbCoordinates = new System.Windows.Forms.CheckBox();
             this.ckbGid = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grb_Params0 = new System.Windows.Forms.GroupBox();
             this.txb_alpha0 = new System.Windows.Forms.TextBox();
             this.txb_v0y = new System.Windows.Forms.TextBox();
             this.txb_v0 = new System.Windows.Forms.TextBox();
             this.txb_ay = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txb_y0 = new System.Windows.Forms.TextBox();
             this.txb_v0x = new System.Windows.Forms.TextBox();
             this.txb_ax = new System.Windows.Forms.TextBox();
             this.txb_x0 = new System.Windows.Forms.TextBox();
@@ -63,7 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_Params0.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,35 +164,35 @@
             this.ckbGid.UseVisualStyleBackColor = true;
             this.ckbGid.CheckedChanged += new System.EventHandler(this.ckbGid_CheckedChanged);
             // 
-            // groupBox2
+            // grb_Params0
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.grb_Params0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.txb_alpha0);
-            this.groupBox2.Controls.Add(this.txb_v0y);
-            this.groupBox2.Controls.Add(this.txb_v0);
-            this.groupBox2.Controls.Add(this.txb_ay);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.txb_v0x);
-            this.groupBox2.Controls.Add(this.txb_ax);
-            this.groupBox2.Controls.Add(this.txb_x0);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.rad_speedmode);
-            this.groupBox2.Controls.Add(this.rtb_ay);
-            this.groupBox2.Controls.Add(this.rtb_alpha0);
-            this.groupBox2.Controls.Add(this.rtb_ax);
-            this.groupBox2.Controls.Add(this.rtb_v0);
-            this.groupBox2.Controls.Add(this.rtb_v0y);
-            this.groupBox2.Controls.Add(this.rtb_v0x);
-            this.groupBox2.Controls.Add(this.rtb_y0);
-            this.groupBox2.Controls.Add(this.rtb_x0);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 548);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(306, 169);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tham số ban đầu (t=0)";
+            this.grb_Params0.Controls.Add(this.txb_alpha0);
+            this.grb_Params0.Controls.Add(this.txb_v0y);
+            this.grb_Params0.Controls.Add(this.txb_v0);
+            this.grb_Params0.Controls.Add(this.txb_ay);
+            this.grb_Params0.Controls.Add(this.txb_y0);
+            this.grb_Params0.Controls.Add(this.txb_v0x);
+            this.grb_Params0.Controls.Add(this.txb_ax);
+            this.grb_Params0.Controls.Add(this.txb_x0);
+            this.grb_Params0.Controls.Add(this.radioButton1);
+            this.grb_Params0.Controls.Add(this.rad_speedmode);
+            this.grb_Params0.Controls.Add(this.rtb_ay);
+            this.grb_Params0.Controls.Add(this.rtb_alpha0);
+            this.grb_Params0.Controls.Add(this.rtb_ax);
+            this.grb_Params0.Controls.Add(this.rtb_v0);
+            this.grb_Params0.Controls.Add(this.rtb_v0y);
+            this.grb_Params0.Controls.Add(this.rtb_v0x);
+            this.grb_Params0.Controls.Add(this.rtb_y0);
+            this.grb_Params0.Controls.Add(this.rtb_x0);
+            this.grb_Params0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Params0.Location = new System.Drawing.Point(12, 548);
+            this.grb_Params0.Name = "grb_Params0";
+            this.grb_Params0.Size = new System.Drawing.Size(306, 169);
+            this.grb_Params0.TabIndex = 2;
+            this.grb_Params0.TabStop = false;
+            this.grb_Params0.Text = "Tham số ban đầu (t=0)";
             // 
             // txb_alpha0
             // 
@@ -201,7 +201,7 @@
             this.txb_alpha0.MaxLength = 7;
             this.txb_alpha0.Name = "txb_alpha0";
             this.txb_alpha0.Size = new System.Drawing.Size(51, 22);
-            this.txb_alpha0.TabIndex = 2;
+            this.txb_alpha0.TabIndex = 5;
             this.txb_alpha0.Text = "45";
             this.txb_alpha0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_alpha0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
@@ -213,7 +213,7 @@
             this.txb_v0y.MaxLength = 7;
             this.txb_v0y.Name = "txb_v0y";
             this.txb_v0y.Size = new System.Drawing.Size(51, 22);
-            this.txb_v0y.TabIndex = 2;
+            this.txb_v0y.TabIndex = 3;
             this.txb_v0y.Text = "100";
             this.txb_v0y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_v0y.TextChanged += new System.EventHandler(this.txbs_TextChanged);
@@ -225,7 +225,7 @@
             this.txb_v0.MaxLength = 7;
             this.txb_v0.Name = "txb_v0";
             this.txb_v0.Size = new System.Drawing.Size(51, 22);
-            this.txb_v0.TabIndex = 2;
+            this.txb_v0.TabIndex = 4;
             this.txb_v0.Text = "10";
             this.txb_v0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_v0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
@@ -237,22 +237,22 @@
             this.txb_ay.MaxLength = 7;
             this.txb_ay.Name = "txb_ay";
             this.txb_ay.Size = new System.Drawing.Size(51, 22);
-            this.txb_ay.TabIndex = 2;
+            this.txb_ay.TabIndex = 7;
             this.txb_ay.Text = "0";
             this.txb_ay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_ay.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
-            // textBox2
+            // txb_y0
             // 
-            this.textBox2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(49, 47);
-            this.textBox2.MaxLength = 7;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(51, 22);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox2.TextChanged += new System.EventHandler(this.txbs_TextChanged);
+            this.txb_y0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_y0.Location = new System.Drawing.Point(49, 47);
+            this.txb_y0.MaxLength = 7;
+            this.txb_y0.Name = "txb_y0";
+            this.txb_y0.Size = new System.Drawing.Size(51, 22);
+            this.txb_y0.TabIndex = 1;
+            this.txb_y0.Text = "0";
+            this.txb_y0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txb_y0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_v0x
             // 
@@ -273,7 +273,7 @@
             this.txb_ax.MaxLength = 7;
             this.txb_ax.Name = "txb_ax";
             this.txb_ax.Size = new System.Drawing.Size(51, 22);
-            this.txb_ax.TabIndex = 2;
+            this.txb_ax.TabIndex = 6;
             this.txb_ax.Text = "-9,80";
             this.txb_ax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_ax.TextChanged += new System.EventHandler(this.txbs_TextChanged);
@@ -285,7 +285,7 @@
             this.txb_x0.MaxLength = 7;
             this.txb_x0.Name = "txb_x0";
             this.txb_x0.Size = new System.Drawing.Size(51, 22);
-            this.txb_x0.TabIndex = 2;
+            this.txb_x0.TabIndex = 0;
             this.txb_x0.Text = "0";
             this.txb_x0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txb_x0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
@@ -294,20 +294,22 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(131, 87);
+            this.radioButton1.Location = new System.Drawing.Point(131, 81);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.Size = new System.Drawing.Size(88, 17);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "độ lớn/góc";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // rad_speedmode
             // 
             this.rad_speedmode.AutoSize = true;
-            this.rad_speedmode.Location = new System.Drawing.Point(7, 87);
+            this.rad_speedmode.Location = new System.Drawing.Point(7, 79);
             this.rad_speedmode.Name = "rad_speedmode";
-            this.rad_speedmode.Size = new System.Drawing.Size(14, 13);
+            this.rad_speedmode.Size = new System.Drawing.Size(114, 17);
             this.rad_speedmode.TabIndex = 1;
+            this.rad_speedmode.Text = "h.chiếu vận tốc";
             this.rad_speedmode.UseVisualStyleBackColor = true;
             this.rad_speedmode.CheckedChanged += new System.EventHandler(this.rad_speedmode_CheckedChanged);
             // 
@@ -317,15 +319,16 @@
             this.rtb_ay.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_ay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_ay.DetectUrls = false;
-            this.rtb_ay.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_ay.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_ay.Location = new System.Drawing.Point(130, 45);
             this.rtb_ay.Name = "rtb_ay";
             this.rtb_ay.ReadOnly = true;
             this.rtb_ay.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_ay.Size = new System.Drawing.Size(37, 19);
+            this.rtb_ay.Size = new System.Drawing.Size(36, 20);
             this.rtb_ay.TabIndex = 0;
             this.rtb_ay.TabStop = false;
             this.rtb_ay.Text = "ay";
+            this.rtb_ay.Enter += new System.EventHandler(this.rtb_ay_Enter);
             // 
             // rtb_alpha0
             // 
@@ -333,15 +336,16 @@
             this.rtb_alpha0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_alpha0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_alpha0.DetectUrls = false;
-            this.rtb_alpha0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_alpha0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_alpha0.Location = new System.Drawing.Point(131, 133);
             this.rtb_alpha0.Name = "rtb_alpha0";
             this.rtb_alpha0.ReadOnly = true;
             this.rtb_alpha0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_alpha0.Size = new System.Drawing.Size(36, 16);
+            this.rtb_alpha0.Size = new System.Drawing.Size(36, 20);
             this.rtb_alpha0.TabIndex = 0;
             this.rtb_alpha0.TabStop = false;
             this.rtb_alpha0.Text = "Góc:";
+            this.rtb_alpha0.Enter += new System.EventHandler(this.rtb_alpha0_Enter);
             // 
             // rtb_ax
             // 
@@ -349,15 +353,16 @@
             this.rtb_ax.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_ax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_ax.DetectUrls = false;
-            this.rtb_ax.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_ax.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_ax.Location = new System.Drawing.Point(130, 19);
             this.rtb_ax.Name = "rtb_ax";
             this.rtb_ax.ReadOnly = true;
             this.rtb_ax.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_ax.Size = new System.Drawing.Size(37, 19);
+            this.rtb_ax.Size = new System.Drawing.Size(36, 20);
             this.rtb_ax.TabIndex = 0;
             this.rtb_ax.TabStop = false;
             this.rtb_ax.Text = "ax";
+            this.rtb_ax.Enter += new System.EventHandler(this.rtb_ax_Enter);
             // 
             // rtb_v0
             // 
@@ -365,15 +370,16 @@
             this.rtb_v0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0.DetectUrls = false;
-            this.rtb_v0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0.Location = new System.Drawing.Point(131, 102);
             this.rtb_v0.Name = "rtb_v0";
             this.rtb_v0.ReadOnly = true;
             this.rtb_v0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_v0.Size = new System.Drawing.Size(36, 16);
+            this.rtb_v0.Size = new System.Drawing.Size(36, 20);
             this.rtb_v0.TabIndex = 0;
             this.rtb_v0.TabStop = false;
             this.rtb_v0.Text = "v0";
+            this.rtb_v0.Enter += new System.EventHandler(this.rtb_v0_Enter);
             // 
             // rtb_v0y
             // 
@@ -381,15 +387,16 @@
             this.rtb_v0y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0y.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0y.DetectUrls = false;
-            this.rtb_v0y.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0y.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0y.Location = new System.Drawing.Point(7, 133);
             this.rtb_v0y.Name = "rtb_v0y";
             this.rtb_v0y.ReadOnly = true;
             this.rtb_v0y.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_v0y.Size = new System.Drawing.Size(36, 16);
+            this.rtb_v0y.Size = new System.Drawing.Size(36, 20);
             this.rtb_v0y.TabIndex = 0;
             this.rtb_v0y.TabStop = false;
             this.rtb_v0y.Text = "v0y";
+            this.rtb_v0y.Enter += new System.EventHandler(this.rtb_v0y_Enter);
             // 
             // rtb_v0x
             // 
@@ -397,15 +404,16 @@
             this.rtb_v0x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0x.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0x.DetectUrls = false;
-            this.rtb_v0x.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0x.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0x.Location = new System.Drawing.Point(7, 102);
             this.rtb_v0x.Name = "rtb_v0x";
             this.rtb_v0x.ReadOnly = true;
             this.rtb_v0x.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_v0x.Size = new System.Drawing.Size(36, 16);
+            this.rtb_v0x.Size = new System.Drawing.Size(36, 20);
             this.rtb_v0x.TabIndex = 0;
             this.rtb_v0x.TabStop = false;
             this.rtb_v0x.Text = "v0x";
+            this.rtb_v0x.Enter += new System.EventHandler(this.rtb_v0x_Enter);
             // 
             // rtb_y0
             // 
@@ -413,15 +421,16 @@
             this.rtb_y0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_y0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_y0.DetectUrls = false;
-            this.rtb_y0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_y0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_y0.Location = new System.Drawing.Point(6, 45);
             this.rtb_y0.Name = "rtb_y0";
             this.rtb_y0.ReadOnly = true;
             this.rtb_y0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_y0.Size = new System.Drawing.Size(37, 19);
+            this.rtb_y0.Size = new System.Drawing.Size(36, 20);
             this.rtb_y0.TabIndex = 0;
             this.rtb_y0.TabStop = false;
             this.rtb_y0.Text = "y0";
+            this.rtb_y0.Enter += new System.EventHandler(this.rtb_y0_Enter);
             // 
             // rtb_x0
             // 
@@ -429,15 +438,16 @@
             this.rtb_x0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_x0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_x0.DetectUrls = false;
-            this.rtb_x0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_x0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_x0.Location = new System.Drawing.Point(6, 19);
             this.rtb_x0.Name = "rtb_x0";
             this.rtb_x0.ReadOnly = true;
             this.rtb_x0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_x0.Size = new System.Drawing.Size(37, 19);
+            this.rtb_x0.Size = new System.Drawing.Size(36, 20);
             this.rtb_x0.TabIndex = 0;
             this.rtb_x0.TabStop = false;
             this.rtb_x0.Text = "x0";
+            this.rtb_x0.Enter += new System.EventHandler(this.rtb_x0_Enter);
             // 
             // groupBox3
             // 
@@ -528,7 +538,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grb_Params0);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.graphBox);
@@ -539,8 +549,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_Params0.ResumeLayout(false);
+            this.grb_Params0.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -555,7 +565,7 @@
         private System.Windows.Forms.CheckBox ckbCoordinates;
         private System.Windows.Forms.CheckBox ckbGid;
         private System.Windows.Forms.CheckBox ckbHighQuality;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grb_Params0;
         private System.Windows.Forms.RichTextBox rtb_alpha0;
         private System.Windows.Forms.RichTextBox rtb_v0;
         private System.Windows.Forms.RichTextBox rtb_v0y;
@@ -574,7 +584,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rad_speedmode;
         private System.Windows.Forms.TextBox txb_x0;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txb_y0;
         private System.Windows.Forms.TextBox txb_v0y;
         private System.Windows.Forms.TextBox txb_v0x;
         private System.Windows.Forms.TextBox txb_alpha0;
