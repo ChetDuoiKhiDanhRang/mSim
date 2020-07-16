@@ -62,12 +62,24 @@ namespace mSim.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool shoSpeeds {
+        public bool showSpeeds {
             get {
-                return ((bool)(this["shoSpeeds"]));
+                return ((bool)(this["showSpeeds"]));
             }
             set {
-                this["shoSpeeds"] = value;
+                this["showSpeeds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool highQuality {
+            get {
+                return ((bool)(this["highQuality"]));
+            }
+            set {
+                this["highQuality"] = value;
             }
         }
     }

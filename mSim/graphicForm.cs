@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -36,9 +38,9 @@ namespace mSim
         int stepY;
 
         int MAX_STEP_X = 120;
-        int MIN_STEP_X = 30;
+        int MIN_STEP_X = 40;
         int MAX_STEP_Y = 120;
-        int MIN_STEP_Y = 30;
+        int MIN_STEP_Y = 40;
 
         //int MAX_COUNT_X = 30;
         //int MAX_COUNT_Y = 30;
@@ -82,27 +84,31 @@ namespace mSim
         }
 
 
-        Bitmap movingLine;
-        public Bitmap MovingLine { get => movingLine; set => movingLine = value; }
+        Bitmap movingLineLayer;
+        public Bitmap MovingLineLayer { get => movingLineLayer; set => movingLineLayer = value; }
 
-        Bitmap movingObject;
-        public Bitmap MovingObject { get => movingObject; set => movingObject = value; }
-
-
-
-        Point[] points_ox;
-        Point[] points_oy;
+        Bitmap movingObjectLayer;
+        public Bitmap MovingObjectLayer { get => movingObjectLayer; set => movingObjectLayer = value; }
 
         bool showGrid;
         bool showCoordinates;
         bool showTrails;
         bool showSpeeds;
+        bool highQuality;
 
         bool isRunning = false;
         public drawForm()
         {
             InitializeComponent();
 
+            rtb_x0.LoadFile(Application.StartupPath + @"\rtf\x0", RichTextBoxStreamType.RichText);
+            rtb_y0.LoadFile(Application.StartupPath + @"\rtf\y0", RichTextBoxStreamType.RichText);
+            rtb_v0x.LoadFile(Application.StartupPath + @"\rtf\v0x", RichTextBoxStreamType.RichText);
+            rtb_v0y.LoadFile(Application.StartupPath + @"\rtf\v0y", RichTextBoxStreamType.RichText);
+            rtb_v0.LoadFile(Application.StartupPath + @"\rtf\v0", RichTextBoxStreamType.RichText);
+            rtb_alpha0.LoadFile(Application.StartupPath + @"\rtf\alpha0", RichTextBoxStreamType.RichText);
+            rtb_ax.LoadFile(Application.StartupPath + @"\rtf\ax", RichTextBoxStreamType.RichText);
+            rtb_ay.LoadFile(Application.StartupPath + @"\rtf\ay", RichTextBoxStreamType.RichText);
 
             stepX = baseStepX;
             stepY = baseStepY;
@@ -118,7 +124,10 @@ namespace mSim
             var x = Properties.Settings.Default;
             showGrid = ckbGid.Checked = x.showGrid;
             showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
+            showTrails = ckbTrail.Checked = x.showTrails;
+            showSpeeds = ckbSpeed.Checked = x.showSpeeds;
 
+            highQuality = ckbHighQuality.Checked = x.highQuality;
         }
 
         private void SaveSettings()
@@ -141,21 +150,23 @@ namespace mSim
             x0 = BASE_X0;
             y0 = BASE_Y0;
 
-
             BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
             Graphics g = Graphics.FromImage(BackgroundLayer);
             g.Clear(Color.WhiteSmoke);
             g.Dispose();
+
             IntervalsLayer = BackgroundLayer.Clone() as Bitmap;
             DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
+            MovingLineLayer = AxisLayer.Clone() as Bitmap;
+            MovingObjectLayer = AxisLayer.Clone() as Bitmap;
+
             graphBox.BackgroundImage = AxisLayer;
 
             graphBox.MouseWheel += GraphBox_MouseWheel;
             LoadSettings();
         }
-
 
         private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -193,8 +204,8 @@ namespace mSim
         {
             if (drag)
             {
-                offsetX = (e.Location.X - mouseDownX)/4;
-                offsetY = (e.Location.Y - mouseDownY)/4;
+                offsetX = (e.Location.X - mouseDownX);
+                offsetY = (e.Location.Y - mouseDownY);
 
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
@@ -252,6 +263,15 @@ namespace mSim
             }
         }
 
+        private void ckbHighQuality_CheckedChanged(object sender, EventArgs e)
+        {
+            highQuality = ckbHighQuality.Checked;
+            if (!isRunning)
+            {
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
+        }
 
         //METHODS-----------------------------------------------------------------------------------------------------------------------------
         private void ReDraw_Background_Intervals_Axis()
@@ -272,6 +292,7 @@ namespace mSim
             int width = bitmap.Width;
             int height = bitmap.Height;
 
+            Pen p = new Pen(Brushes.DarkBlue, 1F);
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
@@ -279,25 +300,31 @@ namespace mSim
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
 
-            Pen p = new Pen(Brushes.Black, 1F);
-
-            //g.FillRectangle(Brushes.WhiteSmoke, 0, 0, width, height);
-
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             //draw x axis
             g.DrawLine(p, 0, height - _y0, width, height - _y0);
-            g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 - 5);
-            g.DrawLine(p, width - 2, height - _y0, width - 11, height - _y0 + 5);
 
             //draw y axis
             g.DrawLine(p, _x0, height, _x0, 0);
-            g.DrawLine(p, _x0, 0, _x0 + 5, 11);
-            g.DrawLine(p, _x0, 0, _x0 - 5, 11);
+
+            if (highQuality)
+            {
+                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            }
+
+            p.Width = 1F;
+            //draw y narrow
+            g.DrawLine(p, _x0, 0, _x0 + 4, 12);
+            g.DrawLine(p, _x0, 0, _x0 - 4, 12);
+
+            //draw x narrow
+            g.DrawLine(p, width - 2, height - _y0, width - 13, height - _y0 - 4);
+            g.DrawLine(p, width - 2, height - _y0, width - 13, height - _y0 + 4);
 
             //draw axis label
             g.DrawString(xlabel, myFont_axis, Brushes.DarkRed, width - 15, height - _y0 + 6);
             g.DrawString(ylabel, myFont_axis, Brushes.DarkRed, _x0 - 20, 5);
-            //g.DrawString("0", myFont, Brushes.Black, _x0 - 12, height - _y0 +4);
 
             p.Dispose();
             g.Dispose();
@@ -314,6 +341,12 @@ namespace mSim
             int startY = bitmap.Height - (_y0 % subStepY);
             int endY = (bitmap.Height - _y0) % subStepY + (showGrid ? 0 : (2 * subStepY));
 
+            Pen p1 = new Pen(Brushes.Black, 1F);
+            Pen p2 = new Pen(Brushes.Gray, 1F);
+            Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
+            Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
+            //p1.DashStyle = p2.DashStyle = p1g.DashStyle = p2g.DashStyle = DashStyle.Dash;
+
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
@@ -321,10 +354,6 @@ namespace mSim
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
 
-            Pen p1 = new Pen(Brushes.Black, 1F);
-            Pen p2 = new Pen(Brushes.Gray, 1F);
-            Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
-            Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
 
             if (_showGrid)
             {
@@ -349,11 +378,16 @@ namespace mSim
                     g.DrawLine(_showGrid ? p1g : p1, _showGrid ? 0 : (_x0 - 4), i, _showGrid ? bitmap.Width : (_x0 + 4), i);
                     if (i != (bitmap.Height - _y0) && _showCoordinates)
                     {
+                        if (highQuality)
+                        {
+                            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+                        }
                         string va;
                         va = ((float)(((bitmap.Height - _y0) - i) / _stepY) * _stepValueY).ToString();
                         //g.DrawString(va, myFont_Intervals, Brushes.Black, i - 9, bitmap.Height - _y0 + 4);
                         g.DrawString(va, myFont_Intervals, Brushes.DarkBlue, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
                             i - (int)(g.MeasureString(va, myFont_Intervals).Height / 2));
+                        g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
                     }
                 }
             }
@@ -374,6 +408,11 @@ namespace mSim
 
                     if (_showCoordinates)
                     {
+
+                        if (highQuality)
+                        {
+                            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+                        }
                         string va;
                         va = ((float)((i - _x0) / _stepX) * _stepValueX).ToString();
                         g.DrawString(va, myFont_Intervals, Brushes.DarkBlue, i - (int)((g.MeasureString(va, myFont_Intervals).Width) / 2),
@@ -423,6 +462,64 @@ namespace mSim
             }
         }
 
+        private void ckbTrail_CheckedChanged(object sender, EventArgs e)
+        {
+            showTrails = ckbTrail.Checked;
+            if (!isRunning)
+            {
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
+        }
 
+        private void ckbSpeed_CheckedChanged(object sender, EventArgs e)
+        {
+            showSpeeds = ckbSpeed.Checked;
+            if (!isRunning)
+            {
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
+        }
+
+        private void txbs_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txb = (TextBox)sender;
+            if (txb.Enabled)
+            {
+                if (txb.Text.Length == 0)
+                {
+                    txb.Text = "0";
+                    return;
+                }
+                string txt;
+                string decimalChar = System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator; //CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator;
+                if (decimalChar == ",")
+                {
+                    txt = txb.Text.Replace(".", decimalChar);
+                }
+                else
+                {
+                    txt = txb.Text.Replace(",", decimalChar);
+                }
+
+                if (float.TryParse(txt, out float value))
+                {
+                    txb.ForeColor = Color.Black;
+                }
+                else
+                {
+                    txb.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        bool speedMode;
+        private void rad_speedmode_CheckedChanged(object sender, EventArgs e)
+        {
+            speedMode = rad_speedmode.Checked;
+            txb_v0x.Enabled = txb_v0y.Enabled = speedMode;
+            txb_v0.Enabled = txb_alpha0.Enabled= !speedMode;
+        }
     }
 }

@@ -11,8 +11,11 @@
     <Setting Name="showCoodinates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="shoSpeeds" Type="System.Boolean" Scope="User">
+    <Setting Name="showSpeeds" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="highQuality" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
