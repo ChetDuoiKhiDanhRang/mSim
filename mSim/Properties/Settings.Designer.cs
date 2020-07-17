@@ -94,5 +94,101 @@ namespace mSim.Properties {
                 this["XYSpeedMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float last_x0 {
+            get {
+                return ((float)(this["last_x0"]));
+            }
+            set {
+                this["last_x0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float last_y0 {
+            get {
+                return ((float)(this["last_y0"]));
+            }
+            set {
+                this["last_y0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float last_v0 {
+            get {
+                return ((float)(this["last_v0"]));
+            }
+            set {
+                this["last_v0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float last_alpha0 {
+            get {
+                return ((float)(this["last_alpha0"]));
+            }
+            set {
+                this["last_alpha0"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public float last_v0x {
+            get {
+                return ((float)(this["last_v0x"]));
+            }
+            set {
+                this["last_v0x"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public float last_v0y {
+            get {
+                return ((float)(this["last_v0y"]));
+            }
+            set {
+                this["last_v0y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float last_ax {
+            get {
+                return ((float)(this["last_ax"]));
+            }
+            set {
+                this["last_ax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-9.8")]
+        public float last_ay {
+            get {
+                return ((float)(this["last_ay"]));
+            }
+            set {
+                this["last_ay"] = value;
+            }
+        }
     }
 }

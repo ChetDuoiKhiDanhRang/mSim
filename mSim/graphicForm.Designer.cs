@@ -106,9 +106,9 @@
             this.ckbHighQuality.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbHighQuality.Location = new System.Drawing.Point(6, 76);
             this.ckbHighQuality.Name = "ckbHighQuality";
-            this.ckbHighQuality.Size = new System.Drawing.Size(90, 17);
+            this.ckbHighQuality.Size = new System.Drawing.Size(100, 17);
             this.ckbHighQuality.TabIndex = 1;
-            this.ckbHighQuality.Text = "Khử răng cưa";
+            this.ckbHighQuality.Text = "Khử \"răng cưa\"";
             this.ckbHighQuality.UseVisualStyleBackColor = true;
             this.ckbHighQuality.CheckedChanged += new System.EventHandler(this.ckbHighQuality_CheckedChanged);
             // 
@@ -197,7 +197,7 @@
             // txb_alpha0
             // 
             this.txb_alpha0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_alpha0.Location = new System.Drawing.Point(164, 133);
+            this.txb_alpha0.Location = new System.Drawing.Point(185, 136);
             this.txb_alpha0.MaxLength = 7;
             this.txb_alpha0.Name = "txb_alpha0";
             this.txb_alpha0.Size = new System.Drawing.Size(51, 22);
@@ -209,7 +209,7 @@
             // txb_v0y
             // 
             this.txb_v0y.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_v0y.Location = new System.Drawing.Point(49, 133);
+            this.txb_v0y.Location = new System.Drawing.Point(49, 136);
             this.txb_v0y.MaxLength = 7;
             this.txb_v0y.Name = "txb_v0y";
             this.txb_v0y.Size = new System.Drawing.Size(51, 22);
@@ -221,7 +221,7 @@
             // txb_v0
             // 
             this.txb_v0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_v0.Location = new System.Drawing.Point(164, 102);
+            this.txb_v0.Location = new System.Drawing.Point(185, 105);
             this.txb_v0.MaxLength = 7;
             this.txb_v0.Name = "txb_v0";
             this.txb_v0.Size = new System.Drawing.Size(51, 22);
@@ -233,7 +233,7 @@
             // txb_ay
             // 
             this.txb_ay.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_ay.Location = new System.Drawing.Point(164, 47);
+            this.txb_ay.Location = new System.Drawing.Point(185, 47);
             this.txb_ay.MaxLength = 7;
             this.txb_ay.Name = "txb_ay";
             this.txb_ay.Size = new System.Drawing.Size(51, 22);
@@ -257,7 +257,7 @@
             // txb_v0x
             // 
             this.txb_v0x.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_v0x.Location = new System.Drawing.Point(49, 102);
+            this.txb_v0x.Location = new System.Drawing.Point(49, 105);
             this.txb_v0x.MaxLength = 7;
             this.txb_v0x.Name = "txb_v0x";
             this.txb_v0x.Size = new System.Drawing.Size(51, 22);
@@ -269,7 +269,7 @@
             // txb_ax
             // 
             this.txb_ax.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_ax.Location = new System.Drawing.Point(164, 18);
+            this.txb_ax.Location = new System.Drawing.Point(185, 18);
             this.txb_ax.MaxLength = 7;
             this.txb_ax.Name = "txb_ax";
             this.txb_ax.Size = new System.Drawing.Size(51, 22);
@@ -294,7 +294,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(131, 81);
+            this.radioButton1.Location = new System.Drawing.Point(152, 82);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(88, 17);
             this.radioButton1.TabIndex = 1;
@@ -305,7 +305,7 @@
             // rad_speedmode
             // 
             this.rad_speedmode.AutoSize = true;
-            this.rad_speedmode.Location = new System.Drawing.Point(7, 79);
+            this.rad_speedmode.Location = new System.Drawing.Point(7, 82);
             this.rad_speedmode.Name = "rad_speedmode";
             this.rad_speedmode.Size = new System.Drawing.Size(114, 17);
             this.rad_speedmode.TabIndex = 1;
@@ -320,7 +320,7 @@
             this.rtb_ay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_ay.DetectUrls = false;
             this.rtb_ay.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_ay.Location = new System.Drawing.Point(130, 45);
+            this.rtb_ay.Location = new System.Drawing.Point(151, 45);
             this.rtb_ay.Name = "rtb_ay";
             this.rtb_ay.ReadOnly = true;
             this.rtb_ay.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -337,7 +337,7 @@
             this.rtb_alpha0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_alpha0.DetectUrls = false;
             this.rtb_alpha0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_alpha0.Location = new System.Drawing.Point(131, 133);
+            this.rtb_alpha0.Location = new System.Drawing.Point(152, 136);
             this.rtb_alpha0.Name = "rtb_alpha0";
             this.rtb_alpha0.ReadOnly = true;
             this.rtb_alpha0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -354,7 +354,7 @@
             this.rtb_ax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_ax.DetectUrls = false;
             this.rtb_ax.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_ax.Location = new System.Drawing.Point(130, 19);
+            this.rtb_ax.Location = new System.Drawing.Point(151, 19);
             this.rtb_ax.Name = "rtb_ax";
             this.rtb_ax.ReadOnly = true;
             this.rtb_ax.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -371,7 +371,7 @@
             this.rtb_v0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0.DetectUrls = false;
             this.rtb_v0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_v0.Location = new System.Drawing.Point(131, 102);
+            this.rtb_v0.Location = new System.Drawing.Point(152, 105);
             this.rtb_v0.Name = "rtb_v0";
             this.rtb_v0.ReadOnly = true;
             this.rtb_v0.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -388,7 +388,7 @@
             this.rtb_v0y.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0y.DetectUrls = false;
             this.rtb_v0y.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_v0y.Location = new System.Drawing.Point(7, 133);
+            this.rtb_v0y.Location = new System.Drawing.Point(7, 136);
             this.rtb_v0y.Name = "rtb_v0y";
             this.rtb_v0y.ReadOnly = true;
             this.rtb_v0y.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -405,7 +405,7 @@
             this.rtb_v0x.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0x.DetectUrls = false;
             this.rtb_v0x.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_v0x.Location = new System.Drawing.Point(7, 102);
+            this.rtb_v0x.Location = new System.Drawing.Point(7, 105);
             this.rtb_v0x.Name = "rtb_v0x";
             this.rtb_v0x.ReadOnly = true;
             this.rtb_v0x.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;

@@ -99,9 +99,9 @@ namespace mSim
         bool highQuality;
 
         bool xYSpeedMode;
-        public bool XYSpeedMode 
-        { 
-            get => xYSpeedMode; 
+        public bool XYSpeedMode
+        {
+            get => xYSpeedMode;
             set
             {
                 xYSpeedMode = value;
@@ -112,16 +112,33 @@ namespace mSim
         bool isRunning = false;
         public bool IsRunning { get => isRunning; set => isRunning = value; }
 
+        float obj_x0;
+        float obj_y0;
+        float obj_v0x;
+        float obj_v0y;
+        float obj_ax;
+        float obj_ay;
+        float obj_alpha0;
+        float obj_v0;
+        public float Obj_x0 { get => obj_x0; set => obj_x0 = value; }
+        public float Obj_y0 { get => obj_y0; set => obj_y0 = value; }
+        public float Obj_v0x { get => obj_v0x; set => obj_v0x = value; }
+        public float Obj_v0y { get => obj_v0y; set => obj_v0y = value; }
+        public float Obj_ax { get => obj_ax; set => obj_ax = value; }
+        public float Obj_ay { get => obj_ay; set => obj_ay = value; }
+        public float Obj_alpha0 { get => obj_alpha0; set => obj_alpha0 = value; }
+        public float Obj_v0 { get => obj_v0; set => obj_v0 = value; }
+
         public drawForm()
         {
             InitializeComponent();
 
-            SpeedModeChanged += DrawForm_SpeedModeChanged; 
+            SpeedModeChanged += DrawForm_SpeedModeChanged;
 
-            Font labelFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size*0.8F));
+            Font labelFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.8F));
 
             rtb_x0.Text = "x0:";
-            rtb_x0.Select(1, rtb_x0.Text.Length -2);
+            rtb_x0.Select(1, rtb_x0.Text.Length - 2);
             rtb_x0.SelectionFont = labelFont;
             rtb_x0.SelectionCharOffset = -5;
 
@@ -180,6 +197,26 @@ namespace mSim
             showSpeeds = ckbSpeed.Checked = x.showSpeeds;
             highQuality = ckbHighQuality.Checked = x.highQuality;
             XYSpeedMode = rad_speedmode.Checked = x.XYSpeedMode;
+
+            Obj_ax = x.last_ax;
+            Obj_ay = x.last_ay;
+            Obj_x0 = x.last_x0;
+            Obj_y0 = x.last_y0;
+
+            txb_ax.Text = Obj_ax.ToString();
+            txb_ay.Text = Obj_ay.ToString();
+            txb_x0.Text = Obj_x0.ToString();
+            txb_y0.Text = Obj_y0.ToString();
+
+            Obj_v0 = x.last_v0;
+            Obj_alpha0 = x.last_alpha0;
+            Obj_v0x = x.last_v0x;
+            Obj_v0y = x.last_v0y;
+
+            txb_v0.Text = Obj_v0.ToString();
+            txb_alpha0.Text = Obj_alpha0.ToString();
+            txb_v0x.Text = Obj_v0x.ToString();
+            txb_v0y.Text = Obj_v0y.ToString();
         }
         private void SaveSettings()
         {
@@ -190,6 +227,16 @@ namespace mSim
             x.showSpeeds = showSpeeds;
             x.highQuality = highQuality;
             x.XYSpeedMode = XYSpeedMode;
+
+            x.last_ax = Obj_ax;
+            x.last_ay = Obj_ay;
+            x.last_x0 = Obj_x0;
+            x.last_y0 = Obj_y0;
+
+            x.last_v0 = Obj_v0;
+            x.last_alpha0 = Obj_alpha0;
+            x.last_v0x = Obj_v0x;
+            x.last_v0y = Obj_v0y;
 
             x.Save();
         }
@@ -381,12 +428,79 @@ namespace mSim
                 if (float.TryParse(txt, out float value))
                 {
                     txb.ForeColor = Color.Black;
+                    switch (txb.Name)
+                    {
+                        case "txb_x0":
+                            Obj_x0 = value;
+                            break;
+                        case "txb_y0":
+                            Obj_y0 = value;
+                            break;
+                        case "txb_v0x":
+                            Obj_v0x = value;
+                            Obj_v0 = (float)Math.Sqrt((double)(Obj_v0x * Obj_v0x + Obj_v0y * Obj_v0y));
+                            Obj_alpha0 = (float)(Math.Atan2((double)Obj_v0y, (double)Obj_v0x) * 180 / Math.PI);
+                            txb_v0.Text = Obj_v0.ToString();
+                            txb_alpha0.Text = Obj_alpha0.ToString();
+                            break;
+                        case "txb_v0y":
+                            Obj_v0y = value;
+                            Obj_v0 = (float)Math.Sqrt((double)(Obj_v0x * Obj_v0x + Obj_v0y * Obj_v0y));
+                            Obj_alpha0 = (float)(Math.Atan2((double)Obj_v0y, (double)Obj_v0x) * 180 / Math.PI);
+                            txb_v0.Text = Obj_v0.ToString();
+                            txb_alpha0.Text = Obj_alpha0.ToString();
+                            break;
+                        case "txb_v0":
+                            Obj_v0 = value;
+                            Obj_v0x = Obj_v0 * (float)Math.Cos(Obj_alpha0 * Math.PI / 180);
+                            Obj_v0y = Obj_v0 * (float)Math.Sin(Obj_alpha0 * Math.PI / 180);
+                            txb_v0x.Text = Obj_v0x.ToString();
+                            txb_v0y.Text = Obj_v0y.ToString();
+
+                            break;
+                        case "txb_alpha0":
+                            Obj_alpha0 = value;
+                            Obj_v0x = Obj_v0 * (float)Math.Cos(Obj_alpha0 * Math.PI / 180);
+                            Obj_v0y = Obj_v0 * (float)Math.Sin(Obj_alpha0 * Math.PI / 180);
+                            txb_v0x.Text = Obj_v0x.ToString();
+                            txb_v0y.Text = Obj_v0y.ToString();
+                            break;
+                        case "txb_ax":
+                            break;
+                        case "txb_ay":
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
                 else
                 {
                     txb.ForeColor = Color.Red;
+                    txb.Undo();
                 }
             }
+        }
+
+
+
+        private void ReZoomY(float value)
+        {
+            if (Obj_y0!=0 && Math.Abs(Obj_y0) < stepValueY))
+            {
+                while (Math.Abs(Obj_y0) < stepValueY)
+                {
+                    stepValueY = stepValueY / 2;
+                }
+                if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY*1.1);
+                else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+            }
+            else if (Obj_y0 != 0 && )
+        }
+
+        private void ReZoomX(float value)
+        {
+            throw new NotImplementedException();
         }
 
         //---------------------------------------------------------------------------
@@ -595,8 +709,8 @@ namespace mSim
 
         private void ZoomIn()
         {
-            stepX -= 10;
-            stepY -= 10;
+            stepX -= 5;
+            stepY -= 5;
             if (stepX < MIN_STEP_X)
             {
                 stepX = MAX_STEP_X;
@@ -611,8 +725,8 @@ namespace mSim
 
         private void ZoomOut()
         {
-            stepX += 10;
-            stepY += 10;
+            stepX += 5;
+            stepY += 5;
             if (stepX > MAX_STEP_X)
             {
                 stepX = MIN_STEP_X;
