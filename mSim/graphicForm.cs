@@ -15,6 +15,8 @@ namespace mSim
     public partial class drawForm : Form
     {
         public event EventHandler<bool> SpeedModeChanged;
+        public event EventHandler<float> Obj_x0Changed;
+        public event EventHandler<float> Obj_y0Changed;
 
         string axis_fontname = "Consolas";
         float axis_fontsize = 10F;
@@ -120,8 +122,8 @@ namespace mSim
         float obj_ay;
         float obj_alpha0;
         float obj_v0;
-        public float Obj_x0 { get => obj_x0; set => obj_x0 = value; }
-        public float Obj_y0 { get => obj_y0; set => obj_y0 = value; }
+        public float Obj_x0 { get => obj_x0; set { obj_x0 = value; Obj_x0Changed?.Invoke(this, value); } }
+        public float Obj_y0 { get => obj_y0; set { obj_y0 = value; Obj_y0Changed?.Invoke(this, value); } }
         public float Obj_v0x { get => obj_v0x; set => obj_v0x = value; }
         public float Obj_v0y { get => obj_v0y; set => obj_v0y = value; }
         public float Obj_ax { get => obj_ax; set => obj_ax = value; }
@@ -267,9 +269,23 @@ namespace mSim
 
             graphBox.BackgroundImage = AxisLayer;
 
-            graphBox.MouseWheel += GraphBox_MouseWheel;
             LoadSettings();
+            this.Obj_x0Changed += DrawForm_Obj_x0Changed;
+            this.Obj_y0Changed += DrawForm_Obj_y0Changed;
+            graphBox.MouseWheel += GraphBox_MouseWheel;
+
         }
+
+        private void DrawForm_Obj_y0Changed(object sender, float e)
+        {
+            ReZoomY(e);
+        }
+
+        private void DrawForm_Obj_x0Changed(object sender, float e)
+        {
+            ReZoomX(e);
+        }
+
         private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             SaveSettings();
@@ -486,21 +502,44 @@ namespace mSim
 
         private void ReZoomY(float value)
         {
-            if (Obj_y0!=0 && Math.Abs(Obj_y0) < stepValueY))
+            if (value != 0)
             {
-                while (Math.Abs(Obj_y0) < stepValueY)
+                while (Math.Abs(value) < stepValueY)
                 {
                     stepValueY = stepValueY / 2;
+                };
+
+                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
+                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+                while (Math.Abs(value) / 2 > stepValueY)
+                {
+                    stepValueY *= 2;
                 }
-                if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY*1.1);
-                else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
             }
-            else if (Obj_y0 != 0 && )
         }
 
         private void ReZoomX(float value)
         {
-            throw new NotImplementedException();
+            if (value != 0)
+            {
+                while (Math.Abs(value) < stepValueX)
+                {
+                    stepValueX = stepValueX / 2;
+                };
+
+                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
+                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+                while (Math.Abs(value) / 2 > stepValueX)
+                {
+                    stepValueX *= 2;
+                }
+
+                ReDraw_Background_Intervals_Axis();
+                graphBox.BackgroundImage = AxisLayer;
+            }
         }
 
         //---------------------------------------------------------------------------
