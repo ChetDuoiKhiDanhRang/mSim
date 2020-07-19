@@ -15,6 +15,7 @@ namespace mSim
     public partial class drawForm : Form
     {
         public event EventHandler<bool> SpeedModeChanged;
+        public event EventHandler<bool> IsRunningChanged;
         public event EventHandler<float> Obj_x0Changed;
         public event EventHandler<float> Obj_y0Changed;
 
@@ -46,10 +47,6 @@ namespace mSim
         int MAX_STEP_Y = 120;
         int MIN_STEP_Y = 40;
 
-        //int MAX_COUNT_X = 30;
-        //int MAX_COUNT_Y = 30;
-        //int MIN_COUNT_X = 8;
-        //int MIN_COUNT_Y = 8;
 
         float stepValueX = 5F;
         float stepValueY = 5F;
@@ -87,7 +84,6 @@ namespace mSim
             }
         }
 
-
         Bitmap movingLineLayer;
         public Bitmap MovingLineLayer { get => movingLineLayer; set => movingLineLayer = value; }
 
@@ -112,7 +108,7 @@ namespace mSim
         }
 
         bool isRunning = false;
-        public bool IsRunning { get => isRunning; set => isRunning = value; }
+        public bool IsRunning { get => isRunning; set { isRunning = value; IsRunningChanged?.Invoke(this, value); } }
 
         float obj_x0;
         float obj_y0;
@@ -137,46 +133,46 @@ namespace mSim
 
             SpeedModeChanged += DrawForm_SpeedModeChanged;
 
-            Font labelFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.8F));
+            Font scriptFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.9F));
 
             rtb_x0.Text = "x0:";
             rtb_x0.Select(1, rtb_x0.Text.Length - 2);
-            rtb_x0.SelectionFont = labelFont;
+            rtb_x0.SelectionFont = scriptFont;
             rtb_x0.SelectionCharOffset = -5;
 
             rtb_y0.Text = "y0:";
             rtb_y0.Select(1, rtb_y0.Text.Length - 2);
-            rtb_y0.SelectionFont = labelFont;
+            rtb_y0.SelectionFont = scriptFont;
             rtb_y0.SelectionCharOffset = -5;
 
             rtb_ax.Text = "ax:";
             rtb_ax.Select(1, rtb_ax.Text.Length - 2);
-            rtb_ax.SelectionFont = labelFont;
+            rtb_ax.SelectionFont = scriptFont;
             rtb_ax.SelectionCharOffset = -5;
 
             rtb_ay.Text = "ay:";
             rtb_ay.Select(1, rtb_ay.Text.Length - 2);
-            rtb_ay.SelectionFont = labelFont;
+            rtb_ay.SelectionFont = scriptFont;
             rtb_ay.SelectionCharOffset = -5;
 
             rtb_v0x.Text = "v0x:";
             rtb_v0x.Select(1, rtb_v0x.Text.Length - 2);
-            rtb_v0x.SelectionFont = labelFont;
+            rtb_v0x.SelectionFont = scriptFont;
             rtb_v0x.SelectionCharOffset = -5;
 
             rtb_v0y.Text = "v0y:";
             rtb_v0y.Select(1, rtb_v0y.Text.Length - 2);
-            rtb_v0y.SelectionFont = labelFont;
+            rtb_v0y.SelectionFont = scriptFont;
             rtb_v0y.SelectionCharOffset = -5;
 
             rtb_v0.Text = "v0:";
             rtb_v0.Select(1, rtb_v0.Text.Length - 2);
-            rtb_v0.SelectionFont = labelFont;
+            rtb_v0.SelectionFont = scriptFont;
             rtb_v0.SelectionCharOffset = -5;
 
             rtb_alpha0.Text = "α0:";
             rtb_alpha0.Select(1, rtb_alpha0.Text.Length - 2);
-            rtb_alpha0.SelectionFont = labelFont;
+            rtb_alpha0.SelectionFont = scriptFont;
             rtb_alpha0.SelectionCharOffset = -5;
 
 
@@ -264,16 +260,25 @@ namespace mSim
             DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
-            MovingLineLayer = AxisLayer.Clone() as Bitmap;
-            MovingObjectLayer = AxisLayer.Clone() as Bitmap;
 
-            graphBox.BackgroundImage = AxisLayer;
 
             LoadSettings();
+
+            MovingLineLayer = AxisLayer.Clone() as Bitmap;
+            DrawObject(MovingLineLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
+
+            graphBox.BackgroundImage = MovingLineLayer;
+
             this.Obj_x0Changed += DrawForm_Obj_x0Changed;
             this.Obj_y0Changed += DrawForm_Obj_y0Changed;
+            this.IsRunningChanged += DrawForm_IsRunningChanged;
             graphBox.MouseWheel += GraphBox_MouseWheel;
 
+        }
+
+        private void DrawForm_IsRunningChanged(object sender, bool e)
+        {
+            grb_Params0.Enabled = !e;
         }
 
         private void DrawForm_Obj_y0Changed(object sender, float e)
@@ -310,12 +315,13 @@ namespace mSim
                 ZoomIn();
             }
             ReDraw_Background_Intervals_Axis();
-            graphBox.BackgroundImage = AxisLayer;
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
+            if (e.Button == MouseButtons.Middle && !IsRunning)
             {
                 drag = true;
                 mouseDownX = e.Location.X;
@@ -336,7 +342,8 @@ namespace mSim
 
 
                 ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
                 //graphBox.Refresh();
             }
         }
@@ -375,7 +382,8 @@ namespace mSim
             if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
             }
         }
 
@@ -385,7 +393,8 @@ namespace mSim
             if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
             }
         }
 
@@ -395,7 +404,8 @@ namespace mSim
             if (!IsRunning)
             {
                 ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
             }
         }
 
@@ -404,8 +414,9 @@ namespace mSim
             showTrails = ckbTrail.Checked;
             if (!IsRunning)
             {
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                //ReDraw_Background_Intervals_Axis();
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
             }
         }
 
@@ -414,8 +425,8 @@ namespace mSim
             showSpeeds = ckbSpeed.Checked;
             if (!IsRunning)
             {
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                graphBox.BackgroundImage = MovingLineLayer;
             }
         }
 
@@ -558,11 +569,11 @@ namespace mSim
             DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
-            //graphBox.Refresh();
         }
 
         private void Redraw_MovingLine_Layer()
         {
+            MovingLineLayer?.Dispose();
             MovingLineLayer = AxisLayer.Clone() as Bitmap;
             DrawObject(MovingLineLayer, Obj_x0, Obj_y0);
         }
@@ -623,7 +634,7 @@ namespace mSim
             int endY = (bitmap.Height - _y0) % subStepY + (showGrid ? 0 : (2 * subStepY));
 
             Pen p1 = new Pen(Brushes.Black, 1F);
-            Pen p2 = new Pen(Brushes.Gray, 1F);
+            Pen p2 = new Pen(Brushes.DarkSlateGray, 1F);
             Pen p1g = new Pen(Brushes.Gray, 1F); //for grid lines
             Pen p2g = new Pen(Brushes.LightGray, 1F); //for grid lines
             //p1.DashStyle = p2.DashStyle = p1g.DashStyle = p2g.DashStyle = DashStyle.Dash;
@@ -666,7 +677,7 @@ namespace mSim
                         string va;
                         va = ((float)(((bitmap.Height - _y0) - i) / _stepY) * _stepValueY).ToString();
                         //g.DrawString(va, myFont_Intervals, Brushes.Black, i - 9, bitmap.Height - _y0 + 4);
-                        g.DrawString(va, myFont_Intervals, Brushes.DarkBlue, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
+                        g.DrawString(va, myFont_Intervals, Brushes.AliceBlue, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
                             i - (int)(g.MeasureString(va, myFont_Intervals).Height / 2));
                         g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
                     }
@@ -709,10 +720,22 @@ namespace mSim
             g.Dispose();
         }
 
-        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y)
+        Point Convert_XY2Point(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0)
         {
-            int x = x0 + (int)(obj_x / stepValueX * stepX);
-            int y = bitmap.Height - (int)(obj_y / stepValueY * stepY) - y0;
+            int point_x = x0 + (int)(obj_x / stepValueX * stepX);
+            int point_y = bitmap.Height - (int)(obj_y / stepValueY * stepY) - y0;
+            Point p = new Point(point_x, point_y);
+            return p;
+        }
+
+
+
+        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showLines, float vx, float vy)
+        {
+            Point p = Convert_XY2Point(bitmap, obj_x, obj_y, x0, y0);
+
+            int length_vx = vx/Obj_v0x*50;
+            int length_vy = vy/Obj_v0y*50;
 
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
@@ -727,12 +750,18 @@ namespace mSim
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             }
 
-            Pen p = new Pen(Brushes.Black, 2F);
+            Pen obj_p = new Pen(Brushes.Black, 2F);
             g.FillEllipse(Brushes.DarkRed, x - 4, y - 4, 8, 8);
-            g.DrawEllipse(p, x - 4, y - 4, 8, 8);
+            g.DrawEllipse(obj_p, x - 4, y - 4, 8, 8);
+
+            if (showSpeeds)
+            {
+                obj_p.Width = 1F;
+                g.DrawLine(obj_p, x, y, stepValueX)
+            }
 
 
-            p.Dispose();
+            obj_p.Dispose();
             g.Dispose();
         }
 
