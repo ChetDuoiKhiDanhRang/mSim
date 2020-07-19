@@ -290,6 +290,7 @@ namespace mSim
         {
             SaveSettings();
         }
+
         private void DrawForm_SpeedModeChanged(object sender, bool e)
         {
             rtb_v0x.Enabled = rtb_v0y.Enabled = txb_v0x.Enabled = txb_v0y.Enabled = XYSpeedMode;
@@ -428,7 +429,7 @@ namespace mSim
                 if (txb.Text.Length == 0)
                 {
                     txb.Text = "0";
-                    return;
+                    //return;
                 }
                 string txt;
                 string decimalChar = System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator;
@@ -493,52 +494,8 @@ namespace mSim
                 else
                 {
                     txb.ForeColor = Color.Red;
-                    txb.Undo();
+                    //txb.Undo();
                 }
-            }
-        }
-
-
-
-        private void ReZoomY(float value)
-        {
-            if (value != 0)
-            {
-                while (Math.Abs(value) < stepValueY)
-                {
-                    stepValueY = stepValueY / 2;
-                };
-
-                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
-                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
-                while (Math.Abs(value) / 2 > stepValueY)
-                {
-                    stepValueY *= 2;
-                }
-
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
-            }
-        }
-
-        private void ReZoomX(float value)
-        {
-            if (value != 0)
-            {
-                while (Math.Abs(value) < stepValueX)
-                {
-                    stepValueX = stepValueX / 2;
-                };
-
-                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
-                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
-                while (Math.Abs(value) / 2 > stepValueX)
-                {
-                    stepValueX *= 2;
-                }
-
-                ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
             }
         }
 
@@ -591,6 +548,7 @@ namespace mSim
             XYSpeedMode = ((RadioButton)sender).Checked;
         }
 
+
         //METHODS====================================================================================================================
         private void ReDraw_Background_Intervals_Axis()
         {
@@ -601,7 +559,12 @@ namespace mSim
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
             //graphBox.Refresh();
+        }
 
+        private void Redraw_MovingLine_Layer()
+        {
+            MovingLineLayer = AxisLayer.Clone() as Bitmap;
+            DrawObject(MovingLineLayer, Obj_x0, Obj_y0);
         }
 
         private void DrawAxis(Bitmap bitmap, int _x0 = 0, int _y0 = 0, string xlabel = "x", string ylabel = "y")
@@ -746,6 +709,33 @@ namespace mSim
             g.Dispose();
         }
 
+        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y)
+        {
+            int x = x0 + (int)(obj_x / stepValueX * stepX);
+            int y = bitmap.Height - (int)(obj_y / stepValueY * stepY) - y0;
+
+            Graphics g = Graphics.FromImage(bitmap);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.None;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
+            if (highQuality)
+            {
+                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            }
+
+            Pen p = new Pen(Brushes.Black, 2F);
+            g.FillEllipse(Brushes.DarkRed, x - 4, y - 4, 8, 8);
+            g.DrawEllipse(p, x - 4, y - 4, 8, 8);
+
+
+            p.Dispose();
+            g.Dispose();
+        }
+
         private void ZoomIn()
         {
             stepX -= 5;
@@ -778,6 +768,48 @@ namespace mSim
             }
         }
 
+        private void ReZoomY(float value)
+        {
+            if (value != 0)
+            {
+                while (Math.Abs(value) < stepValueY)
+                {
+                    stepValueY = stepValueY / 2;
+                };
+
+                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
+                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+                while (Math.Abs(value) / 2 > stepValueY)
+                {
+                    stepValueY *= 2;
+                }
+            }
+
+            ReDraw_Background_Intervals_Axis();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
+        }
+
+        private void ReZoomX(float value)
+        {
+            if (value != 0)
+            {
+                while (Math.Abs(value) < stepValueX)
+                {
+                    stepValueX = stepValueX / 2;
+                };
+
+                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
+                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
+                while (Math.Abs(value) / 2 > stepValueX)
+                {
+                    stepValueX *= 2;
+                }
+            }
+            ReDraw_Background_Intervals_Axis();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
+        }
 
 
 
