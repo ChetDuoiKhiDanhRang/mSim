@@ -18,6 +18,10 @@ namespace mSim
         public event EventHandler<bool> IsRunningChanged;
         public event EventHandler<float> Obj_x0Changed;
         public event EventHandler<float> Obj_y0Changed;
+        public event EventHandler<float> Obj_v0xChanged;
+        public event EventHandler<float> Obj_v0yChanged;
+        public event EventHandler<float> Obj_axChanged;
+        public event EventHandler<float> Obj_ayChanged;
 
         string axis_fontname = "Consolas";
         float axis_fontsize = 10F;
@@ -28,6 +32,8 @@ namespace mSim
         string object_fontname = "Cambria";
         float object_fontsize = 10F;
 
+
+        Font myFont_script;
         Font myFont_axis;
         Font myFont_Intervals;
         Font myFont_Object;
@@ -120,11 +126,11 @@ namespace mSim
         float obj_v0;
         public float Obj_x0 { get => obj_x0; set { obj_x0 = value; Obj_x0Changed?.Invoke(this, value); } }
         public float Obj_y0 { get => obj_y0; set { obj_y0 = value; Obj_y0Changed?.Invoke(this, value); } }
-        public float Obj_v0x { get => obj_v0x; set => obj_v0x = value; }
-        public float Obj_v0y { get => obj_v0y; set => obj_v0y = value; }
-        public float Obj_ax { get => obj_ax; set => obj_ax = value; }
-        public float Obj_ay { get => obj_ay; set => obj_ay = value; }
-        public float Obj_alpha0 { get => obj_alpha0; set => obj_alpha0 = value; }
+        public float Obj_v0x { get => obj_v0x; set { obj_v0x = value; Obj_v0xChanged?.Invoke(this, value); } }
+        public float Obj_v0y { get => obj_v0y; set { obj_v0y = value; Obj_v0yChanged?.Invoke(this, value); } }
+        public float Obj_ax { get => obj_ax; set { obj_ax = value; Obj_axChanged?.Invoke(this, value); } }
+        public float Obj_ay { get => obj_ay; set { obj_ay = value; Obj_ayChanged?.Invoke(this, value); } }
+        public float Obj_alpha0 { get => obj_alpha0; set { obj_alpha0 = value; } }
         public float Obj_v0 { get => obj_v0; set => obj_v0 = value; }
 
         public drawForm()
@@ -133,46 +139,46 @@ namespace mSim
 
             SpeedModeChanged += DrawForm_SpeedModeChanged;
 
-            Font scriptFont = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.9F));
+            myFont_script = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.9F));
 
             rtb_x0.Text = "x0:";
             rtb_x0.Select(1, rtb_x0.Text.Length - 2);
-            rtb_x0.SelectionFont = scriptFont;
+            rtb_x0.SelectionFont = myFont_script;
             rtb_x0.SelectionCharOffset = -5;
 
             rtb_y0.Text = "y0:";
             rtb_y0.Select(1, rtb_y0.Text.Length - 2);
-            rtb_y0.SelectionFont = scriptFont;
+            rtb_y0.SelectionFont = myFont_script;
             rtb_y0.SelectionCharOffset = -5;
 
             rtb_ax.Text = "ax:";
             rtb_ax.Select(1, rtb_ax.Text.Length - 2);
-            rtb_ax.SelectionFont = scriptFont;
+            rtb_ax.SelectionFont = myFont_script;
             rtb_ax.SelectionCharOffset = -5;
 
             rtb_ay.Text = "ay:";
             rtb_ay.Select(1, rtb_ay.Text.Length - 2);
-            rtb_ay.SelectionFont = scriptFont;
+            rtb_ay.SelectionFont = myFont_script;
             rtb_ay.SelectionCharOffset = -5;
 
             rtb_v0x.Text = "v0x:";
             rtb_v0x.Select(1, rtb_v0x.Text.Length - 2);
-            rtb_v0x.SelectionFont = scriptFont;
+            rtb_v0x.SelectionFont = myFont_script;
             rtb_v0x.SelectionCharOffset = -5;
 
             rtb_v0y.Text = "v0y:";
             rtb_v0y.Select(1, rtb_v0y.Text.Length - 2);
-            rtb_v0y.SelectionFont = scriptFont;
+            rtb_v0y.SelectionFont = myFont_script;
             rtb_v0y.SelectionCharOffset = -5;
 
             rtb_v0.Text = "v0:";
             rtb_v0.Select(1, rtb_v0.Text.Length - 2);
-            rtb_v0.SelectionFont = scriptFont;
+            rtb_v0.SelectionFont = myFont_script;
             rtb_v0.SelectionCharOffset = -5;
 
             rtb_alpha0.Text = "α0:";
             rtb_alpha0.Select(1, rtb_alpha0.Text.Length - 2);
-            rtb_alpha0.SelectionFont = scriptFont;
+            rtb_alpha0.SelectionFont = myFont_script;
             rtb_alpha0.SelectionCharOffset = -5;
 
 
@@ -260,8 +266,7 @@ namespace mSim
             DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
-
-
+            
             LoadSettings();
 
             MovingLineLayer = AxisLayer.Clone() as Bitmap;
@@ -272,6 +277,7 @@ namespace mSim
             this.Obj_x0Changed += DrawForm_Obj_x0Changed;
             this.Obj_y0Changed += DrawForm_Obj_y0Changed;
             this.IsRunningChanged += DrawForm_IsRunningChanged;
+            
             graphBox.MouseWheel += GraphBox_MouseWheel;
 
         }
@@ -284,11 +290,25 @@ namespace mSim
         private void DrawForm_Obj_y0Changed(object sender, float e)
         {
             ReZoomY(e);
+            GenVelocityEquation();
+            GenCoordinatesEquation();
         }
 
         private void DrawForm_Obj_x0Changed(object sender, float e)
         {
             ReZoomX(e);
+            GenVelocityEquation();
+            GenCoordinatesEquation();
+        }
+
+        private void GenCoordinatesEquation()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GenVelocityEquation()
+        {
+            throw new NotImplementedException();
         }
 
         private void drawForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -340,10 +360,9 @@ namespace mSim
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
 
-
                 ReDraw_Background_Intervals_Axis();
                 Redraw_MovingLine_Layer();
-                graphBox.BackgroundImage = MovingLineLayer;
+                graphBox.BackgroundImage = MovingObjectLayer;
                 //graphBox.Refresh();
             }
         }
@@ -455,21 +474,29 @@ namespace mSim
 
                 if (float.TryParse(txt, out float value))
                 {
+
                     txb.ForeColor = Color.Black;
                     switch (txb.Name)
                     {
                         case "txb_x0":
                             Obj_x0 = value;
+                            
                             break;
                         case "txb_y0":
                             Obj_y0 = value;
+
+
                             break;
+
                         case "txb_v0x":
                             Obj_v0x = value;
                             Obj_v0 = (float)Math.Sqrt((double)(Obj_v0x * Obj_v0x + Obj_v0y * Obj_v0y));
                             Obj_alpha0 = (float)(Math.Atan2((double)Obj_v0y, (double)Obj_v0x) * 180 / Math.PI);
                             txb_v0.Text = Obj_v0.ToString();
                             txb_alpha0.Text = Obj_alpha0.ToString();
+
+                            
+
                             break;
                         case "txb_v0y":
                             Obj_v0y = value;
@@ -477,6 +504,8 @@ namespace mSim
                             Obj_alpha0 = (float)(Math.Atan2((double)Obj_v0y, (double)Obj_v0x) * 180 / Math.PI);
                             txb_v0.Text = Obj_v0.ToString();
                             txb_alpha0.Text = Obj_alpha0.ToString();
+
+                            
                             break;
                         case "txb_v0":
                             Obj_v0 = value;
@@ -492,10 +521,16 @@ namespace mSim
                             Obj_v0y = Obj_v0 * (float)Math.Sin(Obj_alpha0 * Math.PI / 180);
                             txb_v0x.Text = Obj_v0x.ToString();
                             txb_v0y.Text = Obj_v0y.ToString();
+                            
                             break;
+
                         case "txb_ax":
+                            Obj_ax = value;
+
                             break;
                         case "txb_ay":
+                            Obj_ay = value;
+
                             break;
 
                         default:
@@ -511,6 +546,25 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
+
+        private void PhuongTrinh()
+        {
+            //x(t)
+            string d2 = Obj_v0x == 0 ? "" : ((Obj_v0x > 0 ? " + " : " ") + Obj_v0x.ToString("0.00") + ".t ");
+            string d3 = Obj_ax == 0 ? "" : ((Obj_ax > 0 ? " + " : " ") + (Obj_ax / 2).ToString("0.00") + ".t2");
+            rtb_xt.Text = "x(t) = " + Obj_x0.ToString("0.00") + d2 + d3;
+            if (d3.Length >= 2) rtb_xt.Select(rtb_xt.Text.Length - 1, 1);
+            rtb_xt.SelectionFont = myFont_script;
+            rtb_xt.SelectionCharOffset = 5;
+
+            //y(t)
+            string h2 = Obj_v0y == 0 ? "" : ((Obj_v0y > 0 ? " +" : " ") + Obj_v0y.ToString("0.00") + ".t ");
+            string h3 = Obj_ay == 0 ? "" : (Obj_ay > 0 ? " +" : " ") + (Obj_ay / 2).ToString("0.00") + ".t2";
+            rtb_yt.Text = "y(t) = " + Obj_y0.ToString("0.00") + h2 + h3;
+            if (h3.Length >= 2) rtb_yt.Select(rtb_yt.Text.Length - 1, 1);
+            rtb_xt.SelectionFont = myFont_script;
+            rtb_yt.SelectionCharOffset = 5;
+        }
 
         private void rtb_x0_Enter(object sender, EventArgs e)
         {
@@ -575,7 +629,7 @@ namespace mSim
         {
             MovingLineLayer?.Dispose();
             MovingLineLayer = AxisLayer.Clone() as Bitmap;
-            DrawObject(MovingLineLayer, Obj_x0, Obj_y0);
+            DrawObject(MovingLineLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
         }
 
         private void DrawAxis(Bitmap bitmap, int _x0 = 0, int _y0 = 0, string xlabel = "x", string ylabel = "y")
@@ -677,7 +731,7 @@ namespace mSim
                         string va;
                         va = ((float)(((bitmap.Height - _y0) - i) / _stepY) * _stepValueY).ToString();
                         //g.DrawString(va, myFont_Intervals, Brushes.Black, i - 9, bitmap.Height - _y0 + 4);
-                        g.DrawString(va, myFont_Intervals, Brushes.AliceBlue, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
+                        g.DrawString(va, myFont_Intervals, Brushes.DarkBlue, _x0 - (int)(g.MeasureString(va, myFont_Intervals).Width) - 4,
                             i - (int)(g.MeasureString(va, myFont_Intervals).Height / 2));
                         g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
                     }
@@ -728,14 +782,12 @@ namespace mSim
             return p;
         }
 
-
+        int baseLengthV = 40;
+        float baseValueV = 40;
 
         private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showLines, float vx, float vy)
         {
             Point p = Convert_XY2Point(bitmap, obj_x, obj_y, x0, y0);
-
-            int length_vx = vx/Obj_v0x*50;
-            int length_vy = vy/Obj_v0y*50;
 
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
@@ -751,13 +803,21 @@ namespace mSim
             }
 
             Pen obj_p = new Pen(Brushes.Black, 2F);
-            g.FillEllipse(Brushes.DarkRed, x - 4, y - 4, 8, 8);
-            g.DrawEllipse(obj_p, x - 4, y - 4, 8, 8);
+            g.FillEllipse(Brushes.DarkRed, p.X - 4, p.Y - 4, 8, 8);
+            g.DrawEllipse(obj_p, p.X - 4, p.Y - 4, 8, 8);
 
             if (showSpeeds)
             {
+                baseValueV = Math.Max(Math.Abs(vx), Math.Abs(vy));
+                if (baseValueV != 0)
+                {
+                    int length_vx = (int)(Math.Abs(vx) / baseValueV* baseLengthV);
+                    int length_vy = (int)(Math.Abs(vy) / baseValueV*baseLengthV);
+                }
+
+
+
                 obj_p.Width = 1F;
-                g.DrawLine(obj_p, x, y, stepValueX)
             }
 
 
@@ -840,7 +900,6 @@ namespace mSim
             graphBox.BackgroundImage = MovingLineLayer;
         }
 
-
-
+        
     }
 }
