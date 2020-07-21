@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
@@ -256,23 +257,35 @@ namespace mSim
         {
             x0 = BASE_X0;
             y0 = BASE_Y0;
+            LoadSettings();
 
             BackgroundLayer = new Bitmap(graphBox.Width, graphBox.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
             Graphics g = Graphics.FromImage(BackgroundLayer);
             g.Clear(Color.WhiteSmoke);
             g.Dispose();
 
+
             IntervalsLayer = BackgroundLayer.Clone() as Bitmap;
             DrawIntervals(IntervalsLayer, x0, y0, stepX, stepY, stepValueX, stepValueY, showGrid, showCoordinates);
+            
             AxisLayer = IntervalsLayer.Clone() as Bitmap;
             DrawAxis(AxisLayer, x0, y0);
 
-            LoadSettings();
 
             MovingLineLayer = AxisLayer.Clone() as Bitmap;
-            DrawObject(MovingLineLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
+            DrawMovingLine(MovingLineLayer);
 
-            graphBox.BackgroundImage = MovingLineLayer;
+            MovingObjectLayer = MovingLineLayer.Clone() as Bitmap;
+            DrawObject(MovingObjectLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
+
+            graphBox.BackgroundImage = MovingObjectLayer;
+
+
+            ckbCoordinates.CheckedChanged += ckbCoordinates_CheckedChanged;
+            ckbGid.CheckedChanged += ckbGid_CheckedChanged;
+            ckbHighQuality.CheckedChanged += ckbHighQuality_CheckedChanged;
+            ckbTrail.CheckedChanged += ckbTrail_CheckedChanged;
+            ckbSpeed.CheckedChanged += ckbSpeed_CheckedChanged;
 
             this.Obj_x0Changed += DrawForm_Obj_x0Changed;
             this.Obj_y0Changed += DrawForm_Obj_y0Changed;
@@ -282,6 +295,14 @@ namespace mSim
             this.Obj_ayChanged += DrawForm_Obj_ayChanged;
             this.IsRunningChanged += DrawForm_IsRunningChanged;
 
+            txb_x0.TextChanged += txbs_TextChanged;
+            txb_y0.TextChanged += txbs_TextChanged;
+            txb_v0x.TextChanged += txbs_TextChanged;
+            txb_v0y.TextChanged += txbs_TextChanged;
+            txb_ax.TextChanged += txbs_TextChanged;
+            txb_ay.TextChanged += txbs_TextChanged;
+            txb_v0.TextChanged += txbs_TextChanged;
+            txb_alpha0.TextChanged += txbs_TextChanged;
 
             graphBox.MouseWheel += GraphBox_MouseWheel;
 
@@ -289,27 +310,35 @@ namespace mSim
 
         private void DrawForm_Obj_ayChanged(object sender, float e)
         {
-
             GenCoordinatesEquation();
             GenVelocityEquation();
+
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void DrawForm_Obj_axChanged(object sender, float e)
         {
             GenCoordinatesEquation();
             GenVelocityEquation();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void DrawForm_Obj_v0yChanged(object sender, float e)
         {
             GenCoordinatesEquation();
             GenVelocityEquation();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void DrawForm_Obj_v0xChanged(object sender, float e)
         {
             GenCoordinatesEquation();
             GenVelocityEquation();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void DrawForm_IsRunningChanged(object sender, bool e)
@@ -321,35 +350,38 @@ namespace mSim
         {
             ReZoomX(e);
             GenCoordinatesEquation();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
 
         private void DrawForm_Obj_y0Changed(object sender, float e)
         {
             ReZoomY(e);
             GenCoordinatesEquation();
+            Redraw_MovingLine_Layer();
+            graphBox.BackgroundImage = MovingLineLayer;
         }
-
 
         private void GenCoordinatesEquation()
         {
             string x_0 = Obj_x0 == 0 ? "" : Obj_x0.ToString();
             string x_1 = Obj_v0x == 0 ? "" : ((Obj_v0x < 0 ? "" : "+") + Obj_v0x.ToString() + ".t");
-            string x_2 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + (Obj_ax / 2).ToString()  + ".t2");
+            string x_2 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + (Obj_ax / 2).ToString() + ".t2");
 
             rtb_xt.Invoke((Action)(() =>
             {
                 rtb_xt.Text = "x(t) = " + x_0 + x_1 + x_2;
-                if (x_2.Length >0)
+                if (x_2.Length > 0)
                 {
                     rtb_xt.Select(rtb_xt.Text.Length - 1, 1);
                     rtb_xt.SelectionFont = myFont_script;
-                    rtb_xt.SelectionCharOffset = 5; 
+                    rtb_xt.SelectionCharOffset = 5;
                 }
             }));
 
             string y_0 = Obj_y0 == 0 ? "" : Obj_y0.ToString();
-            string y_1 = Obj_v0y == 0 ? "" : ((Obj_v0y < 0 ? "" : "+") + Obj_v0y.ToString()  + ".t");
-            string y_2 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + (Obj_ay / 2).ToString()  + ".t2");
+            string y_1 = Obj_v0y == 0 ? "" : ((Obj_v0y < 0 ? "" : "+") + Obj_v0y.ToString() + ".t");
+            string y_2 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + (Obj_ay / 2).ToString() + ".t2");
 
             rtb_yt.Invoke((Action)(() =>
             {
@@ -366,7 +398,7 @@ namespace mSim
         private void GenVelocityEquation()
         {
             string vx_0 = Obj_v0x == 0 ? "" : (Obj_v0x.ToString());
-            string vx_1 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + Obj_ax.ToString()  + ".t");
+            string vx_1 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + Obj_ax.ToString() + ".t");
             rtb_vx.Invoke((Action)(() =>
             {
                 rtb_vx.Text = "vx(t) = " + vx_0 + vx_1;
@@ -376,7 +408,7 @@ namespace mSim
             }));
 
             string vy_0 = Obj_v0y == 0 ? "" : (Obj_v0y.ToString());
-            string vy_1 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + Obj_ay.ToString() +  ".t");
+            string vy_1 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + Obj_ay.ToString() + ".t");
             rtb_vy.Invoke((Action)(() =>
             {
                 rtb_vy.Text = "vy(t) = " + vy_0 + vy_1;
@@ -437,9 +469,17 @@ namespace mSim
 
                 ReDraw_Background_Intervals_Axis();
                 Redraw_MovingLine_Layer();
-                graphBox.BackgroundImage = MovingLineLayer;
+                Redraw_MovingObject_Layer();
+                graphBox.BackgroundImage = MovingObjectLayer;
                 //graphBox.Refresh();
             }
+        }
+
+        private void Redraw_MovingObject_Layer()
+        {
+            MovingObjectLayer?.Dispose();
+            MovingObjectLayer = MovingLineLayer.Clone() as Bitmap;
+            DrawObject(MovingObjectLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
         }
 
         private void graphBox_MouseUp(object sender, MouseEventArgs e)
@@ -464,7 +504,9 @@ namespace mSim
                 g.Clear(Color.WhiteSmoke);
                 g.Dispose();
                 ReDraw_Background_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
+                Redraw_MovingLine_Layer();
+                Redraw_MovingObject_Layer();
+                graphBox.BackgroundImage = MovingObjectLayer;
             }
         }
 
@@ -681,7 +723,7 @@ namespace mSim
         {
             MovingLineLayer?.Dispose();
             MovingLineLayer = AxisLayer.Clone() as Bitmap;
-            DrawObject(MovingLineLayer, Obj_x0, Obj_y0, x0, y0, showSpeeds, showTrails, Obj_v0x, Obj_v0y);
+            DrawMovingLine(MovingLineLayer);
         }
 
         private void DrawAxis(Bitmap bitmap, int _x0 = 0, int _y0 = 0, string xlabel = "x", string ylabel = "y")
@@ -826,26 +868,162 @@ namespace mSim
             g.Dispose();
         }
 
-        Point Convert_XY2Point(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0)
+        Point Convert_XY2Point(int heigth, float obj_x, float obj_y, int x0, int y0)
         {
-            int point_x = x0 + (int)(obj_x / stepValueX * stepX);
-            int point_y = bitmap.Height - (int)(obj_y / stepValueY * stepY) - y0;
+            int point_x = x0 + (int)(Math.Round(obj_x,2) * stepX / stepValueX);
+            int point_y = heigth - ((int)(Math.Round(obj_y,2) * stepY / stepValueY) + y0);
             Point p = new Point(point_x, point_y);
             return p;
         }
 
-        int baseLengthV = 40;
-        float baseValueV = 40;
 
-        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showLines, float vx, float vy)
+        PointF Convert_Point2XY(int px, int py, int x0, int y0)
         {
-            Point p = Convert_XY2Point(bitmap, obj_x, obj_y, x0, y0);
+            float x = ((float)(px - x0)) / stepX * stepValueX;
+            float y = ((float)(y0 - py)) / stepY * stepValueY;
+            return new PointF(x, y);
+        }
 
+        float timeStep = 0.01F;
+        float Gen_tRange(int width, int height, bool minValue)
+        {
+            float t = 0;
+
+            float x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
+            float y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
+            Point p = Convert_XY2Point(height, x, y, x0, y0);
+            if (minValue)
+            {
+                while (p.X > 0)
+                {
+                    t = t - timeStep;
+                    x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
+                    y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
+                    p = Convert_XY2Point(height, x, y, x0, y0);
+                }
+            }
+            else
+            {
+                while (p.X < width)
+                {
+                    t = t + timeStep;
+                    x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
+                    y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
+                    p = Convert_XY2Point(height, x, y, x0, y0);
+                }
+            }
+            return t;
+        }
+        PointF[] Gen_XYCoordinates()
+        {
+            float tmin = Gen_tRange(graphBox.Width, graphBox.Height, true);
+            float tmax = Gen_tRange(graphBox.Width, graphBox.Height, false);
+            int count = (int)((tmax - tmin) / timeStep) + 1;
+            PointF[] xy_range = new PointF[count];
+            
+            for (int i = 0; i <count; i++)
+            {
+                float t = tmin + i * timeStep;
+                float x = Obj_x0 + Obj_v0x * t + Obj_ax * t * t / 2;
+                float y = Obj_y0 + Obj_v0y * t + Obj_ay * t * t / 2;
+                xy_range[i] = new PointF(x, y);
+                //if (i==611)
+                //{
+                //    int j = (int)((t - tmin) * 100);
+                //}
+            }
+
+            return xy_range;
+        }
+        Point[] Gen_MovingLine()
+        {
+            var pf = Gen_XYCoordinates();
+            //Point[] points = new Point[pf.Count()];
+            List<Point> points = new List<Point>();
+            for (int i = 0; i <= pf.Count() - 1; i++)
+            {
+                Point p = Convert_XY2Point(graphBox.Height, pf[i].X, pf[i].Y, x0, y0);
+                if (i == 0)
+                {
+                    points.Add(p);
+                }
+                else
+                {
+                    if (points[points.Count - 1].X != p.X && points[points.Count - 1].Y != p.Y)
+                    {
+                        points.Add(p);
+                    }
+                    //if (points.Count == 394)
+                    //{
+                    //    int j = i;
+                    //}
+                }
+
+            }
+
+            //for (int i = points.Count - 1; i >= 0; i--)
+            //{
+            //    if (points[i].Y < 0 || points[i].Y > graphBox.Height)
+            //    {
+            //        points.Remove(points[i]);
+            //    }
+            //}
+
+            return points.ToArray();
+        }
+
+
+        private void DrawMovingLine(Bitmap bitmap)
+        {
             Graphics g = Graphics.FromImage(bitmap);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Low;
             g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.None;
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
+
+            if (highQuality)
+            {
+                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            }
+
+
+            Pen p = new Pen(Color.DarkGreen, 2F);
+            p.DashStyle = DashStyle.Dash;
+            Point[] points = Gen_MovingLine();
+            //points = new Point[16];
+
+
+            //if (points.Count() > 2)
+            //{
+            //    for (int i = 0; i < points.Length - 120; i++)
+            //    {
+            //        g.DrawLine(p, points[i], points[i + 1]);
+            //        if (i > 100 && points[i].X <= 100)
+            //        {
+            //            int j = i;
+            //        }
+            //    }
+            //}
+            g.DrawLines(p, points);
+
+            p.Dispose();
+            g.Dispose();
+        }
+
+        int baseLengthV = 40;
+        float baseValueV = 40;
+        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showLines, float vx, float vy)
+        {
+            Point p = Convert_XY2Point(bitmap.Width, obj_x, obj_y, x0, y0);
+
+            Graphics g = Graphics.FromImage(bitmap);
+            g.SmoothingMode = SmoothingMode.None;
+            g.InterpolationMode = InterpolationMode.Low;
+            g.PixelOffsetMode = PixelOffsetMode.None;
+            g.CompositingQuality = CompositingQuality.HighSpeed;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
             if (highQuality)
             {
@@ -866,8 +1044,6 @@ namespace mSim
                     int length_vx = (int)(Math.Abs(vx) / baseValueV * baseLengthV);
                     int length_vy = (int)(Math.Abs(vy) / baseValueV * baseLengthV);
                 }
-
-
 
                 obj_p.Width = 1F;
             }
@@ -951,7 +1127,5 @@ namespace mSim
             Redraw_MovingLine_Layer();
             graphBox.BackgroundImage = MovingLineLayer;
         }
-
-
     }
 }

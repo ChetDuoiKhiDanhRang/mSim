@@ -109,7 +109,6 @@
             this.ckbHighQuality.TabIndex = 1;
             this.ckbHighQuality.Text = "Khử \"răng cưa\"";
             this.ckbHighQuality.UseVisualStyleBackColor = true;
-            this.ckbHighQuality.CheckedChanged += new System.EventHandler(this.ckbHighQuality_CheckedChanged);
             // 
             // ckbSpeed
             // 
@@ -122,7 +121,6 @@
             this.ckbSpeed.TabIndex = 0;
             this.ckbSpeed.Text = "Vận tốc";
             this.ckbSpeed.UseVisualStyleBackColor = true;
-            this.ckbSpeed.CheckedChanged += new System.EventHandler(this.ckbSpeed_CheckedChanged);
             // 
             // ckbTrail
             // 
@@ -135,7 +133,6 @@
             this.ckbTrail.TabIndex = 0;
             this.ckbTrail.Text = "Đường dóng";
             this.ckbTrail.UseVisualStyleBackColor = true;
-            this.ckbTrail.CheckedChanged += new System.EventHandler(this.ckbTrail_CheckedChanged);
             // 
             // ckbCoordinates
             // 
@@ -147,7 +144,6 @@
             this.ckbCoordinates.TabIndex = 0;
             this.ckbCoordinates.Text = "Tọa độ";
             this.ckbCoordinates.UseVisualStyleBackColor = true;
-            this.ckbCoordinates.CheckedChanged += new System.EventHandler(this.ckbCoordinates_CheckedChanged);
             // 
             // ckbGid
             // 
@@ -201,7 +197,6 @@
             this.txb_alpha0.TabIndex = 5;
             this.txb_alpha0.Text = "45";
             this.txb_alpha0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_alpha0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_v0y
             // 
@@ -213,7 +208,6 @@
             this.txb_v0y.TabIndex = 3;
             this.txb_v0y.Text = "100";
             this.txb_v0y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_v0y.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_v0
             // 
@@ -225,7 +219,6 @@
             this.txb_v0.TabIndex = 4;
             this.txb_v0.Text = "10";
             this.txb_v0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_v0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_ay
             // 
@@ -237,7 +230,6 @@
             this.txb_ay.TabIndex = 7;
             this.txb_ay.Text = "0";
             this.txb_ay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_ay.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_y0
             // 
@@ -249,7 +241,6 @@
             this.txb_y0.TabIndex = 1;
             this.txb_y0.Text = "0";
             this.txb_y0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_y0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_v0x
             // 
@@ -261,7 +252,6 @@
             this.txb_v0x.TabIndex = 2;
             this.txb_v0x.Text = "100";
             this.txb_v0x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_v0x.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_ax
             // 
@@ -273,7 +263,6 @@
             this.txb_ax.TabIndex = 6;
             this.txb_ax.Text = "-9,80";
             this.txb_ax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_ax.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // txb_x0
             // 
@@ -285,7 +274,6 @@
             this.txb_x0.TabIndex = 0;
             this.txb_x0.Text = "0";
             this.txb_x0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txb_x0.TextChanged += new System.EventHandler(this.txbs_TextChanged);
             // 
             // radioButton1
             // 
