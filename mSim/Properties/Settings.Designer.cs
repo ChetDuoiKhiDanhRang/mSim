@@ -190,5 +190,53 @@ namespace mSim.Properties {
                 this["last_ay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public int last_stepX {
+            get {
+                return ((int)(this["last_stepX"]));
+            }
+            set {
+                this["last_stepX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        public int last_stepY {
+            get {
+                return ((int)(this["last_stepY"]));
+            }
+            set {
+                this["last_stepY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public float last_stepValueX {
+            get {
+                return ((float)(this["last_stepValueX"]));
+            }
+            set {
+                this["last_stepValueX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public float last_stepValueY {
+            get {
+                return ((float)(this["last_stepValueY"]));
+            }
+            set {
+                this["last_stepValueY"] = value;
+            }
+        }
     }
 }

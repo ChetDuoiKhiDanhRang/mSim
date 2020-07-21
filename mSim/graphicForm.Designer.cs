@@ -54,7 +54,7 @@
             this.rtb_v0x = new System.Windows.Forms.RichTextBox();
             this.rtb_y0 = new System.Windows.Forms.RichTextBox();
             this.rtb_x0 = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.rtb_vx = new System.Windows.Forms.RichTextBox();
@@ -72,16 +72,13 @@
             this.graphBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.graphBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graphBox.Location = new System.Drawing.Point(12, 12);
             this.graphBox.Name = "graphBox";
             this.graphBox.Size = new System.Drawing.Size(984, 530);
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
-            this.graphBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseDown);
-            this.graphBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseMove);
-            this.graphBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.graphBox_MouseUp);
-            this.graphBox.Resize += new System.EventHandler(this.graphBox_SizeChanged);
             // 
             // groupBox1
             // 
@@ -155,7 +152,6 @@
             this.ckbGid.TabIndex = 0;
             this.ckbGid.Text = "Lưới";
             this.ckbGid.UseVisualStyleBackColor = true;
-            this.ckbGid.CheckedChanged += new System.EventHandler(this.ckbGid_CheckedChanged);
             // 
             // grb_Params0
             // 
@@ -439,7 +435,6 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.rtb_vx);
@@ -450,6 +445,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(313, 169);
             this.panel1.TabIndex = 3;
+            this.panel1.TabStop = false;
             // 
             // label1
             // 
@@ -477,8 +473,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_vx.Font = new System.Drawing.Font("Cambria", 10F);
+            this.rtb_vx.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
             this.rtb_vx.Location = new System.Drawing.Point(6, 86);
+            this.rtb_vx.Multiline = false;
             this.rtb_vx.Name = "rtb_vx";
             this.rtb_vx.ReadOnly = true;
             this.rtb_vx.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -492,8 +489,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_vy.Font = new System.Drawing.Font("Cambria", 10F);
+            this.rtb_vy.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
             this.rtb_vy.Location = new System.Drawing.Point(6, 106);
+            this.rtb_vy.Multiline = false;
             this.rtb_vy.Name = "rtb_vy";
             this.rtb_vy.ReadOnly = true;
             this.rtb_vy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -507,8 +505,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_xt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_xt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_xt.Font = new System.Drawing.Font("Cambria", 10F);
+            this.rtb_xt.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
             this.rtb_xt.Location = new System.Drawing.Point(6, 24);
+            this.rtb_xt.Multiline = false;
             this.rtb_xt.Name = "rtb_xt";
             this.rtb_xt.ReadOnly = true;
             this.rtb_xt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -522,8 +521,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_yt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_yt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_yt.Font = new System.Drawing.Font("Cambria", 10F);
+            this.rtb_yt.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
             this.rtb_yt.Location = new System.Drawing.Point(6, 44);
+            this.rtb_yt.Multiline = false;
             this.rtb_yt.Name = "rtb_yt";
             this.rtb_yt.ReadOnly = true;
             this.rtb_yt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -584,7 +584,7 @@
         private System.Windows.Forms.TextBox txb_v0;
         private System.Windows.Forms.TextBox txb_ay;
         private System.Windows.Forms.TextBox txb_ax;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox panel1;
         private System.Windows.Forms.RichTextBox rtb_yt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox rtb_xt;

@@ -44,5 +44,17 @@
     <Setting Name="last_ay" Type="System.Single" Scope="User">
       <Value Profile="(Default)">-9.8</Value>
     </Setting>
+    <Setting Name="last_stepX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="last_stepY" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="last_stepValueX" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="last_stepValueY" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
