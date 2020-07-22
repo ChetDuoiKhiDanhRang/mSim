@@ -62,17 +62,18 @@
             this.rtb_xt = new System.Windows.Forms.RichTextBox();
             this.rtb_yt = new System.Windows.Forms.RichTextBox();
             this.grbStatus = new System.Windows.Forms.GroupBox();
+            this.rtb_cur_vy = new System.Windows.Forms.RichTextBox();
+            this.rtb_cur_vx = new System.Windows.Forms.RichTextBox();
+            this.rtb_cur_y = new System.Windows.Forms.RichTextBox();
+            this.rtb_cur_x = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.picInfo = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.picCapture = new System.Windows.Forms.PictureBox();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.rtb_cur_x = new System.Windows.Forms.RichTextBox();
-            this.rtb_cur_y = new System.Windows.Forms.RichTextBox();
-            this.rtb_cur_vx = new System.Windows.Forms.RichTextBox();
-            this.rtb_cur_vy = new System.Windows.Forms.RichTextBox();
             this.trb = new System.Windows.Forms.TrackBar();
+            this.btnLanguage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
@@ -547,86 +548,19 @@
             this.grbStatus.TabStop = false;
             this.grbStatus.Text = "t = ...";
             // 
-            // timer1
+            // rtb_cur_vy
             // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // picInfo
-            // 
-            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picInfo.Location = new System.Drawing.Point(672, 391);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(28, 28);
-            this.picInfo.TabIndex = 4;
-            this.picInfo.TabStop = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "capture.png");
-            this.imageList1.Images.SetKeyName(1, "pause.png");
-            this.imageList1.Images.SetKeyName(2, "play.png");
-            this.imageList1.Images.SetKeyName(3, "reset.png");
-            // 
-            // picCapture
-            // 
-            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picCapture.Location = new System.Drawing.Point(623, 391);
-            this.picCapture.Name = "picCapture";
-            this.picCapture.Size = new System.Drawing.Size(28, 28);
-            this.picCapture.TabIndex = 4;
-            this.picCapture.TabStop = false;
-            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
-            // 
-            // picReset
-            // 
-            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picReset.Location = new System.Drawing.Point(574, 391);
-            this.picReset.Name = "picReset";
-            this.picReset.Size = new System.Drawing.Size(28, 28);
-            this.picReset.TabIndex = 4;
-            this.picReset.TabStop = false;
-            this.picReset.Click += new System.EventHandler(this.picReset_Click);
-            // 
-            // picPlay
-            // 
-            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picPlay.Location = new System.Drawing.Point(525, 391);
-            this.picPlay.Name = "picPlay";
-            this.picPlay.Size = new System.Drawing.Size(28, 28);
-            this.picPlay.TabIndex = 4;
-            this.picPlay.TabStop = false;
-            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
-            // 
-            // rtb_cur_x
-            // 
-            this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_x.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
-            this.rtb_cur_x.Location = new System.Drawing.Point(14, 17);
-            this.rtb_cur_x.Multiline = false;
-            this.rtb_cur_x.Name = "rtb_cur_x";
-            this.rtb_cur_x.ReadOnly = true;
-            this.rtb_cur_x.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_x.Size = new System.Drawing.Size(107, 20);
-            this.rtb_cur_x.TabIndex = 0;
-            this.rtb_cur_x.Text = "...";
-            // 
-            // rtb_cur_y
-            // 
-            this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_y.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
-            this.rtb_cur_y.Location = new System.Drawing.Point(14, 37);
-            this.rtb_cur_y.Multiline = false;
-            this.rtb_cur_y.Name = "rtb_cur_y";
-            this.rtb_cur_y.ReadOnly = true;
-            this.rtb_cur_y.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_y.Size = new System.Drawing.Size(107, 20);
-            this.rtb_cur_y.TabIndex = 0;
-            this.rtb_cur_y.Text = "...";
+            this.rtb_cur_vy.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtb_cur_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_cur_vy.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_vy.Location = new System.Drawing.Point(127, 37);
+            this.rtb_cur_vy.Multiline = false;
+            this.rtb_cur_vy.Name = "rtb_cur_vy";
+            this.rtb_cur_vy.ReadOnly = true;
+            this.rtb_cur_vy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtb_cur_vy.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_vy.TabIndex = 0;
+            this.rtb_cur_vy.Text = "...";
             // 
             // rtb_cur_vx
             // 
@@ -642,32 +576,118 @@
             this.rtb_cur_vx.TabIndex = 0;
             this.rtb_cur_vx.Text = "...";
             // 
-            // rtb_cur_vy
+            // rtb_cur_y
             // 
-            this.rtb_cur_vy.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtb_cur_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_vy.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
-            this.rtb_cur_vy.Location = new System.Drawing.Point(127, 37);
-            this.rtb_cur_vy.Multiline = false;
-            this.rtb_cur_vy.Name = "rtb_cur_vy";
-            this.rtb_cur_vy.ReadOnly = true;
-            this.rtb_cur_vy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_vy.Size = new System.Drawing.Size(107, 20);
-            this.rtb_cur_vy.TabIndex = 0;
-            this.rtb_cur_vy.Text = "...";
+            this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_cur_y.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_y.Location = new System.Drawing.Point(14, 37);
+            this.rtb_cur_y.Multiline = false;
+            this.rtb_cur_y.Name = "rtb_cur_y";
+            this.rtb_cur_y.ReadOnly = true;
+            this.rtb_cur_y.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtb_cur_y.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_y.TabIndex = 0;
+            this.rtb_cur_y.Text = "...";
+            // 
+            // rtb_cur_x
+            // 
+            this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_cur_x.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_x.Location = new System.Drawing.Point(14, 17);
+            this.rtb_cur_x.Multiline = false;
+            this.rtb_cur_x.Name = "rtb_cur_x";
+            this.rtb_cur_x.ReadOnly = true;
+            this.rtb_cur_x.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtb_cur_x.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_x.TabIndex = 0;
+            this.rtb_cur_x.Text = "...";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // picInfo
+            // 
+            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picInfo.Location = new System.Drawing.Point(660, 391);
+            this.picInfo.Name = "picInfo";
+            this.picInfo.Size = new System.Drawing.Size(28, 28);
+            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picInfo.TabIndex = 4;
+            this.picInfo.TabStop = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "capture.png");
+            this.imageList1.Images.SetKeyName(1, "pause.png");
+            this.imageList1.Images.SetKeyName(2, "play.png");
+            this.imageList1.Images.SetKeyName(3, "reset.png");
+            this.imageList1.Images.SetKeyName(4, "about.png");
+            // 
+            // picCapture
+            // 
+            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picCapture.Location = new System.Drawing.Point(615, 391);
+            this.picCapture.Name = "picCapture";
+            this.picCapture.Size = new System.Drawing.Size(28, 28);
+            this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picCapture.TabIndex = 4;
+            this.picCapture.TabStop = false;
+            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
+            // 
+            // picReset
+            // 
+            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picReset.Location = new System.Drawing.Point(570, 391);
+            this.picReset.Name = "picReset";
+            this.picReset.Size = new System.Drawing.Size(28, 28);
+            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picReset.TabIndex = 4;
+            this.picReset.TabStop = false;
+            this.picReset.Click += new System.EventHandler(this.picReset_Click);
+            // 
+            // picPlay
+            // 
+            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picPlay.Location = new System.Drawing.Point(525, 391);
+            this.picPlay.Name = "picPlay";
+            this.picPlay.Size = new System.Drawing.Size(28, 28);
+            this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picPlay.TabIndex = 4;
+            this.picPlay.TabStop = false;
+            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
             // 
             // trb
             // 
             this.trb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.trb.LargeChange = 10;
+            this.trb.LargeChange = 100;
             this.trb.Location = new System.Drawing.Point(519, 427);
-            this.trb.Maximum = 50;
+            this.trb.Maximum = 510;
+            this.trb.Minimum = 10;
             this.trb.Name = "trb";
             this.trb.Size = new System.Drawing.Size(253, 45);
             this.trb.SmallChange = 5;
             this.trb.TabIndex = 5;
+            this.trb.TickFrequency = 20;
             this.trb.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trb.Value = 25;
+            this.trb.Value = 10;
+            this.trb.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
+            // 
+            // btnLanguage
+            // 
+            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLanguage.Location = new System.Drawing.Point(708, 391);
+            this.btnLanguage.Name = "btnLanguage";
+            this.btnLanguage.Size = new System.Drawing.Size(64, 28);
+            this.btnLanguage.TabIndex = 6;
+            this.btnLanguage.Text = "VI ↔ EN";
+            this.btnLanguage.UseVisualStyleBackColor = true;
             // 
             // drawForm
             // 
@@ -675,6 +695,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnLanguage);
             this.Controls.Add(this.trb);
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picReset);
@@ -685,11 +706,14 @@
             this.Controls.Add(this.grb_Params0);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.graphBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "drawForm";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.drawForm_FormClosed);
             this.Shown += new System.EventHandler(this.drawForm_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -752,6 +776,7 @@
         private System.Windows.Forms.RichTextBox rtb_cur_vx;
         private System.Windows.Forms.RichTextBox rtb_cur_y;
         private System.Windows.Forms.TrackBar trb;
+        private System.Windows.Forms.Button btnLanguage;
     }
 }
 
