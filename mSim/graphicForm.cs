@@ -461,6 +461,100 @@ namespace mSim
             rtb_v0.Enabled = rtb_alpha0.Enabled = txb_v0.Enabled = txb_alpha0.Enabled = !XYSpeedMode;
         }
 
+        private void drawForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.P))
+            {
+                picPlay_Click(null, null);
+                e.Handled = true;
+
+            }
+            else if (e.KeyData == (Keys.Control | Keys.R))
+            {
+                picReset_Click(null, null);
+                e.Handled = true;
+
+            }
+            else if (e.KeyData == (Keys.Control | Keys.S))
+            {
+                picCapture_Click(null, null);
+                e.Handled = true;
+
+            }
+            else if (isPaused && !IsRunning && e.KeyData == (Keys.Control | Keys.Left))
+            {
+                if ((frameindex + timeOffset) > 0)
+                {
+                    frameindex--;
+                    float t = tmin + (frameindex + timeOffset) * timeStep;
+                    Obj_x = obj_xy[frameindex + timeOffset].X;
+                    Obj_y = obj_xy[frameindex + timeOffset].Y;
+                    Obj_vx = obj_vx_values[frameindex + timeOffset];
+                    Obj_vy = obj_vy_values[frameindex + timeOffset];
+
+                    grbStatus.Text = "t = " + t.ToString("0.000");
+                    rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
+                    rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
+
+                    rtb_cur_vx.Invoke((Action)(() =>
+                    {
+                        rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
+                        rtb_cur_vx.Select(1, 1);
+                        rtb_cur_vx.SelectionFont = myFont_script;
+                        rtb_cur_vx.SelectionCharOffset = -5;
+                    }));
+
+                    rtb_cur_vy.Invoke((Action)(() =>
+                    {
+                        rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
+                        rtb_cur_vy.Select(1, 1);
+                        rtb_cur_vy.SelectionFont = myFont_script;
+                        rtb_cur_vy.SelectionCharOffset = -5;
+                    }));
+
+                    Redraw_Object();
+                    graphBox.BackgroundImage = MovingObjectLayer;
+                    e.Handled = true;
+
+                }
+            }
+            else if (isPaused && !IsRunning && e.KeyData == (Keys.Control | Keys.Right))
+            {
+                if (frameindex < timeOffset)
+                {
+                    frameindex++;
+                    float t = tmin + (frameindex + timeOffset) * timeStep;
+                    Obj_x = obj_xy[frameindex + timeOffset].X;
+                    Obj_y = obj_xy[frameindex + timeOffset].Y;
+                    Obj_vx = obj_vx_values[frameindex + timeOffset];
+                    Obj_vy = obj_vy_values[frameindex + timeOffset];
+
+                    grbStatus.Text = "t = " + t.ToString("0.000");
+                    rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
+                    rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
+
+                    rtb_cur_vx.Invoke((Action)(() =>
+                    {
+                        rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
+                        rtb_cur_vx.Select(1, 1);
+                        rtb_cur_vx.SelectionFont = myFont_script;
+                        rtb_cur_vx.SelectionCharOffset = -5;
+                    }));
+
+                    rtb_cur_vy.Invoke((Action)(() =>
+                    {
+                        rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
+                        rtb_cur_vy.Select(1, 1);
+                        rtb_cur_vy.SelectionFont = myFont_script;
+                        rtb_cur_vy.SelectionCharOffset = -5;
+                    }));
+
+                    Redraw_Object();
+                    graphBox.BackgroundImage = MovingObjectLayer;
+                    e.Handled = true;
+                }
+            }
+        }
 
         //CONTROLS EVENTS====================================================================================================================
         private void GraphBox_MouseWheel(object sender, MouseEventArgs e)
@@ -743,6 +837,121 @@ namespace mSim
             XYSpeedMode = ((RadioButton)sender).Checked;
         }
 
+        //---------------------------------------------------------------------------
+
+        int frameindex = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (frameindex + timeOffset >= obj_xy.Length - 1)
+            {
+                picPlay_Click(null, null);
+                return;
+            }
+
+            float t = tmin + (frameindex + timeOffset) * timeStep;
+            Obj_x = obj_xy[frameindex + timeOffset].X;
+            Obj_y = obj_xy[frameindex + timeOffset].Y;
+            Obj_vx = obj_vx_values[frameindex + timeOffset];
+            Obj_vy = obj_vy_values[frameindex + timeOffset];
+
+            grbStatus.Text = "t = " + t.ToString("0.000");
+            rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
+            rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
+
+            rtb_cur_vx.Invoke((Action)(() =>
+            {
+                rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
+                rtb_cur_vx.Select(1, 1);
+                rtb_cur_vx.SelectionFont = myFont_script;
+                rtb_cur_vx.SelectionCharOffset = -5;
+            }));
+
+            rtb_cur_vy.Invoke((Action)(() =>
+            {
+                rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
+                rtb_cur_vy.Select(1, 1);
+                rtb_cur_vy.SelectionFont = myFont_script;
+                rtb_cur_vy.SelectionCharOffset = -5;
+            }));
+
+            Redraw_Object();
+            graphBox.BackgroundImage = MovingObjectLayer;
+            frameindex += 1;
+            //if (frameindex + timeOffset >= obj_xy.Length - 1)
+            //{
+            //    timer1.Stop();
+            //}
+        }
+
+        bool isPaused = false;
+        private void picPlay_Click(object sender, EventArgs e)
+        {
+            if (IsRunning)
+            {
+                isPaused = true;
+            }
+            IsRunning = !IsRunning;
+            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
+        }
+
+        private void picReset_Click(object sender, EventArgs e)
+        {
+            grb_Params0.Enabled = true;
+            IsRunning = false;
+            isPaused = false;
+            frameindex = 0;
+            Obj_x = Obj_x0;
+            Obj_y = Obj_y0;
+            Obj_vx = Obj_v0x;
+            Obj_vy = Obj_v0y;
+            Redraw_Object();
+            graphBox.BackgroundImage = MovingObjectLayer;
+            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
+
+        }
+
+        private void picCapture_Click(object sender, EventArgs e)
+        {
+            IsRunning = false;
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                AddExtension = true,
+                SupportMultiDottedExtensions = true,
+                Title = "Save Image",
+                OverwritePrompt = true,
+                RestoreDirectory = true,
+                Filter = "PNG image (*.png)|*.png|JPEG image (*.jpg, *.jpeg)|*.jpeg, *.jpg|Bitmap image (*.bmp)|*.bmp",
+                FilterIndex = 2,
+                DefaultExt = ".jpg",
+            };
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                MovingObjectLayer.Save(sfd.FileName);
+            }
+        }
+        //---------------------------------------------------------------------------
+
+        string lang = "Vi";
+        int counti = 0;
+        private void picInfo_Click(object sender, EventArgs e)
+        {
+            counti++;
+            if (counti >= 15)
+            {
+                frmInfo frm = new frmInfo(lang);
+                frm.ShowDialog();
+            }
+        }
+
+        private void grb_Params0_EnabledChanged(object sender, EventArgs e)
+        {
+            //ckbGid.Enabled = ckbHighQuality.Enabled = ckbCoordinates.Enabled = grb_Params0.Enabled;
+        }
+
+        private void trb_ValueChanged(object sender, EventArgs e)
+        {
+            this.Invoke((Action)(() => { timer1.Interval = trb.Maximum - trb.Value + 10; }));
+        }
 
         //METHODS====================================================================================================================
         private void GenCoordinatesEquation()
@@ -759,6 +968,7 @@ namespace mSim
                     rtb_xt.Select(rtb_xt.Text.Length - 1, 1);
                     rtb_xt.SelectionFont = myFont_script;
                     rtb_xt.SelectionCharOffset = 5;
+                    rtb_xt.Select(0, 0);
                 }
             }));
 
@@ -774,6 +984,7 @@ namespace mSim
                     rtb_yt.Select(rtb_yt.Text.Length - 1, 1);
                     rtb_yt.SelectionFont = myFont_script;
                     rtb_yt.SelectionCharOffset = 5;
+                    rtb_yt.Select(0, 0);
                 }
             }));
         }
@@ -788,6 +999,7 @@ namespace mSim
                 rtb_vx.Select(1, 1);
                 rtb_vx.SelectionFont = myFont_script;
                 rtb_vx.SelectionCharOffset = -5;
+                rtb_vx.Select(0, 0);
             }));
 
             string vy_0 = Obj_v0y == 0 ? "" : (Obj_v0y.ToString());
@@ -798,6 +1010,7 @@ namespace mSim
                 rtb_vy.Select(1, 1);
                 rtb_vy.SelectionFont = myFont_script;
                 rtb_vy.SelectionCharOffset = -5;
+                rtb_vy.Select(0, 0);
             }));
         }
 
@@ -1260,207 +1473,8 @@ namespace mSim
             graphBox.BackgroundImage = MovingLineLayer;
         }
 
-        int frameindex = 0;
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (frameindex + timeOffset >= obj_xy.Length - 1)
-            {
-                picPlay_Click(null,null);
-                return;
-            }
 
-            float t = tmin + (frameindex + timeOffset) * timeStep;
-            Obj_x = obj_xy[frameindex + timeOffset].X;
-            Obj_y = obj_xy[frameindex + timeOffset].Y;
-            Obj_vx = obj_vx_values[frameindex + timeOffset];
-            Obj_vy = obj_vy_values[frameindex + timeOffset];
 
-            grbStatus.Text = "t = " + t.ToString("0.000");
-            rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
-            rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
-            
-            rtb_cur_vx.Invoke((Action)(() =>
-            {
-                rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
-                rtb_cur_vx.Select(1, 1);
-                rtb_cur_vx.SelectionFont = myFont_script;
-                rtb_cur_vx.SelectionCharOffset = -5;
-            }));
-            
-            rtb_cur_vy.Invoke((Action)(() =>
-            {
-                rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
-                rtb_cur_vy.Select(1, 1);
-                rtb_cur_vy.SelectionFont = myFont_script;
-                rtb_cur_vy.SelectionCharOffset = -5;
-            }));
 
-            Redraw_Object();
-            graphBox.BackgroundImage = MovingObjectLayer;
-            frameindex += 1;
-            //if (frameindex + timeOffset >= obj_xy.Length - 1)
-            //{
-            //    timer1.Stop();
-            //}
-        }
-
-        bool isPaused = false;
-        private void picPlay_Click(object sender, EventArgs e)
-        {
-            if (IsRunning)
-            {
-                isPaused = true;
-            }
-            IsRunning = !IsRunning;
-            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
-        }
-
-        private void picReset_Click(object sender, EventArgs e)
-        {
-            grb_Params0.Enabled = true;
-            IsRunning = false;
-            isPaused = false;
-            frameindex = 0;
-            Obj_x = Obj_x0;
-            Obj_y = Obj_y0;
-            Obj_vx = Obj_v0x;
-            Obj_vy = Obj_v0y;
-            Redraw_Object();
-            graphBox.BackgroundImage = MovingObjectLayer;
-            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
-
-        }
-
-        private void picCapture_Click(object sender, EventArgs e)
-        {
-            IsRunning = false;
-            SaveFileDialog sfd = new SaveFileDialog()
-            {
-                AddExtension = true,
-                SupportMultiDottedExtensions = true,
-                Title = "Save Image",
-                OverwritePrompt = true,
-                RestoreDirectory = true,
-                Filter = "PNG image (*.png)|*.png|JPEG image (*.jpg, *.jpeg)|*.jpeg, *.jpg|Bitmap image (*.bmp)|*.bmp",
-                FilterIndex = 2,
-                DefaultExt = ".jpg",
-            };
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                MovingObjectLayer.Save(sfd.FileName);
-            }
-        }
-
-        private void grb_Params0_EnabledChanged(object sender, EventArgs e)
-        {
-            //ckbGid.Enabled = ckbHighQuality.Enabled = ckbCoordinates.Enabled = grb_Params0.Enabled;
-        }
-
-        private void trb_ValueChanged(object sender, EventArgs e)
-        {
-            this.Invoke((Action)(() => { timer1.Interval = trb.Maximum - trb.Value+10; }));
-        }
-
-        private void drawForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == (Keys.Control|Keys.P))
-            {
-                picPlay_Click(null, null);
-                e.Handled = true;
-
-            }
-            else if (e.KeyData == (Keys.Control|Keys.R))
-            {
-                picReset_Click(null, null);
-                e.Handled = true;
-
-            }
-            else if (e.KeyData == (Keys.Control|Keys.S))
-            {
-                picCapture_Click(null, null);
-                e.Handled = true;
-
-            }
-            else if ( isPaused && !IsRunning && e.KeyData == (Keys.Control|Keys.Left))
-            {
-                if ((frameindex + timeOffset)>0)
-                {
-                    frameindex--;
-                    float t = tmin + (frameindex + timeOffset) * timeStep;
-                    Obj_x = obj_xy[frameindex + timeOffset].X;
-                    Obj_y = obj_xy[frameindex + timeOffset].Y;
-                    Obj_vx = obj_vx_values[frameindex + timeOffset];
-                    Obj_vy = obj_vy_values[frameindex + timeOffset];
-
-                    grbStatus.Text = "t = " + t.ToString("0.000");
-                    rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
-                    rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
-
-                    rtb_cur_vx.Invoke((Action)(() =>
-                    {
-                        rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
-                        rtb_cur_vx.Select(1, 1);
-                        rtb_cur_vx.SelectionFont = myFont_script;
-                        rtb_cur_vx.SelectionCharOffset = -5;
-                    }));
-
-                    rtb_cur_vy.Invoke((Action)(() =>
-                    {
-                        rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
-                        rtb_cur_vy.Select(1, 1);
-                        rtb_cur_vy.SelectionFont = myFont_script;
-                        rtb_cur_vy.SelectionCharOffset = -5;
-                    }));
-
-                    Redraw_Object();
-                    graphBox.BackgroundImage = MovingObjectLayer;
-                    e.Handled = true;
-
-                }
-            }
-            else if (isPaused && !IsRunning && e.KeyData == (Keys.Control|Keys.Right))
-            {
-                if (frameindex < timeOffset)
-                {
-                    frameindex++;
-                    float t = tmin + (frameindex + timeOffset) * timeStep;
-                    Obj_x = obj_xy[frameindex + timeOffset].X;
-                    Obj_y = obj_xy[frameindex + timeOffset].Y;
-                    Obj_vx = obj_vx_values[frameindex + timeOffset];
-                    Obj_vy = obj_vy_values[frameindex + timeOffset];
-
-                    grbStatus.Text = "t = " + t.ToString("0.000");
-                    rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
-                    rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
-
-                    rtb_cur_vx.Invoke((Action)(() =>
-                    {
-                        rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
-                        rtb_cur_vx.Select(1, 1);
-                        rtb_cur_vx.SelectionFont = myFont_script;
-                        rtb_cur_vx.SelectionCharOffset = -5;
-                    }));
-
-                    rtb_cur_vy.Invoke((Action)(() =>
-                    {
-                        rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
-                        rtb_cur_vy.Select(1, 1);
-                        rtb_cur_vy.SelectionFont = myFont_script;
-                        rtb_cur_vy.SelectionCharOffset = -5;
-                    }));
-
-                    Redraw_Object();
-                    graphBox.BackgroundImage = MovingObjectLayer;
-                    e.Handled = true;
-                }
-            }
-        }
-
-        string lang = "Vi";
-        private void picInfo_Click(object sender, EventArgs e)
-        {
-            frmInfo frm = new frmInfo(lang);
-            frm.ShowDialog();
-        }
     }
 }
