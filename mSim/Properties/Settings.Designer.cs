@@ -73,7 +73,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool highQuality {
             get {
                 return ((bool)(this["highQuality"]));
@@ -85,7 +85,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool XYSpeedMode {
             get {
                 return ((bool)(this["XYSpeedMode"]));
@@ -97,7 +97,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public float last_x0 {
             get {
                 return ((float)(this["last_x0"]));
@@ -109,7 +109,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public float last_y0 {
             get {
                 return ((float)(this["last_y0"]));
@@ -145,7 +145,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public float last_v0x {
             get {
                 return ((float)(this["last_v0x"]));
@@ -157,7 +157,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public float last_v0y {
             get {
                 return ((float)(this["last_v0y"]));
@@ -193,7 +193,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
         public int last_stepX {
             get {
                 return ((int)(this["last_stepX"]));
@@ -205,7 +205,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
         public int last_stepY {
             get {
                 return ((int)(this["last_stepY"]));
@@ -236,6 +236,30 @@ namespace mSim.Properties {
             }
             set {
                 this["last_stepValueY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int timer_Interval {
+            get {
+                return ((int)(this["timer_Interval"]));
+            }
+            set {
+                this["timer_Interval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int timeOffset {
+            get {
+                return ((int)(this["timeOffset"]));
+            }
+            set {
+                this["timeOffset"] = value;
             }
         }
     }

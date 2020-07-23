@@ -15,16 +15,16 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="highQuality" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="XYSpeedMode" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="last_x0" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="last_y0" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="last_v0" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -33,10 +33,10 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="last_v0x" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="last_v0y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="last_ax" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -45,16 +45,22 @@
       <Value Profile="(Default)">-9.8</Value>
     </Setting>
     <Setting Name="last_stepX" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">40</Value>
+      <Value Profile="(Default)">80</Value>
     </Setting>
     <Setting Name="last_stepY" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">40</Value>
+      <Value Profile="(Default)">80</Value>
     </Setting>
     <Setting Name="last_stepValueX" Type="System.Single" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="last_stepValueY" Type="System.Single" Scope="User">
       <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="timer_Interval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="timeOffset" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
     </Setting>
   </Settings>
 </SettingsFile>

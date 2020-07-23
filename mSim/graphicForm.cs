@@ -206,6 +206,8 @@ namespace mSim
         private void LoadSettings()
         {
             var x = Properties.Settings.Default;
+            nud_timeOffset.Value = timeOffset = x.timeOffset;
+
             showGrid = ckbGid.Checked = x.showGrid;
             showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
             showTrails = ckbTrail.Checked = x.showTrails;
@@ -263,6 +265,7 @@ namespace mSim
             x.last_stepY = stepY;
             x.last_stepValueX = stepValueX;
             x.last_stepValueY = stepValueY;
+            x.timeOffset = timeOffset;
 
             x.Save();
         }
@@ -346,6 +349,16 @@ namespace mSim
             graphBox.MouseUp += graphBox_MouseUp;
             graphBox.SizeChanged += graphBox_SizeChanged;
 
+            nud_timeOffset.ValueChanged += nud_timeOffset_ValueChanged;
+
+        }
+
+        private void nud_timeOffset_ValueChanged(object sender, EventArgs e)
+        {
+            timeOffset = (int)nud_timeOffset.Value;
+            Redraw_MovingLine_Layer();
+            Redraw_Object();
+            graphBox.BackgroundImage = MovingObjectLayer;
         }
 
         private void DrawForm_Obj_ayChanged(object sender, float e)
@@ -468,7 +481,7 @@ namespace mSim
 
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle && !IsRunning)
+            if (e.Button == MouseButtons.Middle)
             {
                 drag = true;
                 mouseDownX = e.Location.X;
@@ -536,7 +549,7 @@ namespace mSim
         private void ckbGid_CheckedChanged(object sender, EventArgs e)
         {
             showGrid = ckbGid.Checked;
-            if (!IsRunning)
+            //if (!IsRunning)
             {
                 ReDraw_Intervals_Axis();
                 Redraw_MovingLine_Layer();
@@ -548,7 +561,7 @@ namespace mSim
         private void ckbCoordinates_CheckedChanged(object sender, EventArgs e)
         {
             showCoordinates = ckbCoordinates.Checked;
-            if (!IsRunning)
+            //if (!IsRunning)
             {
                 ReDraw_Intervals_Axis();
                 Redraw_MovingLine_Layer();
@@ -560,7 +573,7 @@ namespace mSim
         private void ckbHighQuality_CheckedChanged(object sender, EventArgs e)
         {
             highQuality = ckbHighQuality.Checked;
-            if (!IsRunning)
+            //if (!IsRunning)
             {
                 ReDraw_Intervals_Axis();
                 Redraw_MovingLine_Layer();
@@ -978,13 +991,13 @@ namespace mSim
         }
 
         float tmin;
-        float timeStep = 0.02F;
+        float timeStep = 0.01F;
         float tmax;
         PointF[] obj_xy;
         Point[] xy;
         float[] obj_vx_values;
         float[] obj_vy_values;
-        int timeOffset = 500;
+        int timeOffset = 100;
         void Gen_tRange(int width, int height)
         {
             float t = 0;
@@ -1252,7 +1265,8 @@ namespace mSim
         {
             if (frameindex + timeOffset >= obj_xy.Length - 1)
             {
-                timer1.Stop();
+                picPlay_Click(null,null);
+                return;
             }
 
             float t = tmin + (frameindex + timeOffset) * timeStep;
@@ -1298,6 +1312,7 @@ namespace mSim
                 isPaused = true;
             }
             IsRunning = !IsRunning;
+            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
         }
 
         private void picReset_Click(object sender, EventArgs e)
@@ -1312,6 +1327,8 @@ namespace mSim
             Obj_vy = Obj_v0y;
             Redraw_Object();
             graphBox.BackgroundImage = MovingObjectLayer;
+            nud_timeOffset.Enabled = !(IsRunning && !isPaused);
+
         }
 
         private void picCapture_Click(object sender, EventArgs e)
@@ -1320,11 +1337,13 @@ namespace mSim
             SaveFileDialog sfd = new SaveFileDialog()
             {
                 AddExtension = true,
-                DefaultExt = ".png",
+                SupportMultiDottedExtensions = true,
                 Title = "Save Image",
                 OverwritePrompt = true,
                 RestoreDirectory = true,
                 Filter = "PNG image (*.png)|*.png|JPEG image (*.jpg, *.jpeg)|*.jpeg, *.jpg|Bitmap image (*.bmp)|*.bmp",
+                FilterIndex = 2,
+                DefaultExt = ".jpg",
             };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -1334,12 +1353,12 @@ namespace mSim
 
         private void grb_Params0_EnabledChanged(object sender, EventArgs e)
         {
-            ckbGid.Enabled = ckbHighQuality.Enabled = ckbCoordinates.Enabled = grb_Params0.Enabled;
+            //ckbGid.Enabled = ckbHighQuality.Enabled = ckbCoordinates.Enabled = grb_Params0.Enabled;
         }
 
         private void trb_ValueChanged(object sender, EventArgs e)
         {
-            timer1.Interval = 10 + trb.Value;
+            this.Invoke((Action)(() => { timer1.Interval = trb.Maximum - trb.Value+10; }));
         }
 
         private void drawForm_KeyDown(object sender, KeyEventArgs e)
@@ -1435,6 +1454,13 @@ namespace mSim
                     e.Handled = true;
                 }
             }
+        }
+
+        string lang = "Vi";
+        private void picInfo_Click(object sender, EventArgs e)
+        {
+            frmInfo frm = new frmInfo(lang);
+            frm.ShowDialog();
         }
     }
 }
