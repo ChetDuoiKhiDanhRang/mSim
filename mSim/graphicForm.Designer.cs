@@ -457,7 +457,7 @@
             this.rtb_x0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_x0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_x0.DetectUrls = false;
-            this.rtb_x0.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_x0.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_x0.Location = new System.Drawing.Point(6, 19);
             this.rtb_x0.Name = "rtb_x0";
             this.rtb_x0.ReadOnly = true;
@@ -491,7 +491,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_vx.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_vx.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_vx.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vx.Location = new System.Drawing.Point(14, 60);
             this.rtb_vx.Multiline = false;
@@ -508,7 +508,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_vy.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_vy.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_vy.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vy.Location = new System.Drawing.Point(14, 80);
             this.rtb_vy.Multiline = false;
@@ -525,7 +525,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_xt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_xt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_xt.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_xt.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_xt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_xt.Location = new System.Drawing.Point(14, 20);
             this.rtb_xt.Multiline = false;
@@ -542,7 +542,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_yt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_yt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_yt.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_yt.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_yt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_yt.Location = new System.Drawing.Point(14, 40);
             this.rtb_yt.Multiline = false;
@@ -573,7 +573,7 @@
             // 
             this.rtb_cur_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_vy.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_vy.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_vy.ForeColor = System.Drawing.Color.DarkRed;
             this.rtb_cur_vy.Location = new System.Drawing.Point(127, 37);
             this.rtb_cur_vy.Multiline = false;
@@ -588,7 +588,7 @@
             // 
             this.rtb_cur_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_vx.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_vx.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_vx.ForeColor = System.Drawing.Color.DarkRed;
             this.rtb_cur_vx.Location = new System.Drawing.Point(127, 17);
             this.rtb_cur_vx.Multiline = false;
@@ -603,7 +603,7 @@
             // 
             this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_y.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_y.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_y.Location = new System.Drawing.Point(14, 37);
             this.rtb_cur_y.Multiline = false;
             this.rtb_cur_y.Name = "rtb_cur_y";
@@ -617,7 +617,7 @@
             // 
             this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_x.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_x.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_x.Location = new System.Drawing.Point(14, 17);
             this.rtb_cur_x.Multiline = false;
             this.rtb_cur_x.Name = "rtb_cur_x";

@@ -939,6 +939,8 @@ namespace mSim
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel;
 
+            p.Width = 1F;
+
             //draw x axis
             g.DrawLine(p, 0, height - _y0, width, height - _y0);
 
@@ -952,12 +954,11 @@ namespace mSim
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             }
 
-            p.Width = 1F;
-            //draw y narrow
+            //draw y arrow
             g.DrawLine(p, _x0, 0, _x0 + 4, 12);
             g.DrawLine(p, _x0, 0, _x0 - 4, 12);
 
-            //draw x narrow
+            //draw x arrow
             g.DrawLine(p, width - 2, height - _y0, width - 13, height - _y0 - 4);
             g.DrawLine(p, width - 2, height - _y0, width - 13, height - _y0 + 4);
 
@@ -991,7 +992,7 @@ namespace mSim
         }
 
         float tmin;
-        float timeStep = 0.01F;
+        float timeStep = 0.005F;
         float tmax;
         PointF[] obj_xy;
         Point[] xy;
@@ -1087,9 +1088,8 @@ namespace mSim
             Pen p = new Pen(Color.Green, 2F);
             p.DashStyle = DashStyle.Dash;
             p.LineJoin = LineJoin.Miter;
-            p.DashCap = DashCap.Round;
+            p.DashCap = DashCap.Triangle;
             p.StartCap = LineCap.Round;
-            p.EndCap = LineCap.Round;
             p.Alignment = PenAlignment.Center;
 
             if (xy.Length > 2)
@@ -1144,32 +1144,32 @@ namespace mSim
                 obj_p.Color = Color.DarkRed;
                 obj_p.DashStyle = DashStyle.Solid;
                 obj_p.Width = 2F;
-
+                obj_p.EndCap = LineCap.Round;
 
                 int length_vx = (int)(vx / baseValueV * baseLengthV);
                 g.DrawLine(obj_p, p.X, p.Y, p.X + length_vx, p.Y);
                 if (vx > 0)
                 {
-                    g.DrawLine(obj_p, p.X + length_vx - 2, p.Y, p.X + length_vx - 8, p.Y - 4);
-                    g.DrawLine(obj_p, p.X + length_vx - 2, p.Y, p.X + length_vx - 8, p.Y + 4);
+                    g.DrawLine(obj_p, p.X + length_vx - 1, p.Y, p.X + length_vx - 8, p.Y - 4);
+                    g.DrawLine(obj_p, p.X + length_vx - 1, p.Y, p.X + length_vx - 8, p.Y + 4);
                 }
                 else if (vx < 0)
                 {
-                    g.DrawLine(obj_p, p.X + length_vx + 2, p.Y, p.X + length_vx + 8, p.Y - 4);
-                    g.DrawLine(obj_p, p.X + length_vx + 2, p.Y, p.X + length_vx + 8, p.Y + 4);
+                    g.DrawLine(obj_p, p.X + length_vx + 1, p.Y, p.X + length_vx + 8, p.Y - 4);
+                    g.DrawLine(obj_p, p.X + length_vx + 1, p.Y, p.X + length_vx + 8, p.Y + 4);
                 }
 
                 int length_vy = (int)(vy / baseValueV * baseLengthV);
                 g.DrawLine(obj_p, p.X, p.Y, p.X, p.Y - length_vy);
                 if (vy > 0)
                 {
-                    g.DrawLine(obj_p, p.X, p.Y - length_vy + 2, p.X - 4, p.Y - length_vy + 8);
-                    g.DrawLine(obj_p, p.X, p.Y - length_vy + 2, p.X + 4, p.Y - length_vy + 8);
+                    g.DrawLine(obj_p, p.X, p.Y - length_vy + 1, p.X - 4, p.Y - length_vy + 8);
+                    g.DrawLine(obj_p, p.X, p.Y - length_vy + 1, p.X + 4, p.Y - length_vy + 8);
                 }
                 else if (vy < 0)
                 {
-                    g.DrawLine(obj_p, p.X, p.Y - length_vy, p.X - 4, p.Y - length_vy - 8);
-                    g.DrawLine(obj_p, p.X, p.Y - length_vy, p.X + 4, p.Y - length_vy - 8);
+                    g.DrawLine(obj_p, p.X, p.Y - length_vy - 1, p.X - 4, p.Y - length_vy - 8);
+                    g.DrawLine(obj_p, p.X, p.Y - length_vy - 1, p.X + 4, p.Y - length_vy - 8);
                 }
 
 
