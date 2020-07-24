@@ -206,14 +206,15 @@ namespace mSim
         private void LoadSettings()
         {
             var x = Properties.Settings.Default;
+            
             nud_timeOffset.Value = timeOffset = x.timeOffset;
-
-            showGrid = ckbGid.Checked = x.showGrid;
+            lbl_trbSpeed.Text = (1000F / timer1.Interval).ToString("#0.00");
+            showGrid        = ckbGid.Checked = x.showGrid;
             showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
-            showTrails = ckbTrail.Checked = x.showTrails;
-            showSpeeds = ckbSpeed.Checked = x.showSpeeds;
-            highQuality = ckbHighQuality.Checked = x.highQuality;
-            XYSpeedMode = rad_speedmode.Checked = x.XYSpeedMode;
+            showTrails      = ckbTrail.Checked = x.showTrails;
+            showSpeeds      = ckbSpeed.Checked = x.showSpeeds;
+            highQuality     = ckbHighQuality.Checked = x.highQuality;
+            XYSpeedMode     = rad_speedmode.Checked = x.XYSpeedMode;
 
             Obj_ax = x.last_ax;
             Obj_ay = x.last_ay;
@@ -225,20 +226,20 @@ namespace mSim
             txb_x0.Text = Obj_x0.ToString();
             txb_y0.Text = Obj_y0.ToString();
 
-            Obj_v0 = x.last_v0;
+            Obj_v0     = x.last_v0;
             Obj_alpha0 = x.last_alpha0;
-            Obj_v0x = x.last_v0x;
-            Obj_v0y = x.last_v0y;
+            Obj_v0x    = x.last_v0x;
+            Obj_v0y    = x.last_v0y;
 
             stepX = x.last_stepX;
             stepY = x.last_stepY;
             stepValueX = x.last_stepValueX;
             stepValueY = x.last_stepValueY;
 
-            txb_v0.Text = Obj_v0.ToString();
+            txb_v0.Text     = Obj_v0.ToString();
             txb_alpha0.Text = Obj_alpha0.ToString();
-            txb_v0x.Text = Obj_v0x.ToString();
-            txb_v0y.Text = Obj_v0y.ToString();
+            txb_v0x.Text    = Obj_v0x.ToString();
+            txb_v0y.Text    = Obj_v0y.ToString();
         }
         private void SaveSettings()
         {
@@ -553,6 +554,11 @@ namespace mSim
                     e.Handled = true;
                 }
             }
+            else if (e.KeyData == (Keys.Control | Keys.I))
+            {
+                picInfo_Click(null, null);
+                e.Handled = true;
+            }
         }
 
         //CONTROLS EVENTS====================================================================================================================
@@ -579,7 +585,7 @@ namespace mSim
                 drag = true;
                 mouseDownX = e.Location.X;
                 mouseDownY = e.Location.Y;
-                graphBox.Cursor = Cursors.NoMove2D;
+                graphBox.Cursor = Cursors.SizeAll;
             }
         }
 
@@ -856,13 +862,13 @@ namespace mSim
             Obj_vx = obj_vx_values[frameindex + timeOffset];
             Obj_vy = obj_vy_values[frameindex + timeOffset];
 
-            grbStatus.Text = "t = " + t.ToString("0.000");
-            rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
-            rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
+            lbl_time.Invoke((Action)(() => { lbl_time.Text = "t = " + t.ToString("0.000"); }));
+            rtb_cur_x.Invoke((Action)(() => rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000").PadLeft(7)));
+            rtb_cur_y.Invoke((Action)(()=> rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000").PadLeft(7)));
 
             rtb_cur_vx.Invoke((Action)(() =>
             {
-                rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000");
+                rtb_cur_vx.Text = "vx = " + Obj_vx.ToString("0.000").PadLeft(7);
                 rtb_cur_vx.Select(1, 1);
                 rtb_cur_vx.SelectionFont = myFont_script;
                 rtb_cur_vx.SelectionCharOffset = -5;
@@ -870,7 +876,7 @@ namespace mSim
 
             rtb_cur_vy.Invoke((Action)(() =>
             {
-                rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000");
+                rtb_cur_vy.Text = "vy = " + Obj_vy.ToString("0.000").PadLeft(7);
                 rtb_cur_vy.Select(1, 1);
                 rtb_cur_vy.SelectionFont = myFont_script;
                 rtb_cur_vy.SelectionCharOffset = -5;
@@ -952,7 +958,11 @@ namespace mSim
 
         private void trb_ValueChanged(object sender, EventArgs e)
         {
-            this.Invoke((Action)(() => { timer1.Interval = trb.Maximum - trb.Value + 10; }));
+            this.Invoke((Action)(() => { timer1.Interval = (trb.Maximum - trb.Value) + 10; }));
+            lbl_trbSpeed.Invoke((Action)(() =>
+            {
+                lbl_trbSpeed.Text = (1000F / timer1.Interval).ToString("#0.00");
+            }));
         }
 
         //METHODS====================================================================================================================
@@ -1202,7 +1212,7 @@ namespace mSim
             return new PointF(x, y);
         }
         float tmin;
-        float timeStep = 0.005F;
+        float timeStep = 0.01F;
         float tmax;
         PointF[] obj_xy;
         Point[] xy;

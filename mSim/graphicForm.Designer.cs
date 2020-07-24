@@ -79,6 +79,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_trbSpeed = new System.Windows.Forms.Label();
+            this.lbl_time = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
@@ -478,7 +481,7 @@
             this.panel1.Controls.Add(this.rtb_yt);
             this.panel1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.panel1.Location = new System.Drawing.Point(271, 446);
+            this.panel1.Location = new System.Drawing.Point(271, 380);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(242, 105);
             this.panel1.TabIndex = 3;
@@ -557,17 +560,18 @@
             // 
             this.grbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbStatus.Controls.Add(this.label4);
+            this.grbStatus.Controls.Add(this.lbl_time);
             this.grbStatus.Controls.Add(this.rtb_cur_vy);
             this.grbStatus.Controls.Add(this.rtb_cur_vx);
             this.grbStatus.Controls.Add(this.rtb_cur_y);
             this.grbStatus.Controls.Add(this.rtb_cur_x);
             this.grbStatus.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbStatus.Location = new System.Drawing.Point(271, 380);
+            this.grbStatus.Location = new System.Drawing.Point(271, 485);
             this.grbStatus.Name = "grbStatus";
-            this.grbStatus.Size = new System.Drawing.Size(242, 60);
+            this.grbStatus.Size = new System.Drawing.Size(242, 66);
             this.grbStatus.TabIndex = 3;
             this.grbStatus.TabStop = false;
-            this.grbStatus.Text = "t = ...";
             // 
             // rtb_cur_vy
             // 
@@ -575,12 +579,12 @@
             this.rtb_cur_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_vy.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_vy.ForeColor = System.Drawing.Color.DarkRed;
-            this.rtb_cur_vy.Location = new System.Drawing.Point(127, 37);
+            this.rtb_cur_vy.Location = new System.Drawing.Point(171, 39);
             this.rtb_cur_vy.Multiline = false;
             this.rtb_cur_vy.Name = "rtb_cur_vy";
             this.rtb_cur_vy.ReadOnly = true;
             this.rtb_cur_vy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_vy.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_vy.Size = new System.Drawing.Size(60, 20);
             this.rtb_cur_vy.TabIndex = 0;
             this.rtb_cur_vy.Text = "...";
             // 
@@ -590,12 +594,12 @@
             this.rtb_cur_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_vx.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
             this.rtb_cur_vx.ForeColor = System.Drawing.Color.DarkRed;
-            this.rtb_cur_vx.Location = new System.Drawing.Point(127, 17);
+            this.rtb_cur_vx.Location = new System.Drawing.Point(171, 19);
             this.rtb_cur_vx.Multiline = false;
             this.rtb_cur_vx.Name = "rtb_cur_vx";
             this.rtb_cur_vx.ReadOnly = true;
             this.rtb_cur_vx.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_vx.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_vx.Size = new System.Drawing.Size(60, 20);
             this.rtb_cur_vx.TabIndex = 0;
             this.rtb_cur_vx.Text = "...";
             // 
@@ -604,12 +608,12 @@
             this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_y.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
-            this.rtb_cur_y.Location = new System.Drawing.Point(14, 37);
+            this.rtb_cur_y.Location = new System.Drawing.Point(92, 39);
             this.rtb_cur_y.Multiline = false;
             this.rtb_cur_y.Name = "rtb_cur_y";
             this.rtb_cur_y.ReadOnly = true;
             this.rtb_cur_y.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_y.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_y.Size = new System.Drawing.Size(60, 20);
             this.rtb_cur_y.TabIndex = 0;
             this.rtb_cur_y.Text = "...";
             // 
@@ -618,12 +622,12 @@
             this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_x.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Italic);
-            this.rtb_cur_x.Location = new System.Drawing.Point(14, 17);
+            this.rtb_cur_x.Location = new System.Drawing.Point(92, 19);
             this.rtb_cur_x.Multiline = false;
             this.rtb_cur_x.Name = "rtb_cur_x";
             this.rtb_cur_x.ReadOnly = true;
             this.rtb_cur_x.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_cur_x.Size = new System.Drawing.Size(107, 20);
+            this.rtb_cur_x.Size = new System.Drawing.Size(60, 20);
             this.rtb_cur_x.TabIndex = 0;
             this.rtb_cur_x.Text = "...";
             // 
@@ -641,6 +645,7 @@
             this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picInfo.TabIndex = 4;
             this.picInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.picInfo, "Ctrl+I");
             this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
             // 
             // imageList1
@@ -692,15 +697,15 @@
             // trb
             // 
             this.trb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.trb.Location = new System.Drawing.Point(597, 427);
-            this.trb.Maximum = 1005;
-            this.trb.Minimum = 2;
+            this.trb.Location = new System.Drawing.Point(637, 427);
+            this.trb.Maximum = 1000;
+            this.trb.Minimum = 10;
             this.trb.Name = "trb";
-            this.trb.Size = new System.Drawing.Size(175, 45);
+            this.trb.Size = new System.Drawing.Size(128, 45);
             this.trb.TabIndex = 5;
             this.trb.TickFrequency = 100;
             this.trb.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trb.Value = 995;
+            this.trb.Value = 990;
             this.trb.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
             // btnLanguage
@@ -772,6 +777,34 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
+            // lbl_trbSpeed
+            // 
+            this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_trbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_trbSpeed.Location = new System.Drawing.Point(577, 443);
+            this.lbl_trbSpeed.Name = "lbl_trbSpeed";
+            this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
+            this.lbl_trbSpeed.TabIndex = 7;
+            this.lbl_trbSpeed.Text = "---";
+            this.lbl_trbSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl_time
+            // 
+            this.lbl_time.Location = new System.Drawing.Point(1, 28);
+            this.lbl_time.Name = "lbl_time";
+            this.lbl_time.Size = new System.Drawing.Size(86, 18);
+            this.lbl_time.TabIndex = 1;
+            this.lbl_time.Text = "...";
+            this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(85, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1, 40);
+            this.label4.TabIndex = 2;
+            // 
             // drawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -779,6 +812,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.nud_timeOffset);
+            this.Controls.Add(this.lbl_trbSpeed);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLanguage);
@@ -870,6 +904,9 @@
         private System.Windows.Forms.NumericUpDown nud_timeOffset;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_trbSpeed;
+        private System.Windows.Forms.Label lbl_time;
+        private System.Windows.Forms.Label label4;
     }
 }
 

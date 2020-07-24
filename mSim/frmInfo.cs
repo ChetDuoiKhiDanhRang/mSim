@@ -12,13 +12,23 @@ namespace mSim
 {
     public partial class frmInfo : Form
     {
-        public frmInfo(string lang)
+        public frmInfo(string lang="")
         {
             InitializeComponent();
         }
 
         private void frmInfo_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Cursor = Cursors.Hand;
 
         }
     }
