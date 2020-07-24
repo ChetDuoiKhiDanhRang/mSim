@@ -411,7 +411,6 @@ namespace mSim
             graphBox.BackgroundImage = MovingObjectLayer;
         }
 
-
         private void DrawForm_Obj_x0Changed(object sender, float e)
         {
             Obj_x = Obj_x0;
@@ -1017,7 +1016,6 @@ namespace mSim
             }));
         }
 
-
         private void ReDraw_Intervals_Axis()
         {
             IntervalsLayer?.Dispose();
@@ -1041,7 +1039,6 @@ namespace mSim
             MovingObjectLayer = MovingLineLayer.Clone() as Bitmap;
             DrawObject(MovingObjectLayer, Obj_x, Obj_y, x0, y0, showSpeeds, showTrails, Obj_vx, Obj_vy);
         }
-
 
         private void DrawIntervals(Bitmap bitmap, int _x0, int _y0, int _stepX, int _stepY, float _stepValueX, float _stepValueY, bool _showGrid, bool _showCoordinates)
         {
@@ -1191,7 +1188,6 @@ namespace mSim
             g.Dispose();
         }
 
-
         Point Convert_XY2Point(int heigth, float obj_x, float obj_y, int x0, int y0)
         {
             int point_x = x0 + (int)(Math.Round(obj_x, 2) * stepX / stepValueX);
@@ -1199,14 +1195,12 @@ namespace mSim
             Point p = new Point(point_x, point_y);
             return p;
         }
-
         PointF Convert_Point2XY(int px, int py, int x0, int y0)
         {
             float x = ((float)(px - x0)) / stepX * stepValueX;
             float y = ((float)(y0 - py)) / stepY * stepValueY;
             return new PointF(x, y);
         }
-
         float tmin;
         float timeStep = 0.005F;
         float tmax;
@@ -1283,6 +1277,7 @@ namespace mSim
 
             xy = points.ToArray();
         }
+
         private void DrawMovingLine(Bitmap bitmap)
         {
             Gen_MovingLine();
@@ -1319,7 +1314,6 @@ namespace mSim
 
         int baseLengthV = 40;
         float baseValueV = 40;
-
         void Gen_VLength()
         {
             baseValueV = Math.Max(Math.Abs(Obj_v0x), Math.Abs(Obj_v0y));
@@ -1480,9 +1474,5 @@ namespace mSim
             Redraw_MovingLine_Layer();
             graphBox.BackgroundImage = MovingLineLayer;
         }
-
-
-
-
     }
 }
