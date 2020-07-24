@@ -594,9 +594,12 @@ namespace mSim
                 x0 = BASE_X0 + offsetX;
                 y0 = BASE_Y0 - offsetY;
 
-                ReDraw_Intervals_Axis();
-                graphBox.BackgroundImage = AxisLayer;
-                //graphBox.Refresh();
+                if (!IsRunning)
+                {
+                    ReDraw_Intervals_Axis();
+                    Redraw_MovingLine_Layer();
+                    graphBox.BackgroundImage = MovingLineLayer;
+                }
             }
         }
 
@@ -1328,6 +1331,11 @@ namespace mSim
         }
         private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showTrails, float vx, float vy)
         {
+            if (drag)
+            {
+                ReDraw_Intervals_Axis();
+                Redraw_MovingLine_Layer();
+            }
             Point p = Convert_XY2Point(bitmap.Height, obj_x, obj_y, x0, y0);
 
             Graphics g = Graphics.FromImage(bitmap);

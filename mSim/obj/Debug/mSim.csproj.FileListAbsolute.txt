@@ -8,3 +8,4 @@ C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.pdb
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.exe.config
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.frmInfo.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache
