@@ -63,6 +63,8 @@
             this.rtb_xt = new System.Windows.Forms.RichTextBox();
             this.rtb_yt = new System.Windows.Forms.RichTextBox();
             this.grbStatus = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_time = new System.Windows.Forms.Label();
             this.rtb_cur_vy = new System.Windows.Forms.RichTextBox();
             this.rtb_cur_vx = new System.Windows.Forms.RichTextBox();
             this.rtb_cur_y = new System.Windows.Forms.RichTextBox();
@@ -80,8 +82,6 @@
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbl_trbSpeed = new System.Windows.Forms.Label();
-            this.lbl_time = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
@@ -573,6 +573,23 @@
             this.grbStatus.TabIndex = 3;
             this.grbStatus.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(85, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1, 40);
+            this.label4.TabIndex = 2;
+            // 
+            // lbl_time
+            // 
+            this.lbl_time.Location = new System.Drawing.Point(1, 28);
+            this.lbl_time.Name = "lbl_time";
+            this.lbl_time.Size = new System.Drawing.Size(86, 18);
+            this.lbl_time.TabIndex = 1;
+            this.lbl_time.Text = "...";
+            this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // rtb_cur_vy
             // 
             this.rtb_cur_vy.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -785,25 +802,8 @@
             this.lbl_trbSpeed.Name = "lbl_trbSpeed";
             this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
             this.lbl_trbSpeed.TabIndex = 7;
-            this.lbl_trbSpeed.Text = "---";
+            this.lbl_trbSpeed.Text = "123456";
             this.lbl_trbSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl_time
-            // 
-            this.lbl_time.Location = new System.Drawing.Point(1, 28);
-            this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(86, 18);
-            this.lbl_time.TabIndex = 1;
-            this.lbl_time.Text = "...";
-            this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(85, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1, 40);
-            this.label4.TabIndex = 2;
             // 
             // drawForm
             // 

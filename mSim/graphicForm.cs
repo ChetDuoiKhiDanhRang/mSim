@@ -587,6 +587,10 @@ namespace mSim
                 mouseDownY = e.Location.Y;
                 graphBox.Cursor = Cursors.SizeAll;
             }
+            else if (isPaused)
+            {
+                //var p = Convert_Point2XY();
+            }
         }
 
         private void graphBox_MouseMove(object sender, MouseEventArgs e)
@@ -939,15 +943,17 @@ namespace mSim
         }
         //---------------------------------------------------------------------------
 
+        frmInfo frm;
         string lang = "Vi";
         int counti = 0;
         private void picInfo_Click(object sender, EventArgs e)
         {
             counti++;
-            if (counti >= 15)
+            if (counti >= 13)
             {
-                frmInfo frm = new frmInfo(lang);
-                frm.ShowDialog();
+                frm?.Dispose();
+                frm = new frmInfo(lang);
+                frm.Show();
             }
         }
 

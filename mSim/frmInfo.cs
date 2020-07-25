@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,9 @@ namespace mSim
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo("https://github.com/ChetDuoiKhiDanhRang/mSim");
+            p.Start();
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
