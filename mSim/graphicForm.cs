@@ -272,11 +272,7 @@ namespace mSim
         }
 
 
-        bool drag = false;
-        int mouseDownX = 0;
-        int mouseDownY = 0;
-        int offsetX = 0;
-        int offsetY = 0;
+
 
         private void drawForm_Shown(object sender, EventArgs e)
         {
@@ -492,7 +488,7 @@ namespace mSim
                     Obj_vx = obj_vx_values[frameindex + timeOffset];
                     Obj_vy = obj_vy_values[frameindex + timeOffset];
 
-                    grbStatus.Text = "t = " + t.ToString("0.000");
+                    lbl_time.Text = "t = " + t.ToString("0.000");
                     rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
                     rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
 
@@ -578,6 +574,13 @@ namespace mSim
             graphBox.BackgroundImage = MovingObjectLayer;
         }
 
+
+        bool drag = false;
+        bool dragX0Y0 = false;
+        int mouseDownX = 0;
+        int mouseDownY = 0;
+        int offsetX = 0;
+        int offsetY = 0;
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Middle)
@@ -586,10 +589,6 @@ namespace mSim
                 mouseDownX = e.Location.X;
                 mouseDownY = e.Location.Y;
                 graphBox.Cursor = Cursors.SizeAll;
-            }
-            else if (isPaused)
-            {
-                //var p = Convert_Point2XY();
             }
         }
 
@@ -610,6 +609,7 @@ namespace mSim
                     graphBox.BackgroundImage = MovingLineLayer;
                 }
             }
+
         }
 
         private void graphBox_MouseUp(object sender, MouseEventArgs e)
@@ -632,6 +632,7 @@ namespace mSim
                 graphBox.Cursor = Cursors.Default;
                 //GC.Collect();
             }
+
         }
 
         private void graphBox_SizeChanged(object sender, EventArgs e)
@@ -949,7 +950,7 @@ namespace mSim
         private void picInfo_Click(object sender, EventArgs e)
         {
             counti++;
-            if (counti >= 13)
+            if (counti >= 17)
             {
                 frm?.Dispose();
                 frm = new frmInfo(lang);
