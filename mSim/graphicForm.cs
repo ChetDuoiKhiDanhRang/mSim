@@ -23,6 +23,7 @@ namespace mSim
         public event EventHandler<float> Obj_v0yChanged;
         public event EventHandler<float> Obj_axChanged;
         public event EventHandler<float> Obj_ayChanged;
+        public event EventHandler<string> Lang_Changed;
 
         string axis_fontname = "Consolas";
         float axis_fontsize = 10F;
@@ -131,6 +132,8 @@ namespace mSim
         float obj_alpha0;
         float obj_v0;
 
+
+
         public float Obj_x0 { get => obj_x0; set { obj_x0 = value; Obj_x0Changed?.Invoke(this, value); } }
         public float Obj_y0 { get => obj_y0; set { obj_y0 = value; Obj_y0Changed?.Invoke(this, value); } }
         public float Obj_v0x { get => obj_v0x; set { obj_v0x = value; Obj_v0xChanged?.Invoke(this, value); } }
@@ -143,6 +146,9 @@ namespace mSim
         public float Obj_y { get => obj_y; set => obj_y = value; }
         public float Obj_vx { get => obj_vx; set => obj_vx = value; }
         public float Obj_vy { get => obj_vy; set => obj_vy = value; }
+        
+        string lang = "Vi";
+        public string Lang { get => lang; set { lang = value; Lang_Changed?.Invoke(this, lang); } }
 
         public drawForm()
         {
@@ -330,6 +336,7 @@ namespace mSim
             this.Obj_axChanged += DrawForm_Obj_axChanged;
             this.Obj_ayChanged += DrawForm_Obj_ayChanged;
             this.IsRunningChanged += DrawForm_IsRunningChanged;
+            Lang_Changed += DrawForm_Lang_Changed;
 
             txb_x0.TextChanged += txbs_TextChanged;
             txb_y0.TextChanged += txbs_TextChanged;
@@ -347,7 +354,11 @@ namespace mSim
             graphBox.SizeChanged += graphBox_SizeChanged;
 
             nud_timeOffset.ValueChanged += nud_timeOffset_ValueChanged;
+        }
 
+        private void DrawForm_Lang_Changed(object sender, string e)
+        {
+            
         }
 
         private void nud_timeOffset_ValueChanged(object sender, EventArgs e)
@@ -720,6 +731,7 @@ namespace mSim
                 if (txb.Text.Length == 0)
                 {
                     txb.Text = "0";
+                    txb.SelectAll();
                     //return;
                 }
                 string txt;
@@ -945,7 +957,6 @@ namespace mSim
         //---------------------------------------------------------------------------
 
         frmInfo frm;
-        string lang = "Vi";
         int counti = 0;
         private void picInfo_Click(object sender, EventArgs e)
         {
@@ -953,7 +964,7 @@ namespace mSim
             if (counti >= 17)
             {
                 frm?.Dispose();
-                frm = new frmInfo(lang);
+                frm = new frmInfo(Lang);
                 frm.Show();
             }
         }
