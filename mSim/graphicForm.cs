@@ -26,13 +26,13 @@ namespace mSim
         public event EventHandler<string> Lang_Changed;
 
         string axis_fontname = "Consolas";
-        float axis_fontsize = 10F;
+        float axis_fontsize = 8F;
 
         string interval_fontname = "consolas";
         float interval_fontsize = 8F;
 
-        string object_fontname = "Cambria";
-        float object_fontsize = 10F;
+        string object_fontname = "consolas";
+        float object_fontsize = 8F;
 
 
         Font myFont_script;
@@ -98,6 +98,11 @@ namespace mSim
         Bitmap movingObjectLayer;
         public Bitmap MovingObjectLayer { get => movingObjectLayer; set => movingObjectLayer = value; }
 
+        Color Obj_Color { get; set; }
+        Color MovingLine_Color { get; set; }
+        Color Velocity_Color { get; set; }
+        int Obj_Size { get; set; }
+
         bool showGrid;
         bool showCoordinates;
         bool showTrails;
@@ -117,6 +122,8 @@ namespace mSim
 
         bool isRunning = false;
         public bool IsRunning { get => isRunning; set { isRunning = value; IsRunningChanged?.Invoke(this, value); } }
+
+
 
 
         float obj_vx;
@@ -146,14 +153,14 @@ namespace mSim
         public float Obj_y { get => obj_y; set => obj_y = value; }
         public float Obj_vx { get => obj_vx; set => obj_vx = value; }
         public float Obj_vy { get => obj_vy; set => obj_vy = value; }
-        
-        string lang = "Vi";
+
+        string lang;
         public string Lang { get => lang; set { lang = value; Lang_Changed?.Invoke(this, lang); } }
 
         public drawForm()
         {
             InitializeComponent();
-
+            Lang_Changed     += DrawForm_Lang_Changed;
             SpeedModeChanged += DrawForm_SpeedModeChanged;
 
             myFont_script = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.7F));
@@ -212,15 +219,15 @@ namespace mSim
         private void LoadSettings()
         {
             var x = Properties.Settings.Default;
-            
+
             nud_timeOffset.Value = timeOffset = x.timeOffset;
             lbl_trbSpeed.Text = (1000F / timer1.Interval).ToString("#0.00");
-            showGrid        = ckbGid.Checked = x.showGrid;
+            showGrid = ckbGid.Checked = x.showGrid;
             showCoordinates = ckbCoordinates.Checked = x.showCoodinates;
-            showTrails      = ckbTrail.Checked = x.showTrails;
-            showSpeeds      = ckbSpeed.Checked = x.showSpeeds;
-            highQuality     = ckbHighQuality.Checked = x.highQuality;
-            XYSpeedMode     = rad_speedmode.Checked = x.XYSpeedMode;
+            showTrails = ckbTrail.Checked = x.showTrails;
+            showSpeeds = ckbSpeed.Checked = x.showSpeeds;
+            highQuality = ckbHighQuality.Checked = x.highQuality;
+            XYSpeedMode = rad_speedmode.Checked = x.XYSpeedMode;
 
             Obj_ax = x.last_ax;
             Obj_ay = x.last_ay;
@@ -232,20 +239,26 @@ namespace mSim
             txb_x0.Text = Obj_x0.ToString();
             txb_y0.Text = Obj_y0.ToString();
 
-            Obj_v0     = x.last_v0;
+            Obj_v0 = x.last_v0;
             Obj_alpha0 = x.last_alpha0;
-            Obj_v0x    = x.last_v0x;
-            Obj_v0y    = x.last_v0y;
+            Obj_v0x = x.last_v0x;
+            Obj_v0y = x.last_v0y;
 
             stepX = x.last_stepX;
             stepY = x.last_stepY;
             stepValueX = x.last_stepValueX;
             stepValueY = x.last_stepValueY;
 
-            txb_v0.Text     = Obj_v0.ToString();
+            txb_v0.Text = Obj_v0.ToString();
             txb_alpha0.Text = Obj_alpha0.ToString();
-            txb_v0x.Text    = Obj_v0x.ToString();
-            txb_v0y.Text    = Obj_v0y.ToString();
+            txb_v0x.Text = Obj_v0x.ToString();
+            txb_v0y.Text = Obj_v0y.ToString();
+
+            Obj_Color = x.Obj_Color;
+            Obj_Size = x.Obj_Size;
+            MovingLine_Color = x.MovingLine_Color;
+            Velocity_Color = x.Velocity_color;
+            Lang = x.last_Lang;
         }
         private void SaveSettings()
         {
@@ -274,11 +287,13 @@ namespace mSim
             x.last_stepValueY = stepValueY;
             x.timeOffset = timeOffset;
 
+            x.Obj_Color = Obj_Color;
+            x.Obj_Size = Obj_Size;
+            x.MovingLine_Color = MovingLine_Color;
+            x.Velocity_color = Velocity_Color;
+            x.last_Lang = Lang;
             x.Save();
         }
-
-
-
 
         private void drawForm_Shown(object sender, EventArgs e)
         {
@@ -336,7 +351,6 @@ namespace mSim
             this.Obj_axChanged += DrawForm_Obj_axChanged;
             this.Obj_ayChanged += DrawForm_Obj_ayChanged;
             this.IsRunningChanged += DrawForm_IsRunningChanged;
-            Lang_Changed += DrawForm_Lang_Changed;
 
             txb_x0.TextChanged += txbs_TextChanged;
             txb_y0.TextChanged += txbs_TextChanged;
@@ -354,20 +368,52 @@ namespace mSim
             graphBox.SizeChanged += graphBox_SizeChanged;
 
             nud_timeOffset.ValueChanged += nud_timeOffset_ValueChanged;
+            ctm_objsize_values.SelectedIndexChanged += Ctm_objsize_values_SelectedIndexChanged;
         }
+
 
         private void DrawForm_Lang_Changed(object sender, string e)
         {
-            
+            if (Lang == "en")
+            {
+                grb_Params0.Text = "First parameters (t=0)";
+                rad_speedmode.Text = "Vx/Vy";
+                radioButton1.Text = "Value/Angle";
+                panel1.Text = "Equations:";
+                label1.Text = "Number of sampling:";
+                label2.Text = "Play speed:";
+                groupBox1.Text = "View:";
+                ctm_ObjColor.Text = "Object color";
+                ctm_ObjSize.Text = "Object size";
+                ctm_MovingLineColor.Text = "Trajectory color";
+                ctm_VelocityColor.Text = "Velocity color";
+                ckbGid.Text = "Grid lines";
+                ckbCoordinates.Text = "Coordinates";
+                ckbHighQuality.Text = "Smooth graphic";
+                ckbTrail.Text = "Trail lines";
+                ckbSpeed.Text = "Velocity vector";
+            }
+            else
+            {
+                grb_Params0.Text = "Tham số ban đầu (t=0)";
+                rad_speedmode.Text = "H.chiếu vận tốc";
+                radioButton1.Text = "Độ lớn/góc";
+                panel1.Text = "Các phương trình:";
+                label1.Text = "\"Số lần lấy mẫu\":";
+                label2.Text = "Tốc độ:";
+                groupBox1.Text = "Hiển thị:";
+                ctm_ObjColor.Text = "Màu vật thể";
+                ctm_ObjSize.Text = "Kích thước vật thể";
+                ctm_MovingLineColor.Text = "Màu quỹ đạo";
+                ctm_VelocityColor.Text = "Màu véc-tơ vận tốc";
+                ckbGid.Text = "Lưới";
+                ckbCoordinates.Text = "Tọa độ";
+                ckbHighQuality.Text = "Khử \"răng cưa\"";
+                ckbTrail.Text = "Đường dóng";
+                ckbSpeed.Text = "Véc-tơ vận tốc";
+            }
         }
 
-        private void nud_timeOffset_ValueChanged(object sender, EventArgs e)
-        {
-            timeOffset = (int)nud_timeOffset.Value;
-            Redraw_MovingLine_Layer();
-            Redraw_Object();
-            graphBox.BackgroundImage = MovingObjectLayer;
-        }
 
         private void DrawForm_Obj_ayChanged(object sender, float e)
         {
@@ -536,7 +582,7 @@ namespace mSim
                     Obj_vx = obj_vx_values[frameindex + timeOffset];
                     Obj_vy = obj_vy_values[frameindex + timeOffset];
 
-                    grbStatus.Text = "t = " + t.ToString("0.000");
+                    lbl_time.Text = "t = " + t.ToString("0.000");
                     rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000");
                     rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000");
 
@@ -587,7 +633,6 @@ namespace mSim
 
 
         bool drag = false;
-        bool dragX0Y0 = false;
         int mouseDownX = 0;
         int mouseDownY = 0;
         int offsetX = 0;
@@ -600,6 +645,11 @@ namespace mSim
                 mouseDownX = e.Location.X;
                 mouseDownY = e.Location.Y;
                 graphBox.Cursor = Cursors.SizeAll;
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                ctm.Show(graphBox, e.Location);
+
             }
         }
 
@@ -663,7 +713,29 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
+        private void nud_timeOffset_ValueChanged(object sender, EventArgs e)
+        {
+            timeOffset = (int)nud_timeOffset.Value;
+            Redraw_MovingLine_Layer();
+            Redraw_Object();
+            graphBox.BackgroundImage = MovingObjectLayer;
+        }
 
+        //---------------------------------------------------------------------------
+        private void btnLanguage_Click(object sender, EventArgs e)
+        {
+            if (Lang == "vi")
+            {
+                Lang = "en";
+            }
+            else
+            {
+                Lang = "vi";
+            }
+        }
+
+
+        //---------------------------------------------------------------------------
         private void ckbGid_CheckedChanged(object sender, EventArgs e)
         {
             showGrid = ckbGid.Checked;
@@ -722,7 +794,6 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
-
         private void txbs_TextChanged(object sender, EventArgs e)
         {
             TextBox txb = (TextBox)sender;
@@ -814,7 +885,63 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
+        private void Ctm_objsize_values_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Obj_Size = (ctm_objsize_values.SelectedIndex+1) * 4;
+            if (!IsRunning || isPaused)
+            {
+                Redraw_Object();
+                graphBox.BackgroundImage = MovingObjectLayer;
+            }
+        }
 
+        private void ctm_ObjColor_Click(object sender, EventArgs e)
+        {
+            var c = (ToolStripMenuItem)sender;
+            ColorDialog cd = new ColorDialog()
+            {
+                FullOpen = true,
+                AnyColor = true,
+                AllowFullOpen = true
+            };
+            if (c.Name == ctm_ObjColor.Name)
+            {
+                cd.Color = Obj_Color;
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    Obj_Color = cd.Color;
+                }
+            }
+            else if (c.Name == ctm_MovingLineColor.Name)
+            {
+                cd.Color = MovingLine_Color;
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    MovingLine_Color = cd.Color;
+                }
+            }
+            else if (c.Name == ctm_VelocityColor.Name)
+            {
+                cd.Color = Velocity_Color;
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    Velocity_Color = cd.Color;
+                }
+            }
+            if (!IsRunning || isPaused)
+            {
+                Redraw_MovingLine_Layer();
+                Redraw_Object();
+                graphBox.BackgroundImage = MovingObjectLayer;
+            }
+        }
+
+        private void ctm_Opened(object sender, EventArgs e)
+        {
+            ctm_objsize_values.SelectedIndex = Obj_Size / 4 - 1;
+        }
+
+        //---------------------------------------------------------------------------
         private void rtb_x0_Enter(object sender, EventArgs e)
         {
             txb_x0.Focus();
@@ -856,14 +983,12 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
-
         private void rad_speedmode_CheckedChanged(object sender, EventArgs e)
         {
             XYSpeedMode = ((RadioButton)sender).Checked;
         }
 
         //---------------------------------------------------------------------------
-
         int frameindex = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -881,7 +1006,7 @@ namespace mSim
 
             lbl_time.Invoke((Action)(() => { lbl_time.Text = "t = " + t.ToString("0.000"); }));
             rtb_cur_x.Invoke((Action)(() => rtb_cur_x.Text = "x = " + Obj_x.ToString("0.000").PadLeft(7)));
-            rtb_cur_y.Invoke((Action)(()=> rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000").PadLeft(7)));
+            rtb_cur_y.Invoke((Action)(() => rtb_cur_y.Text = "y = " + Obj_y.ToString("0.000").PadLeft(7)));
 
             rtb_cur_vx.Invoke((Action)(() =>
             {
@@ -954,8 +1079,8 @@ namespace mSim
                 MovingObjectLayer.Save(sfd.FileName);
             }
         }
-        //---------------------------------------------------------------------------
 
+        //---------------------------------------------------------------------------
         frmInfo frm;
         int counti = 0;
         private void picInfo_Click(object sender, EventArgs e)
@@ -987,8 +1112,8 @@ namespace mSim
         private void GenCoordinatesEquation()
         {
             string x_0 = Obj_x0 == 0 ? "" : Obj_x0.ToString();
-            string x_1 = Obj_v0x == 0 ? "" : ((Obj_v0x < 0 ? "" : "+") + Obj_v0x.ToString() + ".t");
-            string x_2 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + (Obj_ax / 2).ToString() + ".t2");
+            string x_1 = Obj_v0x == 0 ? "" : ((Obj_v0x < 0 ? "" : "+") + Obj_v0x.ToString() + "t");
+            string x_2 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + (Obj_ax / 2).ToString() + "t2");
 
             rtb_xt.Invoke((Action)(() =>
             {
@@ -1003,8 +1128,8 @@ namespace mSim
             }));
 
             string y_0 = Obj_y0 == 0 ? "" : Obj_y0.ToString();
-            string y_1 = Obj_v0y == 0 ? "" : ((Obj_v0y < 0 ? "" : "+") + Obj_v0y.ToString() + ".t");
-            string y_2 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + (Obj_ay / 2).ToString() + ".t2");
+            string y_1 = Obj_v0y == 0 ? "" : ((Obj_v0y < 0 ? "" : "+") + Obj_v0y.ToString() + "t");
+            string y_2 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + (Obj_ay / 2).ToString() + "t2");
 
             rtb_yt.Invoke((Action)(() =>
             {
@@ -1022,7 +1147,7 @@ namespace mSim
         private void GenVelocityEquation()
         {
             string vx_0 = Obj_v0x == 0 ? "" : (Obj_v0x.ToString());
-            string vx_1 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + Obj_ax.ToString() + ".t");
+            string vx_1 = Obj_ax == 0 ? "" : ((Obj_ax < 0 ? "" : "+") + Obj_ax.ToString() + "t");
             rtb_vx.Invoke((Action)(() =>
             {
                 rtb_vx.Text = "vx(t) = " + vx_0 + vx_1;
@@ -1033,7 +1158,7 @@ namespace mSim
             }));
 
             string vy_0 = Obj_v0y == 0 ? "" : (Obj_v0y.ToString());
-            string vy_1 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + Obj_ay.ToString() + ".t");
+            string vy_1 = Obj_ay == 0 ? "" : ((Obj_ay < 0 ? "" : "+") + Obj_ay.ToString() + "t");
             rtb_vy.Invoke((Action)(() =>
             {
                 rtb_vy.Text = "vy(t) = " + vy_0 + vy_1;
@@ -1230,7 +1355,7 @@ namespace mSim
             return new PointF(x, y);
         }
         float tmin;
-        float timeStep = 0.01F;
+        float timeStep = 0.005F;
         float tmax;
         PointF[] obj_xy;
         Point[] xy;
@@ -1323,8 +1448,7 @@ namespace mSim
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             }
 
-
-            Pen p = new Pen(Color.Green, 2F);
+            Pen p = new Pen(MovingLine_Color, 2F);
             p.DashStyle = DashStyle.Dash;
             p.LineJoin = LineJoin.Miter;
             p.DashCap = DashCap.Triangle;
@@ -1384,7 +1508,7 @@ namespace mSim
 
             if (showSpeeds)
             {
-                obj_p.Color = Color.DarkRed;
+                obj_p.Color = Velocity_Color;
                 obj_p.DashStyle = DashStyle.Solid;
                 obj_p.Width = 2F;
                 obj_p.EndCap = LineCap.Round;
@@ -1421,8 +1545,10 @@ namespace mSim
             obj_p.Color = Color.Black;
             obj_p.Width = 2F;
             obj_p.DashStyle = DashStyle.Solid;
-            g.FillEllipse(Brushes.Blue, p.X - 4, p.Y - 4, 8, 8);
-            g.DrawEllipse(obj_p, p.X - 4, p.Y - 4, 8, 8);
+            SolidBrush b = new SolidBrush(Obj_Color);
+            
+            g.FillEllipse(b , p.X - Obj_Size / 2, p.Y - Obj_Size / 2, Obj_Size, Obj_Size);
+            g.DrawEllipse(obj_p, p.X - Obj_Size / 2, p.Y - Obj_Size / 2, Obj_Size, Obj_Size);
 
             obj_p.Dispose();
             g.Dispose();
@@ -1502,5 +1628,6 @@ namespace mSim
             Redraw_MovingLine_Layer();
             graphBox.BackgroundImage = MovingLineLayer;
         }
+
     }
 }

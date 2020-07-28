@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmExportVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportVideo.Designer.cs">
+      <DependentUpon>frmExportVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmExportVideo.resx">
+      <DependentUpon>frmExportVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInfo.resx">
       <DependentUpon>frmInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="icon\vellocity.png" />
+    <None Include="icon\obj.png" />
+    <None Include="icon\movingLIne.png" />
     <None Include="icon\maleUser.png" />
     <None Include="icon\femaleUser.png" />
     <None Include="icon\icon.png" />

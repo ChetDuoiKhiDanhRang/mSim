@@ -262,5 +262,65 @@ namespace mSim.Properties {
                 this["timeOffset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        public global::System.Drawing.Color Obj_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Obj_Color"]));
+            }
+            set {
+                this["Obj_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 192, 0")]
+        public global::System.Drawing.Color MovingLine_Color {
+            get {
+                return ((global::System.Drawing.Color)(this["MovingLine_Color"]));
+            }
+            set {
+                this["MovingLine_Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192, 0, 0")]
+        public global::System.Drawing.Color Velocity_color {
+            get {
+                return ((global::System.Drawing.Color)(this["Velocity_color"]));
+            }
+            set {
+                this["Velocity_color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int Obj_Size {
+            get {
+                return ((int)(this["Obj_Size"]));
+            }
+            set {
+                this["Obj_Size"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("vi")]
+        public string last_Lang {
+            get {
+                return ((string)(this["last_Lang"]));
+            }
+            set {
+                this["last_Lang"] = value;
+            }
+        }
     }
 }

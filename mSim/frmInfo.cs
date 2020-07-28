@@ -16,6 +16,28 @@ namespace mSim
         public frmInfo(string lang="")
         {
             InitializeComponent();
+            if (lang == "en")
+            {
+                label9.Text = "Author:";
+                lblPlayPaused.Text = "Play/Pause";
+                lblCapture.Text = "Save Image";
+                lblReSet.Text = "Reset";
+                lblExportVideo.Text = "Export videos";
+                lblNextFrame.Text = "Next value (when paused only)";
+                lblPreviousFrame.Text = "Previous value (when paused only)";
+                label6.Text = "Hot keys:";
+            }
+            else if (lang == "vi")
+            {
+                label9.Text = "Tác giả:";
+                lblPlayPaused.Text = "Chạy/tạm dừng mô phỏng";
+                lblCapture.Text = "Lưu ảnh";
+                lblReSet.Text = "Vè trạng thái ban đầu";
+                lblExportVideo.Text = "Xuất video";
+                lblNextFrame.Text = "Vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
+                lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
+                label6.Text = "Các phím tắt:";
+            }
         }
 
         private void frmInfo_Load(object sender, EventArgs e)

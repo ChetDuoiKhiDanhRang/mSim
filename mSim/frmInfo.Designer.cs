@@ -38,7 +38,7 @@
             this.lblPlayPaused = new System.Windows.Forms.Label();
             this.lblCapture = new System.Windows.Forms.Label();
             this.lblReSet = new System.Windows.Forms.Label();
-            this.lblPreviousFrame = new System.Windows.Forms.Label();
+            this.lblExportVideo = new System.Windows.Forms.Label();
             this.lblNextFrame = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,12 +46,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblPreviousFrame = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 212);
+            this.label2.Location = new System.Drawing.Point(47, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 0;
@@ -78,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 245);
+            this.label3.Location = new System.Drawing.Point(47, 233);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 0;
@@ -88,17 +90,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(47, 278);
+            this.label4.Location = new System.Drawing.Point(47, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Ctrl + ←:";
+            this.label4.Text = "Ctrl + E:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 311);
+            this.label5.Location = new System.Drawing.Point(47, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 0;
@@ -118,7 +120,7 @@
             // 
             this.lblCapture.AutoSize = true;
             this.lblCapture.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapture.Location = new System.Drawing.Point(114, 212);
+            this.lblCapture.Location = new System.Drawing.Point(114, 206);
             this.lblCapture.Name = "lblCapture";
             this.lblCapture.Size = new System.Drawing.Size(49, 13);
             this.lblCapture.TabIndex = 0;
@@ -128,27 +130,27 @@
             // 
             this.lblReSet.AutoSize = true;
             this.lblReSet.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReSet.Location = new System.Drawing.Point(114, 245);
+            this.lblReSet.Location = new System.Drawing.Point(114, 233);
             this.lblReSet.Name = "lblReSet";
             this.lblReSet.Size = new System.Drawing.Size(133, 13);
             this.lblReSet.TabIndex = 0;
             this.lblReSet.Text = "Về trạng thái ban đầu";
             // 
-            // lblPreviousFrame
+            // lblExportVideo
             // 
-            this.lblPreviousFrame.AutoSize = true;
-            this.lblPreviousFrame.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreviousFrame.Location = new System.Drawing.Point(114, 278);
-            this.lblPreviousFrame.Name = "lblPreviousFrame";
-            this.lblPreviousFrame.Size = new System.Drawing.Size(307, 13);
-            this.lblPreviousFrame.TabIndex = 0;
-            this.lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
+            this.lblExportVideo.AutoSize = true;
+            this.lblExportVideo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportVideo.Location = new System.Drawing.Point(114, 260);
+            this.lblExportVideo.Name = "lblExportVideo";
+            this.lblExportVideo.Size = new System.Drawing.Size(67, 13);
+            this.lblExportVideo.TabIndex = 0;
+            this.lblExportVideo.Text = "Xuất video";
             // 
             // lblNextFrame
             // 
             this.lblNextFrame.AutoSize = true;
             this.lblNextFrame.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNextFrame.Location = new System.Drawing.Point(114, 311);
+            this.lblNextFrame.Location = new System.Drawing.Point(114, 287);
             this.lblNextFrame.Name = "lblNextFrame";
             this.lblNextFrame.Size = new System.Drawing.Size(295, 13);
             this.lblNextFrame.TabIndex = 0;
@@ -205,6 +207,36 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Các phím tắt:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(47, 314);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Ctrl + ←:";
+            // 
+            // lblPreviousFrame
+            // 
+            this.lblPreviousFrame.AutoSize = true;
+            this.lblPreviousFrame.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreviousFrame.Location = new System.Drawing.Point(114, 314);
+            this.lblPreviousFrame.Name = "lblPreviousFrame";
+            this.lblPreviousFrame.Size = new System.Drawing.Size(307, 13);
+            this.lblPreviousFrame.TabIndex = 0;
+            this.lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::mSim.Properties.Resources.femaleUser;
+            this.pictureBox3.Location = new System.Drawing.Point(206, 92);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::mSim.Properties.Resources.maleUser;
@@ -228,16 +260,6 @@
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::mSim.Properties.Resources.femaleUser;
-            this.pictureBox3.Location = new System.Drawing.Point(206, 92);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
             // frmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,8 +271,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblNextFrame);
             this.Controls.Add(this.lblPreviousFrame);
+            this.Controls.Add(this.lblNextFrame);
+            this.Controls.Add(this.lblExportVideo);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblReSet);
             this.Controls.Add(this.label4);
@@ -265,11 +289,13 @@
             this.MaximumSize = new System.Drawing.Size(538, 375);
             this.MinimumSize = new System.Drawing.Size(538, 375);
             this.Name = "frmInfo";
+            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,7 +311,7 @@
         private System.Windows.Forms.Label lblPlayPaused;
         private System.Windows.Forms.Label lblCapture;
         private System.Windows.Forms.Label lblReSet;
-        private System.Windows.Forms.Label lblPreviousFrame;
+        private System.Windows.Forms.Label lblExportVideo;
         private System.Windows.Forms.Label lblNextFrame;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -296,5 +322,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblPreviousFrame;
     }
 }
