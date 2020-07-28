@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(drawForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ckbHighQuality = new System.Windows.Forms.CheckBox();
+            this.ckbAutoScaleVelocityVector = new System.Windows.Forms.CheckBox();
             this.ckbSpeed = new System.Windows.Forms.CheckBox();
             this.ckbTrail = new System.Windows.Forms.CheckBox();
             this.ckbCoordinates = new System.Windows.Forms.CheckBox();
@@ -107,14 +108,15 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.ckbHighQuality);
+            this.groupBox1.Controls.Add(this.ckbAutoScaleVelocityVector);
             this.groupBox1.Controls.Add(this.ckbSpeed);
             this.groupBox1.Controls.Add(this.ckbTrail);
             this.groupBox1.Controls.Add(this.ckbCoordinates);
             this.groupBox1.Controls.Add(this.ckbGid);
             this.groupBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(719, 641);
+            this.groupBox1.Location = new System.Drawing.Point(420, 548);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(252, 78);
+            this.groupBox1.Size = new System.Drawing.Size(317, 105);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hiển thị:";
@@ -123,18 +125,29 @@
             // 
             this.ckbHighQuality.AutoSize = true;
             this.ckbHighQuality.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbHighQuality.Location = new System.Drawing.Point(6, 56);
+            this.ckbHighQuality.Location = new System.Drawing.Point(6, 76);
             this.ckbHighQuality.Name = "ckbHighQuality";
             this.ckbHighQuality.Size = new System.Drawing.Size(110, 17);
             this.ckbHighQuality.TabIndex = 1;
             this.ckbHighQuality.Text = "Khử \"răng cưa\"";
             this.ckbHighQuality.UseVisualStyleBackColor = true;
             // 
+            // ckbAutoScaleVelocityVector
+            // 
+            this.ckbAutoScaleVelocityVector.AutoSize = true;
+            this.ckbAutoScaleVelocityVector.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbAutoScaleVelocityVector.Location = new System.Drawing.Point(133, 76);
+            this.ckbAutoScaleVelocityVector.Name = "ckbAutoScaleVelocityVector";
+            this.ckbAutoScaleVelocityVector.Size = new System.Drawing.Size(176, 17);
+            this.ckbAutoScaleVelocityVector.TabIndex = 0;
+            this.ckbAutoScaleVelocityVector.Text = "Tự động điều chỉnh véc-tơ";
+            this.ckbAutoScaleVelocityVector.UseVisualStyleBackColor = true;
+            // 
             // ckbSpeed
             // 
             this.ckbSpeed.AutoSize = true;
             this.ckbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbSpeed.Location = new System.Drawing.Point(133, 39);
+            this.ckbSpeed.Location = new System.Drawing.Point(133, 49);
             this.ckbSpeed.Name = "ckbSpeed";
             this.ckbSpeed.Size = new System.Drawing.Size(110, 17);
             this.ckbSpeed.TabIndex = 0;
@@ -156,7 +169,7 @@
             // 
             this.ckbCoordinates.AutoSize = true;
             this.ckbCoordinates.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbCoordinates.Location = new System.Drawing.Point(6, 39);
+            this.ckbCoordinates.Location = new System.Drawing.Point(6, 49);
             this.ckbCoordinates.Name = "ckbCoordinates";
             this.ckbCoordinates.Size = new System.Drawing.Size(62, 17);
             this.ckbCoordinates.TabIndex = 0;
@@ -476,7 +489,7 @@
             this.panel1.ForeColor = System.Drawing.Color.DarkBlue;
             this.panel1.Location = new System.Drawing.Point(271, 548);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 105);
+            this.panel1.Size = new System.Drawing.Size(134, 105);
             this.panel1.TabIndex = 3;
             this.panel1.TabStop = false;
             this.panel1.Text = "Các phương trình:";
@@ -494,7 +507,7 @@
             this.rtb_vx.Name = "rtb_vx";
             this.rtb_vx.ReadOnly = true;
             this.rtb_vx.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_vx.Size = new System.Drawing.Size(417, 20);
+            this.rtb_vx.Size = new System.Drawing.Size(109, 20);
             this.rtb_vx.TabIndex = 0;
             this.rtb_vx.Text = "...";
             // 
@@ -511,7 +524,7 @@
             this.rtb_vy.Name = "rtb_vy";
             this.rtb_vy.ReadOnly = true;
             this.rtb_vy.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_vy.Size = new System.Drawing.Size(417, 20);
+            this.rtb_vy.Size = new System.Drawing.Size(109, 20);
             this.rtb_vy.TabIndex = 0;
             this.rtb_vy.Text = "abcd";
             // 
@@ -528,7 +541,7 @@
             this.rtb_xt.Name = "rtb_xt";
             this.rtb_xt.ReadOnly = true;
             this.rtb_xt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_xt.Size = new System.Drawing.Size(417, 20);
+            this.rtb_xt.Size = new System.Drawing.Size(109, 20);
             this.rtb_xt.TabIndex = 0;
             this.rtb_xt.Text = "...";
             // 
@@ -545,7 +558,7 @@
             this.rtb_yt.Name = "rtb_yt";
             this.rtb_yt.ReadOnly = true;
             this.rtb_yt.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.rtb_yt.Size = new System.Drawing.Size(417, 20);
+            this.rtb_yt.Size = new System.Drawing.Size(109, 20);
             this.rtb_yt.TabIndex = 0;
             this.rtb_yt.Text = "...";
             // 
@@ -562,7 +575,7 @@
             this.grbStatus.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbStatus.Location = new System.Drawing.Point(271, 653);
             this.grbStatus.Name = "grbStatus";
-            this.grbStatus.Size = new System.Drawing.Size(442, 66);
+            this.grbStatus.Size = new System.Drawing.Size(466, 66);
             this.grbStatus.TabIndex = 3;
             this.grbStatus.TabStop = false;
             // 
@@ -595,7 +608,7 @@
             this.lbl_time.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time.Location = new System.Drawing.Point(1, 28);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(126, 18);
+            this.lbl_time.Size = new System.Drawing.Size(122, 18);
             this.lbl_time.TabIndex = 1;
             this.lbl_time.Text = "...";
             this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -662,7 +675,8 @@
             // trb
             // 
             this.trb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.trb.Location = new System.Drawing.Point(843, 595);
+            this.trb.LargeChange = 3;
+            this.trb.Location = new System.Drawing.Point(874, 671);
             this.trb.Maximum = 1000;
             this.trb.Minimum = 10;
             this.trb.Name = "trb";
@@ -670,15 +684,15 @@
             this.trb.TabIndex = 5;
             this.trb.TickFrequency = 100;
             this.trb.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trb.Value = 990;
+            this.trb.Value = 1000;
             this.trb.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
             // btnLanguage
             // 
-            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLanguage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLanguage.Location = new System.Drawing.Point(901, 21);
+            this.btnLanguage.Location = new System.Drawing.Point(932, 558);
             this.btnLanguage.Name = "btnLanguage";
             this.btnLanguage.Size = new System.Drawing.Size(64, 28);
             this.btnLanguage.TabIndex = 6;
@@ -691,7 +705,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(722, 564);
+            this.label1.Location = new System.Drawing.Point(753, 640);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 7;
@@ -702,7 +716,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(722, 611);
+            this.label2.Location = new System.Drawing.Point(753, 687);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 7;
@@ -718,7 +732,7 @@
             0,
             0,
             0});
-            this.nud_timeOffset.Location = new System.Drawing.Point(852, 562);
+            this.nud_timeOffset.Location = new System.Drawing.Point(883, 638);
             this.nud_timeOffset.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -746,8 +760,8 @@
             // 
             // picPlay
             // 
-            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picPlay.Location = new System.Drawing.Point(792, 21);
+            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picPlay.Location = new System.Drawing.Point(756, 558);
             this.picPlay.Name = "picPlay";
             this.picPlay.Size = new System.Drawing.Size(28, 28);
             this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -758,8 +772,8 @@
             // 
             // picReset
             // 
-            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picReset.Location = new System.Drawing.Point(829, 21);
+            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picReset.Location = new System.Drawing.Point(800, 558);
             this.picReset.Name = "picReset";
             this.picReset.Size = new System.Drawing.Size(28, 28);
             this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -770,8 +784,8 @@
             // 
             // picCapture
             // 
-            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picCapture.Location = new System.Drawing.Point(937, 55);
+            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picCapture.Location = new System.Drawing.Point(888, 558);
             this.picCapture.Name = "picCapture";
             this.picCapture.Size = new System.Drawing.Size(28, 28);
             this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -782,8 +796,8 @@
             // 
             // picInfo
             // 
-            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picInfo.Location = new System.Drawing.Point(867, 21);
+            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picInfo.Location = new System.Drawing.Point(844, 559);
             this.picInfo.Name = "picInfo";
             this.picInfo.Size = new System.Drawing.Size(28, 28);
             this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -796,7 +810,7 @@
             // 
             this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_trbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_trbSpeed.Location = new System.Drawing.Point(792, 611);
+            this.lbl_trbSpeed.Location = new System.Drawing.Point(823, 687);
             this.lbl_trbSpeed.Name = "lbl_trbSpeed";
             this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
             this.lbl_trbSpeed.TabIndex = 7;
@@ -813,14 +827,14 @@
             this.toolStripSeparator1,
             this.ctm_ObjSize});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(173, 98);
+            this.ctm.Size = new System.Drawing.Size(178, 98);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
             // 
             // ctm_ObjColor
             // 
             this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
             this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjColor.Text = "Màu vật thể";
             this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -828,7 +842,7 @@
             // 
             this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
             this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
             this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -836,25 +850,26 @@
             // 
             this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
             this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_ObjSize
             // 
             this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctm_objsize_values});
             this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjSize.Text = "Kích thước vật thể";
             // 
             // ctm_objsize_values
             // 
+            this.ctm_objsize_values.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.ctm_objsize_values.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ctm_objsize_values.Items.AddRange(new object[] {
             "4",
@@ -865,7 +880,7 @@
             "24",
             "32"});
             this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(75, 22);
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
             // 
             // graphBox
             // 
@@ -876,7 +891,7 @@
             this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graphBox.Location = new System.Drawing.Point(12, 12);
             this.graphBox.Name = "graphBox";
-            this.graphBox.Size = new System.Drawing.Size(960, 529);
+            this.graphBox.Size = new System.Drawing.Size(984, 529);
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
             // 
@@ -885,7 +900,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(984, 729);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.nud_timeOffset);
             this.Controls.Add(this.lbl_trbSpeed);
             this.Controls.Add(this.label2);
@@ -990,6 +1005,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ctm_ObjSize;
         private System.Windows.Forms.ToolStripComboBox ctm_objsize_values;
+        private System.Windows.Forms.CheckBox ckbAutoScaleVelocityVector;
     }
 }
 

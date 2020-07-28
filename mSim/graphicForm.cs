@@ -108,6 +108,7 @@ namespace mSim
         bool showTrails;
         bool showSpeeds;
         bool highQuality;
+        bool autoScaleVelocityVector;
 
         bool xYSpeedMode;
         public bool XYSpeedMode
@@ -160,7 +161,7 @@ namespace mSim
         public drawForm()
         {
             InitializeComponent();
-            Lang_Changed     += DrawForm_Lang_Changed;
+            Lang_Changed += DrawForm_Lang_Changed;
             SpeedModeChanged += DrawForm_SpeedModeChanged;
 
             myFont_script = new Font(rtb_x0.Font.Name, (rtb_x0.Font.Size * 0.7F));
@@ -227,6 +228,8 @@ namespace mSim
             showTrails = ckbTrail.Checked = x.showTrails;
             showSpeeds = ckbSpeed.Checked = x.showSpeeds;
             highQuality = ckbHighQuality.Checked = x.highQuality;
+            autoScaleVelocityVector = ckbAutoScaleVelocityVector.Checked = x.autoScaleVelocityVector;
+
             XYSpeedMode = rad_speedmode.Checked = x.XYSpeedMode;
 
             Obj_ax = x.last_ax;
@@ -268,6 +271,8 @@ namespace mSim
             x.showTrails = showTrails;
             x.showSpeeds = showSpeeds;
             x.highQuality = highQuality;
+            x.autoScaleVelocityVector = autoScaleVelocityVector;
+
             x.XYSpeedMode = XYSpeedMode;
 
             x.last_ax = Obj_ax;
@@ -343,6 +348,7 @@ namespace mSim
             ckbHighQuality.CheckedChanged += ckbHighQuality_CheckedChanged;
             ckbTrail.CheckedChanged += ckbTrail_CheckedChanged;
             ckbSpeed.CheckedChanged += ckbSpeed_CheckedChanged;
+            ckbAutoScaleVelocityVector.CheckedChanged += CkbAutoScaleVelocityVector_CheckedChanged;
 
             this.Obj_x0Changed += DrawForm_Obj_x0Changed;
             this.Obj_y0Changed += DrawForm_Obj_y0Changed;
@@ -371,6 +377,10 @@ namespace mSim
             ctm_objsize_values.SelectedIndexChanged += Ctm_objsize_values_SelectedIndexChanged;
         }
 
+        private void CkbAutoScaleVelocityVector_CheckedChanged(object sender, EventArgs e)
+        {
+            autoScaleVelocityVector = ckbAutoScaleVelocityVector.Checked;
+        }
 
         private void DrawForm_Lang_Changed(object sender, string e)
         {
@@ -392,6 +402,7 @@ namespace mSim
                 ckbHighQuality.Text = "Smooth graphic";
                 ckbTrail.Text = "Trail lines";
                 ckbSpeed.Text = "Velocity vector";
+                ckbAutoScaleVelocityVector.Text = "Auto scale velocity vector";
             }
             else
             {
@@ -411,6 +422,7 @@ namespace mSim
                 ckbHighQuality.Text = "Khử \"răng cưa\"";
                 ckbTrail.Text = "Đường dóng";
                 ckbSpeed.Text = "Véc-tơ vận tốc";
+                ckbAutoScaleVelocityVector.Text = "Tự động điều chỉnh véc-tơ";
             }
         }
 
@@ -887,7 +899,7 @@ namespace mSim
         //---------------------------------------------------------------------------
         private void Ctm_objsize_values_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Obj_Size = (ctm_objsize_values.SelectedIndex+1) * 4;
+            Obj_Size = (ctm_objsize_values.SelectedIndex + 1) * 4;
             if (!IsRunning || isPaused)
             {
                 Redraw_Object();
@@ -1355,14 +1367,14 @@ namespace mSim
             return new PointF(x, y);
         }
         float tmin;
-        float timeStep = 0.005F;
+        float timeStep = 0.01F;
         float tmax;
         PointF[] obj_xy;
         Point[] xy;
         float[] obj_vx_values;
         float[] obj_vy_values;
-        int timeOffset = 100;
-        void Gen_tRange(int width, int height)
+        int timeOffset;
+        void Gen_tRange()
         {
             float t = 0;
 
@@ -1386,7 +1398,7 @@ namespace mSim
         }
         void Gen_XYCoordinates_VelocityValues()
         {
-            Gen_tRange(graphBox.Width, graphBox.Height);
+            Gen_tRange();
             int count = (int)((tmax - tmin) / timeStep) + 1;
             PointF[] xy_range = new PointF[count];
             obj_vx_values = new float[count];
@@ -1513,30 +1525,60 @@ namespace mSim
                 obj_p.Width = 2F;
                 obj_p.EndCap = LineCap.Round;
 
+                if (autoScaleVelocityVector)
+                {
+                    int value = (int)Math.Max(Math.Abs(vx), Math.Abs(vy));
+
+                    if ((value / baseValueV * baseLengthV) > graphBox.Height / 3)
+                    {
+                        baseLengthV /= 2;
+                    }
+
+                }
+
                 int length_vx = (int)(vx / baseValueV * baseLengthV);
                 g.DrawLine(obj_p, p.X, p.Y, p.X + length_vx, p.Y);
+                string _vx = vx.ToString("0.00");
+                string _vy = vy.ToString("0.00");
                 if (vx > 0)
                 {
                     g.DrawLine(obj_p, p.X + length_vx - 1, p.Y, p.X + length_vx - 8, p.Y - 4);
                     g.DrawLine(obj_p, p.X + length_vx - 1, p.Y, p.X + length_vx - 8, p.Y + 4);
+                    int _vxLength = (int)(g.MeasureString(_vx, myFont_Object).Width);
+                    g.DrawString(_vx, myFont_Object, obj_p.Brush, p.X + length_vx - _vxLength, p.Y + 4);
                 }
                 else if (vx < 0)
                 {
                     g.DrawLine(obj_p, p.X + length_vx + 1, p.Y, p.X + length_vx + 8, p.Y - 4);
                     g.DrawLine(obj_p, p.X + length_vx + 1, p.Y, p.X + length_vx + 8, p.Y + 4);
+
+                    g.DrawString(_vx, myFont_Object, obj_p.Brush, p.X + length_vx, p.Y + 4);
+
                 }
 
                 int length_vy = (int)(vy / baseValueV * baseLengthV);
                 g.DrawLine(obj_p, p.X, p.Y, p.X, p.Y - length_vy);
+                int _vyLength = (int)g.MeasureString(_vy, myFont_Object).Width;
+                int _vyWidth = (int)g.MeasureString(_vy, myFont_Object).Height;
                 if (vy > 0)
                 {
                     g.DrawLine(obj_p, p.X, p.Y - length_vy + 1, p.X - 4, p.Y - length_vy + 8);
                     g.DrawLine(obj_p, p.X, p.Y - length_vy + 1, p.X + 4, p.Y - length_vy + 8);
+
+                    g.RotateTransform(-90);
+                    g.TranslateTransform(p.X - 4 - _vyWidth, p.Y - length_vy + _vyLength, MatrixOrder.Append);
+                    g.DrawString(_vy, myFont_Object, obj_p.Brush, 0, 0);
+                    g.ResetTransform();
                 }
                 else if (vy < 0)
                 {
                     g.DrawLine(obj_p, p.X, p.Y - length_vy - 1, p.X - 4, p.Y - length_vy - 8);
                     g.DrawLine(obj_p, p.X, p.Y - length_vy - 1, p.X + 4, p.Y - length_vy - 8);
+
+                    g.RotateTransform(-90);
+                    g.TranslateTransform(p.X - 4 - _vyWidth, p.Y - length_vy, MatrixOrder.Append);
+                    g.DrawString(_vy, myFont_Object, obj_p.Brush,0, 0);
+                    g.ResetTransform();
                 }
 
 
@@ -1546,8 +1588,8 @@ namespace mSim
             obj_p.Width = 2F;
             obj_p.DashStyle = DashStyle.Solid;
             SolidBrush b = new SolidBrush(Obj_Color);
-            
-            g.FillEllipse(b , p.X - Obj_Size / 2, p.Y - Obj_Size / 2, Obj_Size, Obj_Size);
+
+            g.FillEllipse(b, p.X - Obj_Size / 2, p.Y - Obj_Size / 2, Obj_Size, Obj_Size);
             g.DrawEllipse(obj_p, p.X - Obj_Size / 2, p.Y - Obj_Size / 2, Obj_Size, Obj_Size);
 
             obj_p.Dispose();

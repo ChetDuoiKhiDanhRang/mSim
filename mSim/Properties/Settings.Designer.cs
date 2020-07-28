@@ -322,5 +322,17 @@ namespace mSim.Properties {
                 this["last_Lang"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool autoScaleVelocityVector {
+            get {
+                return ((bool)(this["autoScaleVelocityVector"]));
+            }
+            set {
+                this["autoScaleVelocityVector"] = value;
+            }
+        }
     }
 }

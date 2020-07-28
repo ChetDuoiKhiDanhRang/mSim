@@ -77,5 +77,8 @@
     <Setting Name="last_Lang" Type="System.String" Scope="User">
       <Value Profile="(Default)">vi</Value>
     </Setting>
+    <Setting Name="autoScaleVelocityVector" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
