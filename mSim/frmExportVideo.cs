@@ -31,7 +31,17 @@ namespace mSim
             nudDuration.Value = nudDuration.Maximum;
             if (lang == "vi")
             {
-
+                this.Text = "XUẤT VIDEO...";
+                lblStartTime.Text = "Thời điểm bắt đầu:";
+                lblDuration.Text  = "Độ dài video:";
+                lblFPS.Text       = "Khung hình/giây:";
+            }
+            else if (lang == "en")
+            {
+                this.Text = "EXPORT VIDEO...";
+                lblStartTime.Text = "Start time:";
+                lblDuration.Text  = "Duration:";
+                lblFPS.Text       = "Frame rate:";
             }
         }
 

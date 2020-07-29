@@ -18,7 +18,7 @@ namespace mSim
             InitializeComponent();
             if (lang == "en")
             {
-                this.Text = "THANK VERY MUCH FOR GO HERE! :))";
+                this.Text = "THANK YOU VERY MUCH FOR GO HERE! :))";
                 label9.Text = "Author:";
                 lblPlayPaused.Text = "Play/Pause";
                 lblCapture.Text = "Save Image";

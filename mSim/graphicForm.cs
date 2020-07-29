@@ -306,7 +306,7 @@ namespace mSim
             {
                 callExportVideo = 3;
             }
-            if (callInfo >7)
+            if (callInfo > 7)
             {
                 callInfo = 7;
             }
@@ -667,6 +667,29 @@ namespace mSim
             string tmpPath = Application.StartupPath + "\\tmp";
             string baseName = "tmpvid_";
 
+            if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
+            {
+                string content;
+                if (Lang == "vi")
+                {
+                    content = "Không tìm thấy tập tin \"ffmpeg.exe\"!\nTải và giải nén tập tin \"ffmpeg.exe\" vào thư mục chương trình.\nĐến trang tải về?";
+                }
+                else
+                {
+                    content = "Cannot find \"ffmpeg.exe\" file!\nDownload and extract \"ffmpeg.exe\" file to application folder plz.\nGo to download site?";
+                }
+
+                if (MessageBox.Show(content, "ERROR!", MessageBoxButtons.YesNo, MessageBoxIcon.None) == DialogResult.Yes)
+                {
+                    Process p = new Process()
+                    {
+                        StartInfo = new ProcessStartInfo("https://ffmpeg.zeranoe.com/builds/")
+                    };
+                    p.Start();
+                }
+                return;
+            }
+
             if (!Directory.Exists(tmpPath))
             {
                 Directory.CreateDirectory(tmpPath);
@@ -685,7 +708,7 @@ namespace mSim
                 {
                     Bitmap bmp = MovingLineLayer.Clone() as Bitmap;
                     DrawObject(bmp, obj_xy[index].X, obj_xy[index].Y, x0, y0, showSpeeds, showTrails, obj_vx_values[index], obj_vy_values[index],
-                        ("t=" + ((index-timeOffset)*0.01F).ToString("0.000")));
+                        ("t=" + ((index - timeOffset) * 0.01F).ToString("0.000")));
                     bmp.Save(tmpPath + "\\" + baseName + suffix.ToString("0000000") + ".png", ImageFormat.Png);
                     bmp.Dispose();
                     suffix++;
@@ -702,14 +725,13 @@ namespace mSim
                 {
                     Directory.CreateDirectory(outputPath);
                 }
-                string outputFile = outputPath + "\\mSim_" + DateTime.Now.Ticks + ".mp4";
+                string outputFile = outputPath + "\\mSim_" + DateTime.Now.ToString("yy.MM.dd_HH.mm.ss") + ".mp4";
 
                 string pars = /*mmpeg + " " +*/ frameRate + " " + fileindex + " " + libx264 + " " + vsync + " " + videoFormat + " " + outputFile;
 
                 Process p = new Process();
                 p.StartInfo = new ProcessStartInfo(mmpeg, pars);
                 p.Start();
-
                 p.WaitForExit();
 
                 Directory.Delete(tmpPath, true);
@@ -1173,6 +1195,7 @@ namespace mSim
             {
                 AddExtension = true,
                 SupportMultiDottedExtensions = true,
+                ValidateNames = true,
                 Title = "Save Image",
                 OverwritePrompt = true,
                 RestoreDirectory = true,
@@ -1182,7 +1205,20 @@ namespace mSim
             };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                MovingObjectLayer.Save(sfd.FileName);
+                switch (sfd.FilterIndex)
+                {
+                    case 1:
+                        MovingObjectLayer.Save(sfd.FileName, ImageFormat.Png);
+                        break;
+                    case 2:
+                        MovingObjectLayer.Save(sfd.FileName, ImageFormat.Jpeg);
+                        break;
+                    case 3:
+                        MovingObjectLayer.Save(sfd.FileName, ImageFormat.Bmp);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -1589,7 +1625,7 @@ namespace mSim
             Pen obj_p = new Pen(Brushes.Black, 1F);
             if (timelabel != "")
             {
-                g.DrawString(timelabel, myFont_Object, Brushes.Black, 0,0);
+                g.DrawString(timelabel, myFont_Object, Brushes.Black, 0, 0);
             }
             if (showTrails)
             {
@@ -1749,5 +1785,9 @@ namespace mSim
             graphBox.BackgroundImage = MovingLineLayer;
         }
 
+        private void rtb_status_Enter(object sender, EventArgs e)
+        {
+            picPlay.Focus();
+        }
     }
 }

@@ -485,6 +485,7 @@
             this.panel1.Controls.Add(this.rtb_vy);
             this.panel1.Controls.Add(this.rtb_xt);
             this.panel1.Controls.Add(this.rtb_yt);
+            this.panel1.Enabled = false;
             this.panel1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.DarkBlue;
             this.panel1.Location = new System.Drawing.Point(271, 548);
@@ -500,6 +501,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_vx.Enabled = false;
             this.rtb_vx.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
             this.rtb_vx.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vx.Location = new System.Drawing.Point(14, 60);
@@ -517,6 +519,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_vy.Enabled = false;
             this.rtb_vy.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
             this.rtb_vy.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vy.Location = new System.Drawing.Point(14, 80);
@@ -534,6 +537,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_xt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_xt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_xt.Enabled = false;
             this.rtb_xt.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
             this.rtb_xt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_xt.Location = new System.Drawing.Point(14, 20);
@@ -551,6 +555,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtb_yt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_yt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_yt.Enabled = false;
             this.rtb_yt.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
             this.rtb_yt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_yt.Location = new System.Drawing.Point(14, 40);
@@ -584,6 +589,7 @@
             this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_y.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_y.ForeColor = System.Drawing.Color.Black;
             this.rtb_cur_y.Location = new System.Drawing.Point(150, 41);
             this.rtb_cur_y.Multiline = false;
             this.rtb_cur_y.Name = "rtb_cur_y";
@@ -592,6 +598,7 @@
             this.rtb_cur_y.Size = new System.Drawing.Size(134, 20);
             this.rtb_cur_y.TabIndex = 0;
             this.rtb_cur_y.Text = "...";
+            this.rtb_cur_y.Enter += new System.EventHandler(this.rtb_status_Enter);
             // 
             // label4
             // 
@@ -604,6 +611,7 @@
             // lbl_time
             // 
             this.lbl_time.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time.ForeColor = System.Drawing.Color.Black;
             this.lbl_time.Location = new System.Drawing.Point(1, 28);
             this.lbl_time.Name = "lbl_time";
             this.lbl_time.Size = new System.Drawing.Size(122, 18);
@@ -625,6 +633,8 @@
             this.rtb_cur_vy.Size = new System.Drawing.Size(134, 20);
             this.rtb_cur_vy.TabIndex = 0;
             this.rtb_cur_vy.Text = "...";
+            this.rtb_cur_vy.Enter += new System.EventHandler(this.rtb_status_Enter);
+            this.rtb_cur_vy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
             // 
             // rtb_cur_vx
             // 
@@ -640,12 +650,15 @@
             this.rtb_cur_vx.Size = new System.Drawing.Size(134, 20);
             this.rtb_cur_vx.TabIndex = 0;
             this.rtb_cur_vx.Text = "...";
+            this.rtb_cur_vx.Enter += new System.EventHandler(this.rtb_status_Enter);
+            this.rtb_cur_vx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
             // 
             // rtb_cur_x
             // 
             this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_cur_x.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_x.ForeColor = System.Drawing.Color.Black;
             this.rtb_cur_x.Location = new System.Drawing.Point(150, 13);
             this.rtb_cur_x.Multiline = false;
             this.rtb_cur_x.Name = "rtb_cur_x";
@@ -654,6 +667,8 @@
             this.rtb_cur_x.Size = new System.Drawing.Size(134, 20);
             this.rtb_cur_x.TabIndex = 0;
             this.rtb_cur_x.Text = "...";
+            this.rtb_cur_x.Enter += new System.EventHandler(this.rtb_status_Enter);
+            this.rtb_cur_x.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);
             // 
             // timer1
             // 
@@ -825,14 +840,14 @@
             this.toolStripSeparator1,
             this.ctm_ObjSize});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(173, 98);
+            this.ctm.Size = new System.Drawing.Size(178, 98);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
             // 
             // ctm_ObjColor
             // 
             this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
             this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjColor.Text = "Màu vật thể";
             this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -840,7 +855,7 @@
             // 
             this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
             this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
             this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -848,21 +863,21 @@
             // 
             this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
             this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_ObjSize
             // 
             this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctm_objsize_values});
             this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjSize.Text = "Kích thước vật thể";
             // 
             // ctm_objsize_values
@@ -878,7 +893,7 @@
             "24",
             "32"});
             this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
             // 
             // graphBox
             // 

@@ -1,0 +1,1 @@
+ffmpeg.exe -framerate 25 -i .\tmptmpvid_%07d.jpg test.mp4
