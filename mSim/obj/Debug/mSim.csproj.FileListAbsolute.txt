@@ -1,12 +1,11 @@
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.exe.config
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Debug\mSim.pdb
-C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.frmInfo.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.Properties.Resources.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.drawForm.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csproj.GenerateResource.cache
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.pdb
-C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.frmExportVideo.resources
-C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormExportVideo.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormInfo.resources

@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="icon\video.png" />
     <None Include="icon\vellocity.png" />
     <None Include="icon\obj.png" />
     <None Include="icon\movingLIne.png" />

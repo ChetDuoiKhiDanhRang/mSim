@@ -5,10 +5,13 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace mSim
@@ -125,8 +128,6 @@ namespace mSim
         public bool IsRunning { get => isRunning; set { isRunning = value; IsRunningChanged?.Invoke(this, value); } }
 
 
-
-
         float obj_vx;
         float obj_vy;
         float obj_x;
@@ -139,8 +140,6 @@ namespace mSim
         float obj_ay;
         float obj_alpha0;
         float obj_v0;
-
-
 
         public float Obj_x0 { get => obj_x0; set { obj_x0 = value; Obj_x0Changed?.Invoke(this, value); } }
         public float Obj_y0 { get => obj_y0; set { obj_y0 = value; Obj_y0Changed?.Invoke(this, value); } }
@@ -216,10 +215,15 @@ namespace mSim
 
         }
 
+        int callInfo = 0;
+        int callExportVideo = 0;
 
         private void LoadSettings()
         {
             var x = Properties.Settings.Default;
+
+            callInfo = x.callInfo;
+            callExportVideo = x.callExportVideo;
 
             nud_timeOffset.Value = timeOffset = x.timeOffset;
             lbl_trbSpeed.Text = (1000F / timer1.Interval).ToString("#0.00");
@@ -297,6 +301,19 @@ namespace mSim
             x.MovingLine_Color = MovingLine_Color;
             x.Velocity_color = Velocity_Color;
             x.last_Lang = Lang;
+
+            if (callExportVideo > 3)
+            {
+                callExportVideo = 3;
+            }
+            if (callInfo >7)
+            {
+                callInfo = 7;
+            }
+
+            x.callInfo = callInfo;
+            x.callExportVideo = callExportVideo;
+
             x.Save();
         }
 
@@ -425,7 +442,6 @@ namespace mSim
                 ckbAutoScaleVelocityVector.Text = "Tự động điều chỉnh véc-tơ";
             }
         }
-
 
         private void DrawForm_Obj_ayChanged(object sender, float e)
         {
@@ -623,6 +639,84 @@ namespace mSim
             {
                 picInfo_Click(null, null);
                 e.Handled = true;
+            }
+            else if (e.KeyData == (Keys.Control | Keys.E))
+            {
+                if (callExportVideo < 3)
+                {
+                    callExportVideo++;
+                    return;
+                }
+                if (timeOffset > 100)
+                {
+                    if (graphBox.Height % 2 > 0)
+                    {
+                        this.WindowState = FormWindowState.Normal;
+                        graphBox.Size = new Size(graphBox.Size.Width, graphBox.Size.Height + 1);
+                    }
+                    ExportVideo();
+                }
+                //callExportVideo = 0;
+                e.Handled = true;
+            }
+        }
+
+        FormExportVideo formExportVideo;
+        private void ExportVideo()
+        {
+            string tmpPath = Application.StartupPath + "\\tmp";
+            string baseName = "tmpvid_";
+
+            if (!Directory.Exists(tmpPath))
+            {
+                Directory.CreateDirectory(tmpPath);
+            }
+
+            formExportVideo?.Dispose();
+            formExportVideo = new FormExportVideo(Lang, timeOffset);
+            if (formExportVideo.ShowDialog() == DialogResult.OK)
+            {
+                int startIndex = (int)(formExportVideo.StartTime / 0.01M) + timeOffset;
+                int endIndex = (int)(startIndex + formExportVideo.Duration / 0.01M);
+                int FPS = formExportVideo.FPS;
+                int step = 100 / FPS;
+                int suffix = 1;
+                for (int index = startIndex; index <= endIndex; index += step)
+                {
+                    Bitmap bmp = MovingLineLayer.Clone() as Bitmap;
+                    DrawObject(bmp, obj_xy[index].X, obj_xy[index].Y, x0, y0, showSpeeds, showTrails, obj_vx_values[index], obj_vy_values[index],
+                        ("t=" + ((index-timeOffset)*0.01F).ToString("0.000")));
+                    bmp.Save(tmpPath + "\\" + baseName + suffix.ToString("0000000") + ".png", ImageFormat.Png);
+                    bmp.Dispose();
+                    suffix++;
+                }
+
+                string mmpeg = Application.StartupPath + "\\ffmpeg.exe";
+                string frameRate = "-framerate " + FPS.ToString();
+                string fileindex = "-i " + tmpPath + "\\" + baseName + "%07d.png";
+                string libx264 = "-c:v libx264";
+                string vsync = "-vsync vfr";
+                string videoFormat = "-pix_fmt yuv420p";
+                string outputPath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\mSim";
+                if (!Directory.Exists(outputPath))
+                {
+                    Directory.CreateDirectory(outputPath);
+                }
+                string outputFile = outputPath + "\\mSim_" + DateTime.Now.Ticks + ".mp4";
+
+                string pars = /*mmpeg + " " +*/ frameRate + " " + fileindex + " " + libx264 + " " + vsync + " " + videoFormat + " " + outputFile;
+
+                Process p = new Process();
+                p.StartInfo = new ProcessStartInfo(mmpeg, pars);
+                p.Start();
+
+                p.WaitForExit();
+
+                Directory.Delete(tmpPath, true);
+
+                Process exp = new Process();
+                exp.StartInfo = new ProcessStartInfo(outputPath);
+                exp.Start();
             }
         }
 
@@ -1093,16 +1187,15 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
-        frmInfo frm;
-        int counti = 0;
+        FormInfo frmInfo;
         private void picInfo_Click(object sender, EventArgs e)
         {
-            counti++;
-            if (counti >= 17)
+            callInfo++;
+            if (callInfo >= 7)
             {
-                frm?.Dispose();
-                frm = new frmInfo(Lang);
-                frm.Show();
+                frmInfo?.Dispose();
+                frmInfo = new FormInfo(Lang);
+                frmInfo.Show();
             }
         }
 
@@ -1377,23 +1470,7 @@ namespace mSim
         void Gen_tRange()
         {
             float t = 0;
-
-            //float x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
-            //float y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
-            //Point p = Convert_XY2Point(height, x, y, x0, y0);
             tmin = t - timeOffset * timeStep;
-
-            //t = 0;
-            //x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
-            //y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
-            //p = Convert_XY2Point(height, x, y, x0, y0);
-            //while (p.X > 0 && p.X < width)
-            //{
-            //    t = t + timeStep;
-            //    x = Obj_x0 + Obj_v0x * t + Obj_ax * Obj_ax * t / 2;
-            //    y = Obj_y0 + Obj_v0y * t + Obj_ay * Obj_ay * t / 2;
-            //    p = Convert_XY2Point(height, x, y, x0, y0);
-            //}
             tmax = t + timeOffset * timeStep;
         }
         void Gen_XYCoordinates_VelocityValues()
@@ -1487,7 +1564,7 @@ namespace mSim
             }
             baseLengthV = Math.Max(stepX, stepY);
         }
-        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showTrails, float vx, float vy)
+        private void DrawObject(Bitmap bitmap, float obj_x, float obj_y, int x0, int y0, bool showSpeeds, bool showTrails, float vx, float vy, string timelabel = "")
         {
             if (drag)
             {
@@ -1510,7 +1587,10 @@ namespace mSim
             }
 
             Pen obj_p = new Pen(Brushes.Black, 1F);
-
+            if (timelabel != "")
+            {
+                g.DrawString(timelabel, myFont_Object, Brushes.Black, 0,0);
+            }
             if (showTrails)
             {
                 obj_p.DashStyle = DashStyle.DashDot;
@@ -1577,7 +1657,7 @@ namespace mSim
 
                     g.RotateTransform(-90);
                     g.TranslateTransform(p.X - 4 - _vyWidth, p.Y - length_vy, MatrixOrder.Append);
-                    g.DrawString(_vy, myFont_Object, obj_p.Brush,0, 0);
+                    g.DrawString(_vy, myFont_Object, obj_p.Brush, 0, 0);
                     g.ResetTransform();
                 }
 
@@ -1637,8 +1717,6 @@ namespace mSim
                     stepValueY = stepValueY / 2;
                 };
 
-                //if (Obj_y0 > 0) y0 = (int)(Obj_y0 / stepValueY * stepY * 1.1);
-                //else y0 = (int)(graphBox.Height - Obj_y0 / stepValueY * stepY * 1.1);
                 while (Math.Abs(value) / 2 > stepValueY)
                 {
                     stepValueY *= 2;

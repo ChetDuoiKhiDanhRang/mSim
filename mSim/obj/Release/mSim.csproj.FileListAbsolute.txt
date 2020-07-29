@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Release\mSim.exe.config
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Release\mSim.exe
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\bin\Release\mSim.pdb
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.FormExportVideo.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.FormInfo.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.drawForm.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.exe
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Release\mSim.pdb

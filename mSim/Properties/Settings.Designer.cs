@@ -334,5 +334,29 @@ namespace mSim.Properties {
                 this["autoScaleVelocityVector"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int callInfo {
+            get {
+                return ((int)(this["callInfo"]));
+            }
+            set {
+                this["callInfo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int callExportVideo {
+            get {
+                return ((int)(this["callExportVideo"]));
+            }
+            set {
+                this["callExportVideo"] = value;
+            }
+        }
     }
 }

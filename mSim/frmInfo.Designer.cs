@@ -1,6 +1,6 @@
 ﻿namespace mSim
 {
-    partial class frmInfo
+    partial class FormInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInfo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,14 +46,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblPreviousFrame = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,7 +89,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
             this.label4.Location = new System.Drawing.Point(47, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
@@ -139,7 +140,8 @@
             // lblExportVideo
             // 
             this.lblExportVideo.AutoSize = true;
-            this.lblExportVideo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportVideo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportVideo.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblExportVideo.Location = new System.Drawing.Point(114, 260);
             this.lblExportVideo.Name = "lblExportVideo";
             this.lblExportVideo.Size = new System.Drawing.Size(67, 13);
@@ -160,7 +162,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(260, 32);
+            this.label8.Location = new System.Drawing.Point(260, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(226, 45);
             this.label8.TabIndex = 0;
@@ -170,7 +172,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(260, 94);
+            this.label7.Location = new System.Drawing.Point(260, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(186, 45);
             this.label7.TabIndex = 0;
@@ -207,6 +209,19 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Các phím tắt:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::mSim.Properties.Resources.icon;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Github");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -230,7 +245,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::mSim.Properties.Resources.femaleUser;
-            this.pictureBox3.Location = new System.Drawing.Point(206, 92);
+            this.pictureBox3.Location = new System.Drawing.Point(206, 97);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(48, 48);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -240,27 +255,14 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::mSim.Properties.Resources.maleUser;
-            this.pictureBox2.Location = new System.Drawing.Point(206, 29);
+            this.pictureBox2.Location = new System.Drawing.Point(206, 36);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::mSim.Properties.Resources.icon;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 129);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Github");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            // 
-            // frmInfo
+            // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -288,14 +290,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(538, 375);
             this.MinimumSize = new System.Drawing.Size(538, 375);
-            this.Name = "frmInfo";
+            this.Name = "FormInfo";
             this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
