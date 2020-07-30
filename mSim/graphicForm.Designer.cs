@@ -77,30 +77,30 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_trbSpeed = new System.Windows.Forms.Label();
+            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.picCapture = new System.Windows.Forms.PictureBox();
             this.picInfo = new System.Windows.Forms.PictureBox();
-            this.lbl_trbSpeed = new System.Windows.Forms.Label();
-            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.graphBox = new System.Windows.Forms.PictureBox();
             this.ctm_ObjColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_MovingLineColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_VelocityColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
-            this.graphBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grbStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).BeginInit();
+            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
-            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -680,7 +680,7 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "capture.png");
-            this.imageList1.Images.SetKeyName(1, "pause.png");
+            this.imageList1.Images.SetKeyName(1, "Pause.png");
             this.imageList1.Images.SetKeyName(2, "play.png");
             this.imageList1.Images.SetKeyName(3, "reset.png");
             this.imageList1.Images.SetKeyName(4, "about.png");
@@ -705,11 +705,12 @@
             this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLanguage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLanguage.Location = new System.Drawing.Point(932, 558);
+            this.btnLanguage.Location = new System.Drawing.Point(931, 13);
             this.btnLanguage.Name = "btnLanguage";
             this.btnLanguage.Size = new System.Drawing.Size(64, 28);
             this.btnLanguage.TabIndex = 6;
             this.btnLanguage.Text = "VI ↔ EN";
+            this.toolTip1.SetToolTip(this.btnLanguage, "Ctrl+L");
             this.btnLanguage.UseVisualStyleBackColor = true;
             this.btnLanguage.Click += new System.EventHandler(this.btnLanguage_Click);
             // 
@@ -771,54 +772,6 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // picPlay
-            // 
-            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picPlay.Location = new System.Drawing.Point(756, 558);
-            this.picPlay.Name = "picPlay";
-            this.picPlay.Size = new System.Drawing.Size(28, 28);
-            this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picPlay.TabIndex = 4;
-            this.picPlay.TabStop = false;
-            this.toolTip1.SetToolTip(this.picPlay, "Crtl+P");
-            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
-            // 
-            // picReset
-            // 
-            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picReset.Location = new System.Drawing.Point(800, 558);
-            this.picReset.Name = "picReset";
-            this.picReset.Size = new System.Drawing.Size(28, 28);
-            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picReset.TabIndex = 4;
-            this.picReset.TabStop = false;
-            this.toolTip1.SetToolTip(this.picReset, "Crtl+R");
-            this.picReset.Click += new System.EventHandler(this.picReset_Click);
-            // 
-            // picCapture
-            // 
-            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picCapture.Location = new System.Drawing.Point(844, 558);
-            this.picCapture.Name = "picCapture";
-            this.picCapture.Size = new System.Drawing.Size(28, 28);
-            this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picCapture.TabIndex = 4;
-            this.picCapture.TabStop = false;
-            this.toolTip1.SetToolTip(this.picCapture, "Ctrl+S");
-            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
-            // 
-            // picInfo
-            // 
-            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picInfo.Location = new System.Drawing.Point(888, 558);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(28, 28);
-            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picInfo.TabIndex = 4;
-            this.picInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.picInfo, "Ctrl+I");
-            this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
-            // 
             // lbl_trbSpeed
             // 
             this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -840,44 +793,20 @@
             this.toolStripSeparator1,
             this.ctm_ObjSize});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(178, 98);
+            this.ctm.Size = new System.Drawing.Size(173, 98);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
-            // 
-            // ctm_ObjColor
-            // 
-            this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
-            this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_ObjColor.Text = "Màu vật thể";
-            this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
-            // 
-            // ctm_MovingLineColor
-            // 
-            this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
-            this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
-            this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
-            // 
-            // ctm_VelocityColor
-            // 
-            this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
-            this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
-            this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // ctm_ObjSize
             // 
             this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctm_objsize_values});
             this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
+            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
             this.ctm_ObjSize.Text = "Kích thước vật thể";
             // 
             // ctm_objsize_values
@@ -893,7 +822,55 @@
             "24",
             "32"});
             this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            // 
+            // picPlay
+            // 
+            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picPlay.Location = new System.Drawing.Point(743, 558);
+            this.picPlay.Name = "picPlay";
+            this.picPlay.Size = new System.Drawing.Size(48, 48);
+            this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picPlay.TabIndex = 4;
+            this.picPlay.TabStop = false;
+            this.toolTip1.SetToolTip(this.picPlay, "Crtl+P");
+            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
+            // 
+            // picReset
+            // 
+            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picReset.Location = new System.Drawing.Point(811, 558);
+            this.picReset.Name = "picReset";
+            this.picReset.Size = new System.Drawing.Size(48, 48);
+            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picReset.TabIndex = 4;
+            this.picReset.TabStop = false;
+            this.toolTip1.SetToolTip(this.picReset, "Crtl+R");
+            this.picReset.Click += new System.EventHandler(this.picReset_Click);
+            // 
+            // picCapture
+            // 
+            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picCapture.Location = new System.Drawing.Point(879, 558);
+            this.picCapture.Name = "picCapture";
+            this.picCapture.Size = new System.Drawing.Size(48, 48);
+            this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picCapture.TabIndex = 4;
+            this.picCapture.TabStop = false;
+            this.toolTip1.SetToolTip(this.picCapture, "Ctrl+S");
+            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
+            // 
+            // picInfo
+            // 
+            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picInfo.Location = new System.Drawing.Point(947, 558);
+            this.picInfo.Name = "picInfo";
+            this.picInfo.Size = new System.Drawing.Size(48, 48);
+            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picInfo.TabIndex = 4;
+            this.picInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.picInfo, "Ctrl+I");
+            this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
             // 
             // graphBox
             // 
@@ -907,6 +884,30 @@
             this.graphBox.Size = new System.Drawing.Size(984, 529);
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
+            // 
+            // ctm_ObjColor
+            // 
+            this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
+            this.ctm_ObjColor.Name = "ctm_ObjColor";
+            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Text = "Màu vật thể";
+            this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
+            // 
+            // ctm_MovingLineColor
+            // 
+            this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
+            this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
+            this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
+            // 
+            // ctm_VelocityColor
+            // 
+            this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
+            this.ctm_VelocityColor.Name = "ctm_VelocityColor";
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
+            this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // drawForm
             // 
@@ -946,11 +947,11 @@
             this.grbStatus.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).EndInit();
+            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
-            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -313,7 +313,7 @@ namespace mSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("vi")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en")]
         public string last_Lang {
             get {
                 return ((string)(this["last_Lang"]));

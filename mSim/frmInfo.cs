@@ -24,8 +24,8 @@ namespace mSim
                 lblCapture.Text = "Save Image";
                 lblReSet.Text = "Reset";
                 lblExportVideo.Text = "Export video (It's hidden feature, active after 3 times)";
-                lblNextFrame.Text = "Next value (when paused only)";
-                lblPreviousFrame.Text = "Previous value (when paused only)";
+                lblNextFrame.Text = "Next situation (when paused only)";
+                lblPreviousFrame.Text = "Previous situation (when paused only)";
                 label6.Text = "Hot keys:";
             }
             else if (lang == "vi")
@@ -54,10 +54,18 @@ namespace mSim
             p.Start();
         }
 
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        private void pictureBoxes_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Cursor = Cursors.Hand;
+            PictureBox p = (PictureBox)sender;
+            p.Cursor = Cursors.Hand;
 
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo("mail:nguyenngoccuongls@gmail.com");
+            p.Start();
         }
     }
 }
