@@ -793,20 +793,20 @@
             this.toolStripSeparator1,
             this.ctm_ObjSize});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(173, 98);
+            this.ctm.Size = new System.Drawing.Size(178, 98);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_ObjSize
             // 
             this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctm_objsize_values});
             this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjSize.Text = "Kích thước vật thể";
             // 
             // ctm_objsize_values
@@ -822,7 +822,7 @@
             "24",
             "32"});
             this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
             // 
             // picPlay
             // 
@@ -889,7 +889,7 @@
             // 
             this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
             this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjColor.Text = "Màu vật thể";
             this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -897,7 +897,7 @@
             // 
             this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
             this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
             this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -905,7 +905,7 @@
             // 
             this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
             this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -932,7 +932,7 @@
             this.Controls.Add(this.graphBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(1000, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "drawForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mSim (DEMO)";

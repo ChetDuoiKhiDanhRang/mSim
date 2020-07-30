@@ -659,6 +659,11 @@ namespace mSim
                 //callExportVideo = 0;
                 e.Handled = true;
             }
+            else if (e.KeyData == (Keys.Control|Keys.L))
+            {
+                btnLanguage.PerformClick();
+                e.Handled = true;
+            }
         }
 
         FormExportVideo formExportVideo;

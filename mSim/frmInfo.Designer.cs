@@ -41,26 +41,34 @@
             this.lblExportVideo = new System.Windows.Forms.Label();
             this.lblNextFrame = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblPreviousFrame = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDonate = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pic_Vietinbank = new System.Windows.Forms.PictureBox();
+            this.pic_PayPal = new System.Windows.Forms.PictureBox();
+            this.pic_Author = new System.Windows.Forms.PictureBox();
+            this.pic_Github = new System.Windows.Forms.PictureBox();
+            this.pic_Icon = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Vietinbank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 180);
+            this.label1.Location = new System.Drawing.Point(47, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
@@ -68,11 +76,11 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 207);
+            this.label2.Location = new System.Drawing.Point(47, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 0;
@@ -80,11 +88,11 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 234);
+            this.label3.Location = new System.Drawing.Point(47, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 0;
@@ -92,12 +100,12 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label4.Location = new System.Drawing.Point(47, 261);
+            this.label4.Location = new System.Drawing.Point(47, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 0;
@@ -105,11 +113,11 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 288);
+            this.label5.Location = new System.Drawing.Point(47, 290);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 0;
@@ -117,11 +125,11 @@
             // 
             // lblPlayPaused
             // 
-            this.lblPlayPaused.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblPlayPaused.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPlayPaused.AutoSize = true;
             this.lblPlayPaused.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayPaused.Location = new System.Drawing.Point(114, 180);
+            this.lblPlayPaused.Location = new System.Drawing.Point(114, 182);
             this.lblPlayPaused.Name = "lblPlayPaused";
             this.lblPlayPaused.Size = new System.Drawing.Size(85, 13);
             this.lblPlayPaused.TabIndex = 0;
@@ -129,11 +137,11 @@
             // 
             // lblCapture
             // 
-            this.lblCapture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblCapture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCapture.AutoSize = true;
             this.lblCapture.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapture.Location = new System.Drawing.Point(114, 207);
+            this.lblCapture.Location = new System.Drawing.Point(114, 209);
             this.lblCapture.Name = "lblCapture";
             this.lblCapture.Size = new System.Drawing.Size(49, 13);
             this.lblCapture.TabIndex = 0;
@@ -141,11 +149,11 @@
             // 
             // lblReSet
             // 
-            this.lblReSet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblReSet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReSet.AutoSize = true;
             this.lblReSet.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReSet.Location = new System.Drawing.Point(114, 234);
+            this.lblReSet.Location = new System.Drawing.Point(114, 236);
             this.lblReSet.Name = "lblReSet";
             this.lblReSet.Size = new System.Drawing.Size(133, 13);
             this.lblReSet.TabIndex = 0;
@@ -153,12 +161,12 @@
             // 
             // lblExportVideo
             // 
-            this.lblExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExportVideo.AutoSize = true;
             this.lblExportVideo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExportVideo.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblExportVideo.Location = new System.Drawing.Point(114, 261);
+            this.lblExportVideo.Location = new System.Drawing.Point(114, 263);
             this.lblExportVideo.Name = "lblExportVideo";
             this.lblExportVideo.Size = new System.Drawing.Size(67, 13);
             this.lblExportVideo.TabIndex = 0;
@@ -166,11 +174,11 @@
             // 
             // lblNextFrame
             // 
-            this.lblNextFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblNextFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNextFrame.AutoSize = true;
             this.lblNextFrame.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNextFrame.Location = new System.Drawing.Point(114, 288);
+            this.lblNextFrame.Location = new System.Drawing.Point(114, 290);
             this.lblNextFrame.Name = "lblNextFrame";
             this.lblNextFrame.Size = new System.Drawing.Size(295, 13);
             this.lblNextFrame.TabIndex = 0;
@@ -180,28 +188,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(223, 40);
+            this.label8.Location = new System.Drawing.Point(216, 25);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(226, 45);
             this.label8.TabIndex = 0;
             this.label8.Text = "Nguyễn Ngọc Cường\r\nEmail: nguyenngoccuongls@gmail.com\r\nMobile: +84 947.168.804";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(150, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 15);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Các tác giả:";
+            this.toolTip1.SetToolTip(this.label8, "Mail to: nguyenngoccuongls@gmail.com");
+            this.label8.Click += new System.EventHandler(this.pic_Author_Click);
+            this.label8.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Location = new System.Drawing.Point(12, 151);
+            this.label10.Location = new System.Drawing.Point(12, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(752, 1);
             this.label10.TabIndex = 1;
@@ -209,11 +210,11 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 156);
+            this.label6.Location = new System.Drawing.Point(12, 158);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 0;
@@ -228,27 +229,13 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "mSim";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::mSim.Properties.Resources.icon;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "https://github.com/ChetDuoiKhiDanhRang/mSim");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(47, 315);
+            this.label11.Location = new System.Drawing.Point(47, 317);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 0;
@@ -256,50 +243,127 @@
             // 
             // lblPreviousFrame
             // 
-            this.lblPreviousFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblPreviousFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPreviousFrame.AutoSize = true;
             this.lblPreviousFrame.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreviousFrame.Location = new System.Drawing.Point(114, 315);
+            this.lblPreviousFrame.Location = new System.Drawing.Point(114, 317);
             this.lblPreviousFrame.Name = "lblPreviousFrame";
             this.lblPreviousFrame.Size = new System.Drawing.Size(307, 13);
             this.lblPreviousFrame.TabIndex = 0;
             this.lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
             // 
-            // pictureBox2
+            // panel1
             // 
-            this.pictureBox2.Image = global::mSim.Properties.Resources.maleUser;
-            this.pictureBox2.Location = new System.Drawing.Point(153, 27);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
-            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.Location = new System.Drawing.Point(12, 147);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(752, 1);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "label12";
-            this.label12.Visible = false;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pic_Vietinbank);
+            this.panel1.Controls.Add(this.pic_PayPal);
+            this.panel1.Controls.Add(this.lblDonate);
+            this.panel1.Location = new System.Drawing.Point(12, 343);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(752, 143);
+            this.panel1.TabIndex = 4;
+            // 
+            // lblDonate
+            // 
+            this.lblDonate.AutoSize = true;
+            this.lblDonate.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDonate.Location = new System.Drawing.Point(3, 3);
+            this.lblDonate.Name = "lblDonate";
+            this.lblDonate.Size = new System.Drawing.Size(97, 13);
+            this.lblDonate.TabIndex = 0;
+            this.lblDonate.Text = "Ủng hộ tác giả:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(216, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(273, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "https://github.com/ChetDuoiKhiDanhRang/mSim";
+            this.label7.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.label7.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Vietinbank
+            // 
+            this.pic_Vietinbank.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Vietinbank.Image = global::mSim.Properties.Resources.vietinbank;
+            this.pic_Vietinbank.Location = new System.Drawing.Point(112, 28);
+            this.pic_Vietinbank.Name = "pic_Vietinbank";
+            this.pic_Vietinbank.Size = new System.Drawing.Size(100, 92);
+            this.pic_Vietinbank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Vietinbank.TabIndex = 0;
+            this.pic_Vietinbank.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Vietinbank, "VietinBank");
+            // 
+            // pic_PayPal
+            // 
+            this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
+            this.pic_PayPal.Location = new System.Drawing.Point(6, 28);
+            this.pic_PayPal.Name = "pic_PayPal";
+            this.pic_PayPal.Size = new System.Drawing.Size(100, 92);
+            this.pic_PayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_PayPal.TabIndex = 0;
+            this.pic_PayPal.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
+            // 
+            // pic_Author
+            // 
+            this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
+            this.pic_Author.Location = new System.Drawing.Point(146, 12);
+            this.pic_Author.Name = "pic_Author";
+            this.pic_Author.Size = new System.Drawing.Size(64, 64);
+            this.pic_Author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Author.TabIndex = 3;
+            this.pic_Author.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
+            this.pic_Author.Click += new System.EventHandler(this.pic_Author_Click);
+            this.pic_Author.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Github
+            // 
+            this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
+            this.pic_Github.Location = new System.Drawing.Point(146, 76);
+            this.pic_Github.Name = "pic_Github";
+            this.pic_Github.Size = new System.Drawing.Size(64, 64);
+            this.pic_Github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Github.TabIndex = 2;
+            this.pic_Github.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Github.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Github.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Icon
+            // 
+            this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
+            this.pic_Icon.Location = new System.Drawing.Point(12, 12);
+            this.pic_Icon.Name = "pic_Icon";
+            this.pic_Icon.Size = new System.Drawing.Size(128, 128);
+            this.pic_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Icon.TabIndex = 2;
+            this.pic_Icon.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Icon, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Icon.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Icon.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
             // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(776, 337);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.pictureBox2);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(776, 644);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pic_Author);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblPreviousFrame);
             this.Controls.Add(this.lblNextFrame);
@@ -314,16 +378,21 @@
             this.Controls.Add(this.lblPlayPaused);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pic_Github);
+            this.Controls.Add(this.pic_Icon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(538, 375);
             this.Name = "FormInfo";
-            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmInfo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Vietinbank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,14 +411,18 @@
         private System.Windows.Forms.Label lblExportVideo;
         private System.Windows.Forms.Label lblNextFrame;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pic_Icon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pic_Author;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblPreviousFrame;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pic_Vietinbank;
+        private System.Windows.Forms.PictureBox pic_PayPal;
+        private System.Windows.Forms.PictureBox pic_Github;
+        private System.Windows.Forms.Label lblDonate;
+        private System.Windows.Forms.Label label7;
     }
 }

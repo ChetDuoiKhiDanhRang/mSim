@@ -19,7 +19,7 @@ namespace mSim
             if (lang == "en")
             {
                 this.Text = "THANK YOU VERY MUCH FOR GO HERE! :))";
-                label9.Text = "Author:";
+                lblDonate.Text = "Donate:";
                 lblPlayPaused.Text = "Play/Pause";
                 lblCapture.Text = "Save Image";
                 lblReSet.Text = "Reset";
@@ -31,7 +31,7 @@ namespace mSim
             else if (lang == "vi")
             {
                 this.Text = "THÔNG TIN";
-                label9.Text = "Tác giả:";
+                lblDonate.Text = "Ủng hộ tác giả:";
                 lblPlayPaused.Text = "Chạy/tạm dừng mô phỏng";
                 lblCapture.Text = "Lưu ảnh";
                 lblReSet.Text = "Về trạng thái ban đầu";
@@ -47,7 +47,7 @@ namespace mSim
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ptb_Github_Click(object sender, EventArgs e)
         {
             Process p = new Process();
             p.StartInfo = new ProcessStartInfo("https://github.com/ChetDuoiKhiDanhRang/mSim");
@@ -56,15 +56,16 @@ namespace mSim
 
         private void pictureBoxes_MouseEnter(object sender, EventArgs e)
         {
-            PictureBox p = (PictureBox)sender;
+            Control p = (Control)sender;
             p.Cursor = Cursors.Hand;
 
         }
 
-        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        private void pic_Author_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
             Process p = new Process();
-            p.StartInfo = new ProcessStartInfo("mail:nguyenngoccuongls@gmail.com");
+            p.StartInfo = new ProcessStartInfo("mailto:nguyenngoccuongls@gmail.com");
             p.Start();
         }
     }
