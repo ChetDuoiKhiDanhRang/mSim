@@ -9,3 +9,4 @@ C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.exe
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.pdb
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormExportVideo.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormInfo.resources
+C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache

@@ -263,7 +263,7 @@
             this.panel1.Controls.Add(this.lblDonate);
             this.panel1.Location = new System.Drawing.Point(12, 343);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 143);
+            this.panel1.Size = new System.Drawing.Size(752, 90);
             this.panel1.TabIndex = 4;
             // 
             // lblDonate
@@ -292,10 +292,9 @@
             // 
             this.pic_Vietinbank.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pic_Vietinbank.Image = global::mSim.Properties.Resources.vietinbank;
-            this.pic_Vietinbank.Location = new System.Drawing.Point(112, 28);
+            this.pic_Vietinbank.Location = new System.Drawing.Point(76, 19);
             this.pic_Vietinbank.Name = "pic_Vietinbank";
-            this.pic_Vietinbank.Size = new System.Drawing.Size(100, 92);
-            this.pic_Vietinbank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Vietinbank.Size = new System.Drawing.Size(64, 64);
             this.pic_Vietinbank.TabIndex = 0;
             this.pic_Vietinbank.TabStop = false;
             this.toolTip1.SetToolTip(this.pic_Vietinbank, "VietinBank");
@@ -304,10 +303,9 @@
             // 
             this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
-            this.pic_PayPal.Location = new System.Drawing.Point(6, 28);
+            this.pic_PayPal.Location = new System.Drawing.Point(6, 19);
             this.pic_PayPal.Name = "pic_PayPal";
-            this.pic_PayPal.Size = new System.Drawing.Size(100, 92);
-            this.pic_PayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_PayPal.Size = new System.Drawing.Size(64, 64);
             this.pic_PayPal.TabIndex = 0;
             this.pic_PayPal.TabStop = false;
             this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
@@ -319,7 +317,6 @@
             this.pic_Author.Location = new System.Drawing.Point(146, 12);
             this.pic_Author.Name = "pic_Author";
             this.pic_Author.Size = new System.Drawing.Size(64, 64);
-            this.pic_Author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Author.TabIndex = 3;
             this.pic_Author.TabStop = false;
             this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
@@ -333,7 +330,6 @@
             this.pic_Github.Location = new System.Drawing.Point(146, 76);
             this.pic_Github.Name = "pic_Github";
             this.pic_Github.Size = new System.Drawing.Size(64, 64);
-            this.pic_Github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Github.TabIndex = 2;
             this.pic_Github.TabStop = false;
             this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");

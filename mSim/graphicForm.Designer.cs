@@ -77,30 +77,30 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbl_trbSpeed = new System.Windows.Forms.Label();
-            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.picCapture = new System.Windows.Forms.PictureBox();
             this.picInfo = new System.Windows.Forms.PictureBox();
-            this.graphBox = new System.Windows.Forms.PictureBox();
+            this.lbl_trbSpeed = new System.Windows.Forms.Label();
+            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctm_ObjColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_MovingLineColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_VelocityColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
+            this.graphBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grbStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).BeginInit();
-            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
+            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -682,7 +682,7 @@
             this.imageList1.Images.SetKeyName(0, "capture.png");
             this.imageList1.Images.SetKeyName(1, "Pause.png");
             this.imageList1.Images.SetKeyName(2, "play.png");
-            this.imageList1.Images.SetKeyName(3, "reset.png");
+            this.imageList1.Images.SetKeyName(3, "Reset.png");
             this.imageList1.Images.SetKeyName(4, "about.png");
             // 
             // trb
@@ -772,58 +772,6 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // lbl_trbSpeed
-            // 
-            this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_trbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_trbSpeed.Location = new System.Drawing.Point(823, 687);
-            this.lbl_trbSpeed.Name = "lbl_trbSpeed";
-            this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
-            this.lbl_trbSpeed.TabIndex = 7;
-            this.lbl_trbSpeed.Text = "123456";
-            this.lbl_trbSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ctm
-            // 
-            this.ctm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ctm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctm_ObjColor,
-            this.ctm_MovingLineColor,
-            this.ctm_VelocityColor,
-            this.toolStripSeparator1,
-            this.ctm_ObjSize});
-            this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(178, 98);
-            this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
-            // 
-            // ctm_ObjSize
-            // 
-            this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctm_objsize_values});
-            this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
-            this.ctm_ObjSize.Text = "Kích thước vật thể";
-            // 
-            // ctm_objsize_values
-            // 
-            this.ctm_objsize_values.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ctm_objsize_values.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ctm_objsize_values.Items.AddRange(new object[] {
-            "4",
-            "8",
-            "12",
-            "16",
-            "20",
-            "24",
-            "32"});
-            this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
-            // 
             // picPlay
             // 
             this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -872,6 +820,82 @@
             this.toolTip1.SetToolTip(this.picInfo, "Ctrl+I");
             this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
             // 
+            // lbl_trbSpeed
+            // 
+            this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_trbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_trbSpeed.Location = new System.Drawing.Point(823, 687);
+            this.lbl_trbSpeed.Name = "lbl_trbSpeed";
+            this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
+            this.lbl_trbSpeed.TabIndex = 7;
+            this.lbl_trbSpeed.Text = "123456";
+            this.lbl_trbSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ctm
+            // 
+            this.ctm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ctm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctm_ObjColor,
+            this.ctm_MovingLineColor,
+            this.ctm_VelocityColor,
+            this.toolStripSeparator1,
+            this.ctm_ObjSize});
+            this.ctm.Name = "ctm";
+            this.ctm.Size = new System.Drawing.Size(173, 98);
+            this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
+            // 
+            // ctm_ObjColor
+            // 
+            this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
+            this.ctm_ObjColor.Name = "ctm_ObjColor";
+            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Text = "Màu vật thể";
+            this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
+            // 
+            // ctm_MovingLineColor
+            // 
+            this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
+            this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
+            this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
+            // 
+            // ctm_VelocityColor
+            // 
+            this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
+            this.ctm_VelocityColor.Name = "ctm_VelocityColor";
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
+            this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            // 
+            // ctm_ObjSize
+            // 
+            this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctm_objsize_values});
+            this.ctm_ObjSize.Name = "ctm_ObjSize";
+            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Text = "Kích thước vật thể";
+            // 
+            // ctm_objsize_values
+            // 
+            this.ctm_objsize_values.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ctm_objsize_values.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ctm_objsize_values.Items.AddRange(new object[] {
+            "4",
+            "8",
+            "12",
+            "16",
+            "20",
+            "24",
+            "32"});
+            this.ctm_objsize_values.Name = "ctm_objsize_values";
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            // 
             // graphBox
             // 
             this.graphBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -884,30 +908,6 @@
             this.graphBox.Size = new System.Drawing.Size(984, 529);
             this.graphBox.TabIndex = 0;
             this.graphBox.TabStop = false;
-            // 
-            // ctm_ObjColor
-            // 
-            this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
-            this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_ObjColor.Text = "Màu vật thể";
-            this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
-            // 
-            // ctm_MovingLineColor
-            // 
-            this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
-            this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
-            this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
-            // 
-            // ctm_VelocityColor
-            // 
-            this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
-            this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
-            this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
-            this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // drawForm
             // 
@@ -947,11 +947,11 @@
             this.grbStatus.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).EndInit();
-            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
+            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
