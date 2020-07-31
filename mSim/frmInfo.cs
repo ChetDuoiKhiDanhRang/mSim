@@ -64,8 +64,18 @@ namespace mSim
         private void pic_Author_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            var c = (Control)sender;
+            string ctn = "mailto:nguyenngoccuongls@gmail.com";
+            if (c.Name == pic_Author.Name)
+            {
+                ctn = "mailto:nguyenngoccuongls@gmail.com";
+            }
+            else if (c.Name == pic_Author2.Name)
+            {
+                ctn = "mailto:nguyenngoccuongls@gmail.com";
+            }
             Process p = new Process();
-            p.StartInfo = new ProcessStartInfo("mailto:nguyenngoccuongls@gmail.com");
+            p.StartInfo = new ProcessStartInfo(ctn);
             p.Start();
         }
     }
