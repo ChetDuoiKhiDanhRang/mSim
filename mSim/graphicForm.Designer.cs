@@ -80,15 +80,19 @@
             this.picPlay = new System.Windows.Forms.PictureBox();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.picCapture = new System.Windows.Forms.PictureBox();
-            this.picInfo = new System.Windows.Forms.PictureBox();
+            this.picExportVideo = new System.Windows.Forms.PictureBox();
             this.lbl_trbSpeed = new System.Windows.Forms.Label();
             this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ctm_ObjColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_MovingLineColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_VelocityColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctm_Capture = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctm_Info = new System.Windows.Forms.ToolStripMenuItem();
             this.graphBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
@@ -99,7 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExportVideo)).BeginInit();
             this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
@@ -683,7 +687,7 @@
             this.imageList1.Images.SetKeyName(1, "Pause.png");
             this.imageList1.Images.SetKeyName(2, "play.png");
             this.imageList1.Images.SetKeyName(3, "Reset.png");
-            this.imageList1.Images.SetKeyName(4, "about.png");
+            this.imageList1.Images.SetKeyName(4, "video48.png");
             // 
             // trb
             // 
@@ -702,7 +706,7 @@
             // 
             // btnLanguage
             // 
-            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLanguage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLanguage.Location = new System.Drawing.Point(931, 13);
@@ -808,17 +812,17 @@
             this.toolTip1.SetToolTip(this.picCapture, "Ctrl+S");
             this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
             // 
-            // picInfo
+            // picExportVideo
             // 
-            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picInfo.Location = new System.Drawing.Point(947, 558);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(48, 48);
-            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picInfo.TabIndex = 4;
-            this.picInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.picInfo, "Ctrl+I");
-            this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
+            this.picExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picExportVideo.Location = new System.Drawing.Point(947, 558);
+            this.picExportVideo.Name = "picExportVideo";
+            this.picExportVideo.Size = new System.Drawing.Size(48, 48);
+            this.picExportVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picExportVideo.TabIndex = 4;
+            this.picExportVideo.TabStop = false;
+            this.toolTip1.SetToolTip(this.picExportVideo, "Ctrl+E");
+            this.picExportVideo.Click += new System.EventHandler(this.picExportVideo_Click);
             // 
             // lbl_trbSpeed
             // 
@@ -835,14 +839,46 @@
             // 
             this.ctm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ctm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctm_ObjSize,
+            this.toolStripSeparator1,
             this.ctm_ObjColor,
             this.ctm_MovingLineColor,
             this.ctm_VelocityColor,
-            this.toolStripSeparator1,
-            this.ctm_ObjSize});
+            this.toolStripSeparator2,
+            this.ctm_Capture,
+            this.toolStripSeparator3,
+            this.ctm_Info});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(173, 98);
+            this.ctm.Size = new System.Drawing.Size(173, 154);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
+            // 
+            // ctm_ObjSize
+            // 
+            this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctm_objsize_values});
+            this.ctm_ObjSize.Name = "ctm_ObjSize";
+            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Text = "Kích thước vật thể";
+            // 
+            // ctm_objsize_values
+            // 
+            this.ctm_objsize_values.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ctm_objsize_values.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ctm_objsize_values.Items.AddRange(new object[] {
+            "4",
+            "8",
+            "12",
+            "16",
+            "20",
+            "24",
+            "32"});
+            this.ctm_objsize_values.Name = "ctm_objsize_values";
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // ctm_ObjColor
             // 
@@ -868,33 +904,31 @@
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
-            // ctm_ObjSize
+            // ctm_Capture
             // 
-            this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctm_objsize_values});
-            this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
-            this.ctm_ObjSize.Text = "Kích thước vật thể";
+            this.ctm_Capture.Image = global::mSim.Properties.Resources.capture_16;
+            this.ctm_Capture.Name = "ctm_Capture";
+            this.ctm_Capture.Size = new System.Drawing.Size(172, 22);
+            this.ctm_Capture.Text = "Lưu ảnh";
+            this.ctm_Capture.Click += new System.EventHandler(this.picCapture_Click);
             // 
-            // ctm_objsize_values
+            // toolStripSeparator3
             // 
-            this.ctm_objsize_values.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ctm_objsize_values.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ctm_objsize_values.Items.AddRange(new object[] {
-            "4",
-            "8",
-            "12",
-            "16",
-            "20",
-            "24",
-            "32"});
-            this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            // 
+            // ctm_Info
+            // 
+            this.ctm_Info.Image = global::mSim.Properties.Resources.about_16;
+            this.ctm_Info.Name = "ctm_Info";
+            this.ctm_Info.Size = new System.Drawing.Size(172, 22);
+            this.ctm_Info.Text = "About";
+            this.ctm_Info.Click += new System.EventHandler(this.ctm_Info_Click);
             // 
             // graphBox
             // 
@@ -924,7 +958,7 @@
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picReset);
             this.Controls.Add(this.picCapture);
-            this.Controls.Add(this.picInfo);
+            this.Controls.Add(this.picExportVideo);
             this.Controls.Add(this.grbStatus);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grb_Params0);
@@ -950,7 +984,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExportVideo)).EndInit();
             this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.ResumeLayout(false);
@@ -993,7 +1027,7 @@
         private System.Windows.Forms.RichTextBox rtb_vy;
         private System.Windows.Forms.GroupBox grbStatus;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox picInfo;
+        private System.Windows.Forms.PictureBox picExportVideo;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox picCapture;
         private System.Windows.Forms.PictureBox picReset;
@@ -1020,6 +1054,10 @@
         private System.Windows.Forms.ToolStripMenuItem ctm_ObjSize;
         private System.Windows.Forms.ToolStripComboBox ctm_objsize_values;
         private System.Windows.Forms.CheckBox ckbAutoScaleVelocityVector;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem ctm_Capture;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem ctm_Info;
     }
 }
 

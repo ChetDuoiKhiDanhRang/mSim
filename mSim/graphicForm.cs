@@ -327,7 +327,7 @@ namespace mSim
             picPlay.Image = imageList1.Images[2];
             picCapture.Image = imageList1.Images[0];
             picReset.Image = imageList1.Images[3];
-            picInfo.Image = imageList1.Images[4];
+            picExportVideo.Image = imageList1.Images[4];
 
             Obj_vx = Obj_v0x;
             Obj_vy = Obj_v0y;
@@ -410,10 +410,11 @@ namespace mSim
                 label1.Text = "Number of sampling:";
                 label2.Text = "Play speed:";
                 groupBox1.Text = "View:";
-                ctm_ObjColor.Text = "Object color";
-                ctm_ObjSize.Text = "Object size";
-                ctm_MovingLineColor.Text = "Trajectory color";
-                ctm_VelocityColor.Text = "Velocity color";
+                ctm_ObjColor.Text = "Object's color";
+                ctm_ObjSize.Text = "Object's size";
+                ctm_MovingLineColor.Text = "Trajectory's color";
+                ctm_VelocityColor.Text = "Velocity's color";
+                ctm_Capture.Text = "Export image";
                 ckbGid.Text = "Grid lines";
                 ckbCoordinates.Text = "Coordinates";
                 ckbHighQuality.Text = "Smooth graphic";
@@ -434,6 +435,7 @@ namespace mSim
                 ctm_ObjSize.Text = "Kích thước vật thể";
                 ctm_MovingLineColor.Text = "Màu quỹ đạo";
                 ctm_VelocityColor.Text = "Màu véc-tơ vận tốc";
+                ctm_Capture.Text = "Xuất hình ảnh";
                 ckbGid.Text = "Lưới";
                 ckbCoordinates.Text = "Tọa độ";
                 ckbHighQuality.Text = "Khử \"răng cưa\"";
@@ -637,29 +639,16 @@ namespace mSim
             }
             else if (e.KeyData == (Keys.Control | Keys.I))
             {
-                picInfo_Click(null, null);
+                ctm_Info_Click(null, null);
                 e.Handled = true;
             }
             else if (e.KeyData == (Keys.Control | Keys.E))
             {
-                if (callExportVideo < 3)
-                {
-                    callExportVideo++;
-                    return;
-                }
-                if (timeOffset > 100)
-                {
-                    if (graphBox.Height % 2 > 0)
-                    {
-                        this.WindowState = FormWindowState.Normal;
-                        graphBox.Size = new Size(graphBox.Size.Width, graphBox.Size.Height + 1);
-                    }
-                    ExportVideo();
-                }
+                picExportVideo_Click(null, null);
                 //callExportVideo = 0;
                 e.Handled = true;
             }
-            else if (e.KeyData == (Keys.Control|Keys.L))
+            else if (e.KeyData == (Keys.Control | Keys.L))
             {
                 btnLanguage.PerformClick();
                 e.Handled = true;
@@ -867,7 +856,6 @@ namespace mSim
             }
         }
 
-
         //---------------------------------------------------------------------------
         private void ckbGid_CheckedChanged(object sender, EventArgs e)
         {
@@ -1074,6 +1062,17 @@ namespace mSim
             ctm_objsize_values.SelectedIndex = Obj_Size / 4 - 1;
         }
 
+        FormInfo frmInfo;
+        private void ctm_Info_Click(object sender, EventArgs e)
+        {
+            callInfo++;
+            if (callInfo >= 7)
+            {
+                frmInfo?.Dispose();
+                frmInfo = new FormInfo(Lang);
+                frmInfo.ShowDialog();
+            }
+        }
         //---------------------------------------------------------------------------
         private void rtb_x0_Enter(object sender, EventArgs e)
         {
@@ -1228,15 +1227,21 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
-        FormInfo frmInfo;
-        private void picInfo_Click(object sender, EventArgs e)
+        private void picExportVideo_Click(object sender, EventArgs e)
         {
-            callInfo++;
-            if (callInfo >= 7)
+            if (callExportVideo < 3)
             {
-                frmInfo?.Dispose();
-                frmInfo = new FormInfo(Lang);
-                frmInfo.Show();
+                callExportVideo++;
+                return;
+            }
+            if (timeOffset > 100)
+            {
+                if (graphBox.Height % 2 > 0)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    graphBox.Size = new Size(graphBox.Size.Width, graphBox.Size.Height + 1);
+                }
+                ExportVideo();
             }
         }
 
@@ -1794,5 +1799,7 @@ namespace mSim
         {
             picPlay.Focus();
         }
+
+
     }
 }
