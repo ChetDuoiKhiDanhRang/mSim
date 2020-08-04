@@ -26,7 +26,7 @@ namespace mSim
             nudStartTime.Maximum = (timeOffset * 0.01M);
             nudDuration.Minimum = 1M;
             nudDuration.Maximum = nudStartTime.Maximum - nudStartTime.Value;
-            cmbFPS.SelectedIndex = 0;
+            cmbFPS.SelectedIndex = 1;
             nudStartTime.Value = 0;
             nudDuration.Value = nudDuration.Maximum;
             if (lang == "vi")
@@ -69,6 +69,7 @@ namespace mSim
         private void nudStartTime_ValueChanged(object sender, EventArgs e)
         {
             nudDuration.Maximum = nudStartTime.Maximum - nudStartTime.Value;
+            nudDuration.Value = nudDuration.Maximum;
         }
     }
 }
