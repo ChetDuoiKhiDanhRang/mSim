@@ -23,7 +23,7 @@ namespace mSim
                 lblPlayPaused.Text = "Play/Pause";
                 lblCapture.Text = "Save Image";
                 lblReSet.Text = "Reset";
-                lblExportVideo.Text = "Export video (It's hidden feature, active after 3 times)";
+                lblExportVideo.Text = "Export video";
                 lblNextFrame.Text = "Next situation (when paused only)";
                 lblPreviousFrame.Text = "Previous situation (when paused only)";
                 label6.Text = "Hot keys:";
@@ -35,7 +35,7 @@ namespace mSim
                 lblPlayPaused.Text = "Chạy/tạm dừng mô phỏng";
                 lblCapture.Text = "Lưu ảnh";
                 lblReSet.Text = "Về trạng thái ban đầu";
-                lblExportVideo.Text = "Xuất video (Đã ẩn khỏi UI, kích hoạt sau 3 lần ấn)";
+                lblExportVideo.Text = "Xuất video";
                 lblNextFrame.Text = "Vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
                 lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
                 label6.Text = "Các phím tắt:";

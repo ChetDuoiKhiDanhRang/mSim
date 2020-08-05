@@ -415,6 +415,7 @@ namespace mSim
                 ctm_MovingLineColor.Text = "Trajectory's color";
                 ctm_VelocityColor.Text = "Velocity's color";
                 ctm_Capture.Text = "Export image";
+                ctm_Info.Text = "About";
                 ckbGid.Text = "Grid lines";
                 ckbCoordinates.Text = "Coordinates";
                 ckbHighQuality.Text = "Smooth graphic";
@@ -436,6 +437,8 @@ namespace mSim
                 ctm_MovingLineColor.Text = "Màu quỹ đạo";
                 ctm_VelocityColor.Text = "Màu véc-tơ vận tốc";
                 ctm_Capture.Text = "Xuất hình ảnh";
+                ctm_Info.Text = "Thông tin chương trình";
+
                 ckbGid.Text = "Lưới";
                 ckbCoordinates.Text = "Tọa độ";
                 ckbHighQuality.Text = "Khử \"răng cưa\"";
