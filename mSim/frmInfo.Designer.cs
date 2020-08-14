@@ -44,26 +44,27 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pic_Vietinbank = new System.Windows.Forms.PictureBox();
-            this.pic_PayPal = new System.Windows.Forms.PictureBox();
-            this.pic_Author = new System.Windows.Forms.PictureBox();
-            this.pic_Github = new System.Windows.Forms.PictureBox();
-            this.pic_Icon = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblPreviousFrame = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rad5USD = new System.Windows.Forms.RadioButton();
+            this.rad2USD = new System.Windows.Forms.RadioButton();
+            this.rad1USD = new System.Windows.Forms.RadioButton();
             this.lblDonate = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pic_Author2 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Vietinbank)).BeginInit();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pic_PayPal = new System.Windows.Forms.PictureBox();
+            this.pic_Author2 = new System.Windows.Forms.PictureBox();
+            this.pic_Author = new System.Windows.Forms.PictureBox();
+            this.pic_Github = new System.Windows.Forms.PictureBox();
+            this.pic_Icon = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,10 +72,10 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 347);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 296);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ctrl + P:";
             // 
@@ -83,10 +84,10 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 374);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(44, 323);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ctrl + S:";
             // 
@@ -95,10 +96,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 401);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(44, 350);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Ctrl + R:";
             // 
@@ -107,10 +108,10 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(47, 428);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(44, 377);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Ctrl + E:";
             // 
@@ -119,10 +120,10 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 455);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 404);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Ctrl + →:";
             // 
@@ -131,10 +132,10 @@
             this.lblPlayPaused.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPlayPaused.AutoSize = true;
-            this.lblPlayPaused.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayPaused.Location = new System.Drawing.Point(114, 347);
+            this.lblPlayPaused.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayPaused.Location = new System.Drawing.Point(111, 296);
             this.lblPlayPaused.Name = "lblPlayPaused";
-            this.lblPlayPaused.Size = new System.Drawing.Size(93, 13);
+            this.lblPlayPaused.Size = new System.Drawing.Size(80, 13);
             this.lblPlayPaused.TabIndex = 0;
             this.lblPlayPaused.Text = "Chạy/tạm dừng";
             // 
@@ -143,10 +144,10 @@
             this.lblCapture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCapture.AutoSize = true;
-            this.lblCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapture.Location = new System.Drawing.Point(114, 374);
+            this.lblCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapture.Location = new System.Drawing.Point(111, 323);
             this.lblCapture.Name = "lblCapture";
-            this.lblCapture.Size = new System.Drawing.Size(53, 13);
+            this.lblCapture.Size = new System.Drawing.Size(46, 13);
             this.lblCapture.TabIndex = 0;
             this.lblCapture.Text = "Lưu ảnh";
             // 
@@ -155,10 +156,10 @@
             this.lblReSet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReSet.AutoSize = true;
-            this.lblReSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReSet.Location = new System.Drawing.Point(114, 401);
+            this.lblReSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReSet.Location = new System.Drawing.Point(111, 350);
             this.lblReSet.Name = "lblReSet";
-            this.lblReSet.Size = new System.Drawing.Size(131, 13);
+            this.lblReSet.Size = new System.Drawing.Size(110, 13);
             this.lblReSet.TabIndex = 0;
             this.lblReSet.Text = "Về trạng thái ban đầu";
             // 
@@ -167,10 +168,10 @@
             this.lblExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblExportVideo.AutoSize = true;
-            this.lblExportVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExportVideo.Location = new System.Drawing.Point(114, 428);
+            this.lblExportVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportVideo.Location = new System.Drawing.Point(111, 377);
             this.lblExportVideo.Name = "lblExportVideo";
-            this.lblExportVideo.Size = new System.Drawing.Size(68, 13);
+            this.lblExportVideo.Size = new System.Drawing.Size(58, 13);
             this.lblExportVideo.TabIndex = 0;
             this.lblExportVideo.Text = "Xuất video";
             // 
@@ -179,20 +180,19 @@
             this.lblNextFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNextFrame.AutoSize = true;
-            this.lblNextFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNextFrame.Location = new System.Drawing.Point(114, 455);
+            this.lblNextFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextFrame.Location = new System.Drawing.Point(111, 404);
             this.lblNextFrame.Name = "lblNextFrame";
-            this.lblNextFrame.Size = new System.Drawing.Size(270, 13);
+            this.lblNextFrame.Size = new System.Drawing.Size(222, 13);
             this.lblNextFrame.TabIndex = 0;
             this.lblNextFrame.Text = "vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(82, 95);
+            this.label8.Location = new System.Drawing.Point(65, 187);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(259, 30);
+            this.label8.Size = new System.Drawing.Size(192, 26);
             this.label8.TabIndex = 0;
             this.label8.Text = "Nguyễn Ngọc Cường\r\nEmail: nguyenngoccuongls@gmail.com";
             this.toolTip1.SetToolTip(this.label8, "Mail to: nguyenngoccuongls@gmail.com");
@@ -204,9 +204,9 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Location = new System.Drawing.Point(12, 315);
+            this.label10.Location = new System.Drawing.Point(12, 274);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(718, 1);
+            this.label10.Size = new System.Drawing.Size(498, 1);
             this.label10.TabIndex = 1;
             this.label10.Text = "label10";
             // 
@@ -216,7 +216,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 327);
+            this.label6.Location = new System.Drawing.Point(12, 276);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 13);
             this.label6.TabIndex = 0;
@@ -231,77 +231,15 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "mSim";
             // 
-            // pic_Vietinbank
-            // 
-            this.pic_Vietinbank.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Vietinbank.Image = global::mSim.Properties.Resources.vietinbank;
-            this.pic_Vietinbank.Location = new System.Drawing.Point(70, 19);
-            this.pic_Vietinbank.Name = "pic_Vietinbank";
-            this.pic_Vietinbank.Size = new System.Drawing.Size(64, 64);
-            this.pic_Vietinbank.TabIndex = 0;
-            this.pic_Vietinbank.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Vietinbank, "VietinBank");
-            // 
-            // pic_PayPal
-            // 
-            this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
-            this.pic_PayPal.Location = new System.Drawing.Point(0, 19);
-            this.pic_PayPal.Name = "pic_PayPal";
-            this.pic_PayPal.Size = new System.Drawing.Size(64, 64);
-            this.pic_PayPal.TabIndex = 0;
-            this.pic_PayPal.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
-            // 
-            // pic_Author
-            // 
-            this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
-            this.pic_Author.Location = new System.Drawing.Point(12, 82);
-            this.pic_Author.Name = "pic_Author";
-            this.pic_Author.Size = new System.Drawing.Size(64, 64);
-            this.pic_Author.TabIndex = 3;
-            this.pic_Author.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
-            this.pic_Author.Click += new System.EventHandler(this.pic_Author_Click);
-            this.pic_Author.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Github
-            // 
-            this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
-            this.pic_Github.Location = new System.Drawing.Point(12, 12);
-            this.pic_Github.Name = "pic_Github";
-            this.pic_Github.Size = new System.Drawing.Size(64, 64);
-            this.pic_Github.TabIndex = 2;
-            this.pic_Github.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");
-            this.pic_Github.Click += new System.EventHandler(this.ptb_Github_Click);
-            this.pic_Github.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Icon
-            // 
-            this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
-            this.pic_Icon.Location = new System.Drawing.Point(602, 12);
-            this.pic_Icon.Name = "pic_Icon";
-            this.pic_Icon.Size = new System.Drawing.Size(128, 128);
-            this.pic_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Icon.TabIndex = 2;
-            this.pic_Icon.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Icon, "https://github.com/ChetDuoiKhiDanhRang/mSim");
-            this.pic_Icon.Click += new System.EventHandler(this.ptb_Github_Click);
-            this.pic_Icon.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(47, 482);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(44, 431);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Ctrl + ←:";
             // 
@@ -310,10 +248,10 @@
             this.lblPreviousFrame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPreviousFrame.AutoSize = true;
-            this.lblPreviousFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreviousFrame.Location = new System.Drawing.Point(114, 482);
+            this.lblPreviousFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreviousFrame.Location = new System.Drawing.Point(111, 431);
             this.lblPreviousFrame.Name = "lblPreviousFrame";
-            this.lblPreviousFrame.Size = new System.Drawing.Size(279, 13);
+            this.lblPreviousFrame.Size = new System.Drawing.Size(229, 13);
             this.lblPreviousFrame.TabIndex = 0;
             this.lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
             // 
@@ -321,13 +259,53 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.pic_Vietinbank);
+            this.panel1.Controls.Add(this.rad5USD);
+            this.panel1.Controls.Add(this.rad2USD);
+            this.panel1.Controls.Add(this.rad1USD);
             this.panel1.Controls.Add(this.pic_PayPal);
             this.panel1.Controls.Add(this.lblDonate);
-            this.panel1.Location = new System.Drawing.Point(12, 222);
+            this.panel1.Location = new System.Drawing.Point(324, 176);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(718, 90);
+            this.panel1.Size = new System.Drawing.Size(182, 95);
             this.panel1.TabIndex = 4;
+            // 
+            // rad5USD
+            // 
+            this.rad5USD.AutoSize = true;
+            this.rad5USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad5USD.Location = new System.Drawing.Point(76, 56);
+            this.rad5USD.Name = "rad5USD";
+            this.rad5USD.Size = new System.Drawing.Size(37, 17);
+            this.rad5USD.TabIndex = 1;
+            this.rad5USD.Text = "5$";
+            this.rad5USD.UseVisualStyleBackColor = true;
+            this.rad5USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
+            // 
+            // rad2USD
+            // 
+            this.rad2USD.AutoSize = true;
+            this.rad2USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad2USD.Location = new System.Drawing.Point(76, 39);
+            this.rad2USD.Name = "rad2USD";
+            this.rad2USD.Size = new System.Drawing.Size(37, 17);
+            this.rad2USD.TabIndex = 1;
+            this.rad2USD.Text = "2$";
+            this.rad2USD.UseVisualStyleBackColor = true;
+            this.rad2USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
+            // 
+            // rad1USD
+            // 
+            this.rad1USD.AutoSize = true;
+            this.rad1USD.Checked = true;
+            this.rad1USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad1USD.Location = new System.Drawing.Point(76, 22);
+            this.rad1USD.Name = "rad1USD";
+            this.rad1USD.Size = new System.Drawing.Size(37, 17);
+            this.rad1USD.TabIndex = 1;
+            this.rad1USD.TabStop = true;
+            this.rad1USD.Text = "1$";
+            this.rad1USD.UseVisualStyleBackColor = true;
+            this.rad1USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
             // 
             // lblDonate
             // 
@@ -339,67 +317,124 @@
             this.lblDonate.TabIndex = 0;
             this.lblDonate.Text = "Ủng hộ tác giả:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(82, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(314, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "https://github.com/ChetDuoiKhiDanhRang/mSim";
-            this.label7.Click += new System.EventHandler(this.ptb_Github_Click);
-            this.label7.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(82, 165);
+            this.label9.Location = new System.Drawing.Point(65, 235);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 30);
+            this.label9.Size = new System.Drawing.Size(46, 26);
             this.label9.TabIndex = 0;
             this.label9.Text = "Mina Cu\r\nEmail: ";
             this.label9.Click += new System.EventHandler(this.pic_Author_Click);
             this.label9.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Author2
-            // 
-            this.pic_Author2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author2.Image = global::mSim.Properties.Resources.femaleUser;
-            this.pic_Author2.Location = new System.Drawing.Point(12, 152);
-            this.pic_Author2.Name = "pic_Author2";
-            this.pic_Author2.Size = new System.Drawing.Size(64, 64);
-            this.pic_Author2.TabIndex = 3;
-            this.pic_Author2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Author2, "Mail to: nguyenngoccuongls@gmail.com");
-            this.pic_Author2.Click += new System.EventHandler(this.pic_Author_Click);
-            this.pic_Author2.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.Location = new System.Drawing.Point(12, 218);
+            this.label12.Location = new System.Drawing.Point(12, 172);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(718, 1);
+            this.label12.Size = new System.Drawing.Size(498, 1);
             this.label12.TabIndex = 5;
             this.label12.Text = "label12";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(160, 142);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(196, 26);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "MIT License\r\nCopyright (c) 2020 Nguyễn Ngọc Cường";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label13.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.label13.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_PayPal
+            // 
+            this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
+            this.pic_PayPal.Location = new System.Drawing.Point(6, 23);
+            this.pic_PayPal.Name = "pic_PayPal";
+            this.pic_PayPal.Size = new System.Drawing.Size(48, 48);
+            this.pic_PayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_PayPal.TabIndex = 0;
+            this.pic_PayPal.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
+            this.pic_PayPal.Click += new System.EventHandler(this.pic_PayPal_Click);
+            // 
+            // pic_Author2
+            // 
+            this.pic_Author2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Author2.Image = global::mSim.Properties.Resources.femaleUser;
+            this.pic_Author2.Location = new System.Drawing.Point(12, 224);
+            this.pic_Author2.Name = "pic_Author2";
+            this.pic_Author2.Size = new System.Drawing.Size(48, 48);
+            this.pic_Author2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Author2.TabIndex = 3;
+            this.pic_Author2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Author2, "Mail to: nguyenngoccuongls@gmail.com");
+            this.pic_Author2.Click += new System.EventHandler(this.pic_Author_Click);
+            this.pic_Author2.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Author
+            // 
+            this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
+            this.pic_Author.Location = new System.Drawing.Point(12, 176);
+            this.pic_Author.Name = "pic_Author";
+            this.pic_Author.Size = new System.Drawing.Size(48, 48);
+            this.pic_Author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Author.TabIndex = 3;
+            this.pic_Author.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
+            this.pic_Author.Click += new System.EventHandler(this.pic_Author_Click);
+            this.pic_Author.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Github
+            // 
+            this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
+            this.pic_Github.Location = new System.Drawing.Point(328, 91);
+            this.pic_Github.Name = "pic_Github";
+            this.pic_Github.Size = new System.Drawing.Size(48, 48);
+            this.pic_Github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Github.TabIndex = 2;
+            this.pic_Github.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Github.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Github.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Icon
+            // 
+            this.pic_Icon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
+            this.pic_Icon.Location = new System.Drawing.Point(194, 12);
+            this.pic_Icon.Name = "pic_Icon";
+            this.pic_Icon.Size = new System.Drawing.Size(128, 128);
+            this.pic_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Icon.TabIndex = 2;
+            this.pic_Icon.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Icon, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Icon.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Icon.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
             // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(742, 507);
+            this.ClientSize = new System.Drawing.Size(522, 451);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pic_Author2);
             this.Controls.Add(this.pic_Author);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblPreviousFrame);
             this.Controls.Add(this.lblNextFrame);
@@ -422,14 +457,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmInfo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Vietinbank)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,13 +490,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblPreviousFrame;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pic_Vietinbank;
         private System.Windows.Forms.PictureBox pic_PayPal;
         private System.Windows.Forms.PictureBox pic_Github;
         private System.Windows.Forms.Label lblDonate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pic_Author2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RadioButton rad5USD;
+        private System.Windows.Forms.RadioButton rad2USD;
+        private System.Windows.Forms.RadioButton rad1USD;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -328,6 +328,7 @@ namespace mSim
             picCapture.Image = imageList1.Images[0];
             picReset.Image = imageList1.Images[3];
             picExportVideo.Image = imageList1.Images[4];
+            picInfo.Image = imageList1.Images[5];
 
             Obj_vx = Obj_v0x;
             Obj_vy = Obj_v0y;
@@ -1117,6 +1118,12 @@ namespace mSim
             txb_alpha0.Focus();
         }
 
+        private void rtb_status_Enter(object sender, EventArgs e)
+        {
+            picPlay.Focus();
+        }
+
+
         //---------------------------------------------------------------------------
         private void rad_speedmode_CheckedChanged(object sender, EventArgs e)
         {
@@ -1227,6 +1234,11 @@ namespace mSim
                         break;
                 }
             }
+        }
+
+        private void picInfo_Click(object sender, EventArgs e)
+        {
+            ctm_Info.PerformClick();
         }
 
         //---------------------------------------------------------------------------
@@ -1796,11 +1808,6 @@ namespace mSim
             ReDraw_Intervals_Axis();
             Redraw_MovingLine_Layer();
             graphBox.BackgroundImage = MovingLineLayer;
-        }
-
-        private void rtb_status_Enter(object sender, EventArgs e)
-        {
-            picPlay.Focus();
         }
 
 

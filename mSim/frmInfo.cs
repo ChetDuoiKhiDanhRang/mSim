@@ -78,5 +78,33 @@ namespace mSim
             p.StartInfo = new ProcessStartInfo(ctn);
             p.Start();
         }
+
+        int donate = 1;
+        private void radUSD_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rdb = (RadioButton)sender;
+            if (rdb.Name == rad1USD.Name)
+            {
+                donate = 1;
+            }
+            else if (rdb.Name == rad2USD.Name)
+            {
+                donate = 2;
+            }
+            else if (rdb.Name == rad5USD.Name)
+            {
+                donate = 5;
+            }
+        }
+
+        private void pic_PayPal_Click(object sender, EventArgs e)
+        {
+            string link = "https://paypal.me/nguyenngoccuongls/";
+            string donateValue = donate + "USD";
+            string donateLink = link + donateValue;
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo(donateLink);
+            p.Start();
+        }
     }
 }
