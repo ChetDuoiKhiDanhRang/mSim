@@ -77,36 +77,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbl_trbSpeed = new System.Windows.Forms.Label();
-            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.picPlay = new System.Windows.Forms.PictureBox();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.picCapture = new System.Windows.Forms.PictureBox();
             this.picInfo = new System.Windows.Forms.PictureBox();
             this.picExportVideo = new System.Windows.Forms.PictureBox();
-            this.graphBox = new System.Windows.Forms.PictureBox();
+            this.lbl_trbSpeed = new System.Windows.Forms.Label();
+            this.ctm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctm_ObjSize = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctm_objsize_values = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ctm_ObjColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_MovingLineColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ctm_VelocityColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ctm_Capture = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ctm_Info = new System.Windows.Forms.ToolStripMenuItem();
+            this.graphBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.grb_Params0.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grbStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).BeginInit();
-            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportVideo)).BeginInit();
+            this.ctm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -327,7 +327,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(152, 82);
+            this.radioButton1.Location = new System.Drawing.Point(125, 82);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(85, 17);
             this.radioButton1.TabIndex = 1;
@@ -779,6 +779,66 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
+            // picPlay
+            // 
+            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picPlay.Location = new System.Drawing.Point(743, 558);
+            this.picPlay.Name = "picPlay";
+            this.picPlay.Size = new System.Drawing.Size(48, 48);
+            this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picPlay.TabIndex = 4;
+            this.picPlay.TabStop = false;
+            this.toolTip1.SetToolTip(this.picPlay, "Play/pause\r\n(Crtl+P)");
+            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
+            // 
+            // picReset
+            // 
+            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picReset.Location = new System.Drawing.Point(794, 558);
+            this.picReset.Name = "picReset";
+            this.picReset.Size = new System.Drawing.Size(48, 48);
+            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picReset.TabIndex = 4;
+            this.picReset.TabStop = false;
+            this.toolTip1.SetToolTip(this.picReset, "Reset\r\n(Crtl+R)");
+            this.picReset.Click += new System.EventHandler(this.picReset_Click);
+            // 
+            // picCapture
+            // 
+            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picCapture.Location = new System.Drawing.Point(845, 558);
+            this.picCapture.Name = "picCapture";
+            this.picCapture.Size = new System.Drawing.Size(48, 48);
+            this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picCapture.TabIndex = 4;
+            this.picCapture.TabStop = false;
+            this.toolTip1.SetToolTip(this.picCapture, "Capture\r\n(Ctrl+S)");
+            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
+            // 
+            // picInfo
+            // 
+            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picInfo.Location = new System.Drawing.Point(947, 558);
+            this.picInfo.Name = "picInfo";
+            this.picInfo.Size = new System.Drawing.Size(48, 48);
+            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picInfo.TabIndex = 4;
+            this.picInfo.TabStop = false;
+            this.toolTip1.SetToolTip(this.picInfo, "About\r\n(Crtl+I)");
+            this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
+            // 
+            // picExportVideo
+            // 
+            this.picExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picExportVideo.Location = new System.Drawing.Point(896, 558);
+            this.picExportVideo.Name = "picExportVideo";
+            this.picExportVideo.Size = new System.Drawing.Size(48, 48);
+            this.picExportVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picExportVideo.TabIndex = 4;
+            this.picExportVideo.TabStop = false;
+            this.toolTip1.SetToolTip(this.picExportVideo, "Export video\r\n(Ctrl+E)");
+            this.picExportVideo.Click += new System.EventHandler(this.picExportVideo_Click);
+            // 
             // lbl_trbSpeed
             // 
             this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -835,89 +895,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
-            // 
-            // picPlay
-            // 
-            this.picPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picPlay.Location = new System.Drawing.Point(743, 558);
-            this.picPlay.Name = "picPlay";
-            this.picPlay.Size = new System.Drawing.Size(48, 48);
-            this.picPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picPlay.TabIndex = 4;
-            this.picPlay.TabStop = false;
-            this.toolTip1.SetToolTip(this.picPlay, "Play/pause\r\n(Crtl+P)");
-            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
-            // 
-            // picReset
-            // 
-            this.picReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picReset.Location = new System.Drawing.Point(794, 558);
-            this.picReset.Name = "picReset";
-            this.picReset.Size = new System.Drawing.Size(48, 48);
-            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picReset.TabIndex = 4;
-            this.picReset.TabStop = false;
-            this.toolTip1.SetToolTip(this.picReset, "Reset\r\n(Crtl+R)");
-            this.picReset.Click += new System.EventHandler(this.picReset_Click);
-            // 
-            // picCapture
-            // 
-            this.picCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picCapture.Location = new System.Drawing.Point(845, 558);
-            this.picCapture.Name = "picCapture";
-            this.picCapture.Size = new System.Drawing.Size(48, 48);
-            this.picCapture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picCapture.TabIndex = 4;
-            this.picCapture.TabStop = false;
-            this.toolTip1.SetToolTip(this.picCapture, "Capture image\r\n(Ctrl+S)");
-            this.picCapture.Click += new System.EventHandler(this.picCapture_Click);
-            // 
-            // picInfo
-            // 
-            this.picInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picInfo.Location = new System.Drawing.Point(947, 558);
-            this.picInfo.Name = "picInfo";
-            this.picInfo.Size = new System.Drawing.Size(48, 48);
-            this.picInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picInfo.TabIndex = 4;
-            this.picInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.picInfo, "About\r\n(Crtl+I)");
-            this.picInfo.Click += new System.EventHandler(this.picInfo_Click);
-            // 
-            // picExportVideo
-            // 
-            this.picExportVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picExportVideo.Location = new System.Drawing.Point(896, 558);
-            this.picExportVideo.Name = "picExportVideo";
-            this.picExportVideo.Size = new System.Drawing.Size(48, 48);
-            this.picExportVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picExportVideo.TabIndex = 4;
-            this.picExportVideo.TabStop = false;
-            this.toolTip1.SetToolTip(this.picExportVideo, "Export video\r\n(Ctrl+E)");
-            this.picExportVideo.Click += new System.EventHandler(this.picExportVideo_Click);
-            // 
-            // graphBox
-            // 
-            this.graphBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.graphBox.Location = new System.Drawing.Point(12, 12);
-            this.graphBox.Name = "graphBox";
-            this.graphBox.Size = new System.Drawing.Size(984, 529);
-            this.graphBox.TabIndex = 0;
-            this.graphBox.TabStop = false;
-            // 
             // ctm_ObjColor
             // 
             this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
@@ -942,6 +919,11 @@
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
+            // 
             // ctm_Capture
             // 
             this.ctm_Capture.Image = global::mSim.Properties.Resources.capture_16;
@@ -950,6 +932,11 @@
             this.ctm_Capture.Text = "Lưu ảnh";
             this.ctm_Capture.Click += new System.EventHandler(this.picCapture_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            // 
             // ctm_Info
             // 
             this.ctm_Info.Image = global::mSim.Properties.Resources.about_16;
@@ -957,6 +944,19 @@
             this.ctm_Info.Size = new System.Drawing.Size(172, 22);
             this.ctm_Info.Text = "About";
             this.ctm_Info.Click += new System.EventHandler(this.ctm_Info_Click);
+            // 
+            // graphBox
+            // 
+            this.graphBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.graphBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.graphBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.graphBox.Location = new System.Drawing.Point(12, 12);
+            this.graphBox.Name = "graphBox";
+            this.graphBox.Size = new System.Drawing.Size(984, 529);
+            this.graphBox.TabIndex = 0;
+            this.graphBox.TabStop = false;
             // 
             // drawForm
             // 
@@ -997,12 +997,12 @@
             this.grbStatus.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).EndInit();
-            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportVideo)).EndInit();
+            this.ctm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

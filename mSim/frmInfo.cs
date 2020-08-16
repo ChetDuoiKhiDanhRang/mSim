@@ -18,14 +18,14 @@ namespace mSim
             InitializeComponent();
             if (lang == "en")
             {
-                this.Text = "THANK YOU VERY MUCH FOR GO HERE! :))";
+                this.Text = "THANKS VERY MUCH FOR USING MSIM! :))";
                 lblDonate.Text = "Donate:";
                 lblPlayPaused.Text = "Play/Pause";
                 lblCapture.Text = "Save Image";
                 lblReSet.Text = "Reset";
                 lblExportVideo.Text = "Export video";
-                lblNextFrame.Text = "Next situation (when paused only)";
-                lblPreviousFrame.Text = "Previous situation (when paused only)";
+                lblNextFrame.Text = "Next (when paused only)";
+                lblPreviousFrame.Text = "Previous (when paused only)";
                 label6.Text = "Hot keys:";
             }
             else if (lang == "vi")
@@ -72,7 +72,7 @@ namespace mSim
             }
             else if (c.Name == pic_Author2.Name)
             {
-                ctn = "mailto:nguyenngoccuongls@gmail.com";
+                ctn = "mailto:qingxiangruc@gmail.com";
             }
             Process p = new Process();
             p.StartInfo = new ProcessStartInfo(ctn);

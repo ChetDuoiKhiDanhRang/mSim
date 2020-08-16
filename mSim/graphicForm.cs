@@ -406,7 +406,7 @@ namespace mSim
             {
                 grb_Params0.Text = "First parameters (t=0)";
                 rad_speedmode.Text = "Vx/Vy";
-                radioButton1.Text = "Value/Angle";
+                radioButton1.Text = "Magnitude/Angle";
                 panel1.Text = "Equations:";
                 label1.Text = "Number of sampling:";
                 label2.Text = "Play speed:";
@@ -415,9 +415,9 @@ namespace mSim
                 ctm_ObjSize.Text = "Object's size";
                 ctm_MovingLineColor.Text = "Trajectory's color";
                 ctm_VelocityColor.Text = "Velocity's color";
-                ctm_Capture.Text = "Export image";
+                ctm_Capture.Text = "Capture";
                 ctm_Info.Text = "About";
-                ckbGid.Text = "Grid lines";
+                ckbGid.Text = "Show grid";
                 ckbCoordinates.Text = "Coordinates";
                 ckbHighQuality.Text = "Smooth graphic";
                 ckbTrail.Text = "Trail lines";
@@ -765,7 +765,7 @@ namespace mSim
         int offsetY = 0;
         private void graphBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
+            if (e.Button == MouseButtons.Middle || e.Button == MouseButtons.Left)
             {
                 drag = true;
                 mouseDownX = e.Location.X;
@@ -801,7 +801,7 @@ namespace mSim
 
         private void graphBox_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
+            if (e.Button == MouseButtons.Middle || e.Button == MouseButtons.Left)
             {
                 //ReDraw_Intervals_Axis();
                 //Redraw_MovingLine_Layer();

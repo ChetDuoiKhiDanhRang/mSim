@@ -44,6 +44,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pic_PayPal = new System.Windows.Forms.PictureBox();
+            this.pic_Author2 = new System.Windows.Forms.PictureBox();
+            this.pic_Author = new System.Windows.Forms.PictureBox();
+            this.pic_Github = new System.Windows.Forms.PictureBox();
+            this.pic_Icon = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblPreviousFrame = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,17 +59,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pic_PayPal = new System.Windows.Forms.PictureBox();
-            this.pic_Author2 = new System.Windows.Forms.PictureBox();
-            this.pic_Author = new System.Windows.Forms.PictureBox();
-            this.pic_Github = new System.Windows.Forms.PictureBox();
-            this.pic_Icon = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -231,6 +231,76 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "mSim";
             // 
+            // pic_PayPal
+            // 
+            this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
+            this.pic_PayPal.Location = new System.Drawing.Point(6, 23);
+            this.pic_PayPal.Name = "pic_PayPal";
+            this.pic_PayPal.Size = new System.Drawing.Size(48, 48);
+            this.pic_PayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_PayPal.TabIndex = 0;
+            this.pic_PayPal.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
+            this.pic_PayPal.Click += new System.EventHandler(this.pic_PayPal_Click);
+            // 
+            // pic_Author2
+            // 
+            this.pic_Author2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Author2.Image = global::mSim.Properties.Resources.femaleUser;
+            this.pic_Author2.Location = new System.Drawing.Point(12, 224);
+            this.pic_Author2.Name = "pic_Author2";
+            this.pic_Author2.Size = new System.Drawing.Size(48, 48);
+            this.pic_Author2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Author2.TabIndex = 3;
+            this.pic_Author2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Author2, "Mail to: nguyenngoccuongls@gmail.com");
+            this.pic_Author2.Click += new System.EventHandler(this.pic_Author_Click);
+            this.pic_Author2.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Author
+            // 
+            this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
+            this.pic_Author.Location = new System.Drawing.Point(12, 176);
+            this.pic_Author.Name = "pic_Author";
+            this.pic_Author.Size = new System.Drawing.Size(48, 48);
+            this.pic_Author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Author.TabIndex = 3;
+            this.pic_Author.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
+            this.pic_Author.Click += new System.EventHandler(this.pic_Author_Click);
+            this.pic_Author.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Github
+            // 
+            this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
+            this.pic_Github.Location = new System.Drawing.Point(328, 91);
+            this.pic_Github.Name = "pic_Github";
+            this.pic_Github.Size = new System.Drawing.Size(48, 48);
+            this.pic_Github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Github.TabIndex = 2;
+            this.pic_Github.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Github.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Github.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
+            // pic_Icon
+            // 
+            this.pic_Icon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
+            this.pic_Icon.Location = new System.Drawing.Point(194, 12);
+            this.pic_Icon.Name = "pic_Icon";
+            this.pic_Icon.Size = new System.Drawing.Size(128, 128);
+            this.pic_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Icon.TabIndex = 2;
+            this.pic_Icon.TabStop = false;
+            this.toolTip1.SetToolTip(this.pic_Icon, "https://github.com/ChetDuoiKhiDanhRang/mSim");
+            this.pic_Icon.Click += new System.EventHandler(this.ptb_Github_Click);
+            this.pic_Icon.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
+            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -322,9 +392,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(65, 235);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 26);
+            this.label9.Size = new System.Drawing.Size(156, 26);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Mina Cu\r\nEmail: ";
+            this.label9.Text = "Mina Cu\r\nEmail: qingxiangruc@gmail.com";
             this.label9.Click += new System.EventHandler(this.pic_Author_Click);
             this.label9.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
@@ -351,76 +421,6 @@
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label13.Click += new System.EventHandler(this.ptb_Github_Click);
             this.label13.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_PayPal
-            // 
-            this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
-            this.pic_PayPal.Location = new System.Drawing.Point(6, 23);
-            this.pic_PayPal.Name = "pic_PayPal";
-            this.pic_PayPal.Size = new System.Drawing.Size(48, 48);
-            this.pic_PayPal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_PayPal.TabIndex = 0;
-            this.pic_PayPal.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_PayPal, "PayPal");
-            this.pic_PayPal.Click += new System.EventHandler(this.pic_PayPal_Click);
-            // 
-            // pic_Author2
-            // 
-            this.pic_Author2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author2.Image = global::mSim.Properties.Resources.femaleUser;
-            this.pic_Author2.Location = new System.Drawing.Point(12, 224);
-            this.pic_Author2.Name = "pic_Author2";
-            this.pic_Author2.Size = new System.Drawing.Size(48, 48);
-            this.pic_Author2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Author2.TabIndex = 3;
-            this.pic_Author2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Author2, "Mail to: nguyenngoccuongls@gmail.com");
-            this.pic_Author2.Click += new System.EventHandler(this.pic_Author_Click);
-            this.pic_Author2.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Author
-            // 
-            this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
-            this.pic_Author.Location = new System.Drawing.Point(12, 176);
-            this.pic_Author.Name = "pic_Author";
-            this.pic_Author.Size = new System.Drawing.Size(48, 48);
-            this.pic_Author.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Author.TabIndex = 3;
-            this.pic_Author.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Author, "Mail to: nguyenngoccuongls@gmail.com");
-            this.pic_Author.Click += new System.EventHandler(this.pic_Author_Click);
-            this.pic_Author.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Github
-            // 
-            this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
-            this.pic_Github.Location = new System.Drawing.Point(328, 91);
-            this.pic_Github.Name = "pic_Github";
-            this.pic_Github.Size = new System.Drawing.Size(48, 48);
-            this.pic_Github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Github.TabIndex = 2;
-            this.pic_Github.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Github, "https://github.com/ChetDuoiKhiDanhRang/mSim");
-            this.pic_Github.Click += new System.EventHandler(this.ptb_Github_Click);
-            this.pic_Github.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
-            // 
-            // pic_Icon
-            // 
-            this.pic_Icon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
-            this.pic_Icon.Location = new System.Drawing.Point(194, 12);
-            this.pic_Icon.Name = "pic_Icon";
-            this.pic_Icon.Size = new System.Drawing.Size(128, 128);
-            this.pic_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Icon.TabIndex = 2;
-            this.pic_Icon.TabStop = false;
-            this.toolTip1.SetToolTip(this.pic_Icon, "https://github.com/ChetDuoiKhiDanhRang/mSim");
-            this.pic_Icon.Click += new System.EventHandler(this.ptb_Github_Click);
-            this.pic_Icon.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
             // 
             // FormInfo
             // 
@@ -457,13 +457,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmInfo_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Github)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Icon)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
