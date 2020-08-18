@@ -352,25 +352,25 @@
             this.rad5USD.UseVisualStyleBackColor = true;
             this.rad5USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
             // 
-            // rad2USD
+            // rad3USD
             // 
             this.rad3USD.AutoSize = true;
             this.rad3USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rad3USD.Location = new System.Drawing.Point(76, 39);
-            this.rad3USD.Name = "rad2USD";
+            this.rad3USD.Name = "rad3USD";
             this.rad3USD.Size = new System.Drawing.Size(37, 17);
             this.rad3USD.TabIndex = 1;
             this.rad3USD.Text = "3$";
             this.rad3USD.UseVisualStyleBackColor = true;
             this.rad3USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
             // 
-            // rad1USD
+            // rad2USD
             // 
             this.rad2USD.AutoSize = true;
             this.rad2USD.Checked = true;
             this.rad2USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rad2USD.Location = new System.Drawing.Point(76, 22);
-            this.rad2USD.Name = "rad1USD";
+            this.rad2USD.Name = "rad2USD";
             this.rad2USD.Size = new System.Drawing.Size(37, 17);
             this.rad2USD.TabIndex = 1;
             this.rad2USD.TabStop = true;
@@ -414,11 +414,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(160, 180);
+            this.label13.Location = new System.Drawing.Point(138, 180);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(196, 26);
+            this.label13.Size = new System.Drawing.Size(247, 26);
             this.label13.TabIndex = 0;
-            this.label13.Text = "MIT License\r\nCopyright (c) 2020 Nguyễn Ngọc Cường";
+            this.label13.Text = "MIT license\r\nCopyright (c) 2020 Nguyễn Ngọc Cường && Mina Cu";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label13.Click += new System.EventHandler(this.ptb_Github_Click);
             this.label13.MouseEnter += new System.EventHandler(this.pictureBoxes_MouseEnter);
