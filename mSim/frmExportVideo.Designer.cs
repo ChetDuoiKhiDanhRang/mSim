@@ -33,7 +33,6 @@
             this.lblStartTime = new System.Windows.Forms.Label();
             this.nudStartTime = new System.Windows.Forms.NumericUpDown();
             this.nudDuration = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.lblFPS = new System.Windows.Forms.Label();
             this.cmbFPS = new System.Windows.Forms.ComboBox();
@@ -41,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStartTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,16 +98,6 @@
             this.nudDuration.TabIndex = 1;
             this.nudDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudDuration.ThousandsSeparator = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::mSim.Properties.Resources.video;
-            this.pictureBox1.Location = new System.Drawing.Point(261, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 118);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // btnOK
             // 
@@ -187,6 +177,16 @@
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "(fps)";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::mSim.Properties.Resources.video64;
+            this.pictureBox1.Location = new System.Drawing.Point(263, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 119);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FormExportVideo
             // 

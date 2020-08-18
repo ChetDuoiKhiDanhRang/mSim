@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="icon\video64.png" />
     <None Include="icon\about_16.png" />
     <None Include="icon\capture_16.png" />
     <None Include="icon\vietinbank.png" />
