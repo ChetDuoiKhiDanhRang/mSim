@@ -81,17 +81,17 @@ namespace mSim
             p.Start();
         }
 
-        int donate = 1;
+        int donate = 2;
         private void radUSD_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rdb = (RadioButton)sender;
-            if (rdb.Name == rad1USD.Name)
-            {
-                donate = 1;
-            }
-            else if (rdb.Name == rad2USD.Name)
+            if (rdb.Name == rad2USD.Name)
             {
                 donate = 2;
+            }
+            else if (rdb.Name == rad3USD.Name)
+            {
+                donate = 3;
             }
             else if (rdb.Name == rad5USD.Name)
             {

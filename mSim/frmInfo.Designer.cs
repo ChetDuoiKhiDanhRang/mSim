@@ -53,8 +53,8 @@
             this.lblPreviousFrame = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rad5USD = new System.Windows.Forms.RadioButton();
+            this.rad3USD = new System.Windows.Forms.RadioButton();
             this.rad2USD = new System.Windows.Forms.RadioButton();
-            this.rad1USD = new System.Windows.Forms.RadioButton();
             this.lblDonate = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -331,8 +331,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.rad5USD);
+            this.panel1.Controls.Add(this.rad3USD);
             this.panel1.Controls.Add(this.rad2USD);
-            this.panel1.Controls.Add(this.rad1USD);
             this.panel1.Controls.Add(this.pic_PayPal);
             this.panel1.Controls.Add(this.lblDonate);
             this.panel1.Location = new System.Drawing.Point(324, 217);
@@ -354,29 +354,29 @@
             // 
             // rad2USD
             // 
-            this.rad2USD.AutoSize = true;
-            this.rad2USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rad2USD.Location = new System.Drawing.Point(76, 39);
-            this.rad2USD.Name = "rad2USD";
-            this.rad2USD.Size = new System.Drawing.Size(37, 17);
-            this.rad2USD.TabIndex = 1;
-            this.rad2USD.Text = "2$";
-            this.rad2USD.UseVisualStyleBackColor = true;
-            this.rad2USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
+            this.rad3USD.AutoSize = true;
+            this.rad3USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad3USD.Location = new System.Drawing.Point(76, 39);
+            this.rad3USD.Name = "rad2USD";
+            this.rad3USD.Size = new System.Drawing.Size(37, 17);
+            this.rad3USD.TabIndex = 1;
+            this.rad3USD.Text = "3$";
+            this.rad3USD.UseVisualStyleBackColor = true;
+            this.rad3USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
             // 
             // rad1USD
             // 
-            this.rad1USD.AutoSize = true;
-            this.rad1USD.Checked = true;
-            this.rad1USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rad1USD.Location = new System.Drawing.Point(76, 22);
-            this.rad1USD.Name = "rad1USD";
-            this.rad1USD.Size = new System.Drawing.Size(37, 17);
-            this.rad1USD.TabIndex = 1;
-            this.rad1USD.TabStop = true;
-            this.rad1USD.Text = "1$";
-            this.rad1USD.UseVisualStyleBackColor = true;
-            this.rad1USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
+            this.rad2USD.AutoSize = true;
+            this.rad2USD.Checked = true;
+            this.rad2USD.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad2USD.Location = new System.Drawing.Point(76, 22);
+            this.rad2USD.Name = "rad1USD";
+            this.rad2USD.Size = new System.Drawing.Size(37, 17);
+            this.rad2USD.TabIndex = 1;
+            this.rad2USD.TabStop = true;
+            this.rad2USD.Text = "2$";
+            this.rad2USD.UseVisualStyleBackColor = true;
+            this.rad2USD.CheckedChanged += new System.EventHandler(this.radUSD_CheckedChanged);
             // 
             // lblDonate
             // 
@@ -515,8 +515,8 @@
         private System.Windows.Forms.PictureBox pic_Author2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton rad5USD;
+        private System.Windows.Forms.RadioButton rad3USD;
         private System.Windows.Forms.RadioButton rad2USD;
-        private System.Windows.Forms.RadioButton rad1USD;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txbInfo;
     }
