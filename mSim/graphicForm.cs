@@ -420,7 +420,7 @@ namespace mSim
                 ckbGid.Text = "Show grid";
                 ckbCoordinates.Text = "Coordinates";
                 ckbHighQuality.Text = "Smooth graphic";
-                ckbTrail.Text = "Trace lines";
+                ckbTrail.Text = "Projection lines";
                 ckbSpeed.Text = "Velocity vector";
                 ckbAutoScaleVelocityVector.Text = "Auto scale velocity vector";
             }
