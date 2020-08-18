@@ -18,7 +18,7 @@ namespace mSim
             InitializeComponent();
             if (lang == "en")
             {
-                this.Text = "THANKS VERY MUCH FOR USING MSIM! :))";
+                this.Text = "THANKS FOR USING MSIM! :))";
                 lblDonate.Text = "Donate:";
                 lblPlayPaused.Text = "Play/Pause";
                 lblCapture.Text = "Save Image";
@@ -27,6 +27,7 @@ namespace mSim
                 lblNextFrame.Text = "Next (when paused only)";
                 lblPreviousFrame.Text = "Previous (when paused only)";
                 label6.Text = "Hot keys:";
+                txbInfo.Text = "Motion Simulator - a program that simulates arbitrary motions with constant acceleration in the Oxy coordinate system of a material point such as Free fall motion, projectile motion etc";
             }
             else if (lang == "vi")
             {
@@ -39,6 +40,7 @@ namespace mSim
                 lblNextFrame.Text = "Vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
                 lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
                 label6.Text = "Các phím tắt:";
+                txbInfo.Text = "Motion simulator (hay emulator?) - chương trình giả lập chuyển động bất kì với gia tốc không đổi của chất điểm trong mặt phẳng tọa độ Oxy (chuyển động rơi tự do, chuyển động ném xiên,…)";
             }
         }
 
