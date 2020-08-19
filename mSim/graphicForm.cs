@@ -661,7 +661,7 @@ namespace mSim
         FormExportVideo formExportVideo;
         private void ExportVideo()
         {
-            string tmpPath = Application.StartupPath + "\\tmp";
+            string tmpPath = ".\\tmp";
             string baseName = "tmpvid_";
 
             if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
@@ -722,16 +722,17 @@ namespace mSim
                 {
                     Directory.CreateDirectory(outputPath);
                 }
-                string outputFile = outputPath + "\\mSim_" + DateTime.Now.ToString("yy.MM.dd_HH.mm.ss") + ".mp4";
+                string outputFile = outputPath + "\\mSim_" + DateTime.Now.ToString("yyMMdd_HHmmss") + ".mp4";
 
                 string pars = /*mmpeg + " " +*/ frameRate + " " + fileindex + " " + libx264 + " " + vsync + " " + videoFormat + " " + outputFile;
 
                 Process p = new Process();
                 p.StartInfo = new ProcessStartInfo(mmpeg, pars);
+                this.Cursor = Cursors.WaitCursor;
                 p.Start();
                 p.WaitForExit();
-
-                Directory.Delete(tmpPath, true);
+                //Directory.Delete(tmpPath, true);
+                this.Cursor = Cursors.Default;
 
                 Process exp = new Process();
                 exp.StartInfo = new ProcessStartInfo(outputPath);
