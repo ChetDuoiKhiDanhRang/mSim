@@ -228,9 +228,9 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(16, 77);
+            this.label3.Location = new System.Drawing.Point(9, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(220, 1);
+            this.label3.Size = new System.Drawing.Size(226, 1);
             this.label3.TabIndex = 8;
             this.label3.Text = "label3";
             // 
@@ -897,7 +897,7 @@
             // 
             // ctm_ObjColor
             // 
-            this.ctm_ObjColor.Image = global::mSim.Properties.Resources.obj;
+            this.ctm_ObjColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_ObjColor.Image")));
             this.ctm_ObjColor.Name = "ctm_ObjColor";
             this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
             this.ctm_ObjColor.Text = "Màu vật thể";
@@ -905,7 +905,7 @@
             // 
             // ctm_MovingLineColor
             // 
-            this.ctm_MovingLineColor.Image = global::mSim.Properties.Resources.movingLIne;
+            this.ctm_MovingLineColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_MovingLineColor.Image")));
             this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
             this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
             this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
@@ -926,7 +926,7 @@
             // 
             // ctm_Capture
             // 
-            this.ctm_Capture.Image = global::mSim.Properties.Resources.capture_16;
+            this.ctm_Capture.Image = ((System.Drawing.Image)(resources.GetObject("ctm_Capture.Image")));
             this.ctm_Capture.Name = "ctm_Capture";
             this.ctm_Capture.Size = new System.Drawing.Size(172, 22);
             this.ctm_Capture.Text = "Lưu ảnh";
@@ -939,7 +939,6 @@
             // 
             // ctm_Info
             // 
-            this.ctm_Info.Image = global::mSim.Properties.Resources.about_16;
             this.ctm_Info.Name = "ctm_Info";
             this.ctm_Info.Size = new System.Drawing.Size(172, 22);
             this.ctm_Info.Text = "About";

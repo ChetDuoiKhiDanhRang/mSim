@@ -235,7 +235,7 @@
             // pic_PayPal
             // 
             this.pic_PayPal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_PayPal.Image = global::mSim.Properties.Resources.PayPal;
+            this.pic_PayPal.Image = ((System.Drawing.Image)(resources.GetObject("pic_PayPal.Image")));
             this.pic_PayPal.Location = new System.Drawing.Point(6, 23);
             this.pic_PayPal.Name = "pic_PayPal";
             this.pic_PayPal.Size = new System.Drawing.Size(48, 48);
@@ -248,7 +248,7 @@
             // pic_Author2
             // 
             this.pic_Author2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author2.Image = global::mSim.Properties.Resources.femaleUser;
+            this.pic_Author2.Image = ((System.Drawing.Image)(resources.GetObject("pic_Author2.Image")));
             this.pic_Author2.Location = new System.Drawing.Point(12, 265);
             this.pic_Author2.Name = "pic_Author2";
             this.pic_Author2.Size = new System.Drawing.Size(48, 48);
@@ -262,7 +262,7 @@
             // pic_Author
             // 
             this.pic_Author.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Author.Image = global::mSim.Properties.Resources.maleUser;
+            this.pic_Author.Image = ((System.Drawing.Image)(resources.GetObject("pic_Author.Image")));
             this.pic_Author.Location = new System.Drawing.Point(12, 217);
             this.pic_Author.Name = "pic_Author";
             this.pic_Author.Size = new System.Drawing.Size(48, 48);
@@ -276,7 +276,7 @@
             // pic_Github
             // 
             this.pic_Github.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Github.Image = global::mSim.Properties.Resources.Github;
+            this.pic_Github.Image = ((System.Drawing.Image)(resources.GetObject("pic_Github.Image")));
             this.pic_Github.Location = new System.Drawing.Point(328, 129);
             this.pic_Github.Name = "pic_Github";
             this.pic_Github.Size = new System.Drawing.Size(48, 48);
@@ -291,7 +291,7 @@
             // 
             this.pic_Icon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_Icon.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pic_Icon.Image = global::mSim.Properties.Resources.icon;
+            this.pic_Icon.Image = ((System.Drawing.Image)(resources.GetObject("pic_Icon.Image")));
             this.pic_Icon.Location = new System.Drawing.Point(194, 50);
             this.pic_Icon.Name = "pic_Icon";
             this.pic_Icon.Size = new System.Drawing.Size(128, 128);
