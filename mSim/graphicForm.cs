@@ -127,7 +127,6 @@ namespace mSim
         bool isRunning = false;
         public bool IsRunning { get => isRunning; set { isRunning = value; IsRunningChanged?.Invoke(this, value); } }
 
-
         float obj_vx;
         float obj_vy;
         float obj_x;
@@ -1809,7 +1808,5 @@ namespace mSim
             Redraw_MovingLine_Layer();
             graphBox.BackgroundImage = MovingLineLayer;
         }
-
-
     }
 }
