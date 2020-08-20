@@ -92,6 +92,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -228,15 +236,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MotionSimulator"
-        "ProductCode" = "8:{3657B563-19DE-494E-A769-BBD881DA4C85}"
-        "PackageCode" = "8:{7A465FB8-45A5-485E-A493-63D3857042E0}"
+        "ProductCode" = "8:{810E1618-C9DE-4B28-A5C2-7399DB2B90A5}"
+        "PackageCode" = "8:{DCDD8FCB-7B7F-44FD-B2C2-BB20EF3CF8AA}"
         "UpgradeCode" = "8:{C4024BBE-A85A-465A-A2F4-61FA6A0695DE}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.1.0"
+        "ProductVersion" = "8:2.2.0"
         "Manufacturer" = "8:CuongNN&MinaCu"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

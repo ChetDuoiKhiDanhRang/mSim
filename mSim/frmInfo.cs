@@ -40,7 +40,7 @@ namespace mSim
                 lblNextFrame.Text = "Vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
                 lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
                 label6.Text = "Các phím tắt:";
-                txbInfo.Text = "Motion simulator (hay emulator?) - chương trình giả lập chuyển động bất kì với gia tốc không đổi của chất điểm trong mặt phẳng tọa độ Oxy (chuyển động rơi tự do, chuyển động ném xiên,…)";
+                txbInfo.Text = "Motion simulator - chương trình giả lập chuyển động bất kì với gia tốc không đổi của chất điểm trong mặt phẳng tọa độ Oxy (chuyển động rơi tự do, chuyển động ném xiên,…)";
             }
         }
 
@@ -60,7 +60,6 @@ namespace mSim
         {
             Control p = (Control)sender;
             p.Cursor = Cursors.Hand;
-
         }
 
         private void pic_Author_Click(object sender, EventArgs e)
