@@ -31,12 +31,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9C56B50369AD4B5BB47EBC99F77D8572"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -49,7 +43,7 @@
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:1"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
@@ -99,6 +93,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -236,15 +238,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MotionSimulator"
-        "ProductCode" = "8:{810E1618-C9DE-4B28-A5C2-7399DB2B90A5}"
-        "PackageCode" = "8:{DCDD8FCB-7B7F-44FD-B2C2-BB20EF3CF8AA}"
+        "ProductCode" = "8:{C5EC15C3-2684-4E1C-A5D1-A030487D84AA}"
+        "PackageCode" = "8:{8F184581-D549-4966-9346-849D9B5FB006}"
         "UpgradeCode" = "8:{C4024BBE-A85A-465A-A2F4-61FA6A0695DE}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.2.0"
+        "ProductVersion" = "8:2.3.0"
         "Manufacturer" = "8:CuongNN&MinaCu"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
