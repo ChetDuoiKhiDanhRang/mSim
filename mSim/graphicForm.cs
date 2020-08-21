@@ -666,12 +666,12 @@ namespace mSim
 
             if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
             {
-                string content;
+                string content ="";
                 if (Lang == "vi")
                 {
                     content = "Không tìm thấy tập tin \"ffmpeg.exe\"!\nTải và giải nén tập tin \"ffmpeg.exe\" vào thư mục chương trình.\nĐến trang tải về?";
                 }
-                else
+                else if (Lang == "en")
                 {
                     content = "Cannot find \"ffmpeg.exe\" file!\nDownload and extract \"ffmpeg.exe\" file to application folder plz.\nGo to download site?";
                 }
