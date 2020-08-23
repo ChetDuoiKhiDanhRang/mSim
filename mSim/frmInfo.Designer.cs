@@ -60,6 +60,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txbInfo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PayPal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Author)).BeginInit();
@@ -438,12 +440,36 @@
     "n, projectile motion etc\r\n";
             this.txbInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(44, 497);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ctrl + L:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(111, 497);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(97, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Thay đổi ngôn ngữ";
+            // 
             // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(522, 496);
+            this.ClientSize = new System.Drawing.Size(522, 521);
             this.Controls.Add(this.txbInfo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
@@ -453,9 +479,11 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.lblPreviousFrame);
             this.Controls.Add(this.lblNextFrame);
             this.Controls.Add(this.lblExportVideo);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblReSet);
@@ -469,7 +497,7 @@
             this.Controls.Add(this.pic_Github);
             this.Controls.Add(this.pic_Icon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(538, 535);
+            this.MaximumSize = new System.Drawing.Size(538, 560);
             this.MinimumSize = new System.Drawing.Size(538, 535);
             this.Name = "FormInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -519,5 +547,7 @@
         private System.Windows.Forms.RadioButton rad2USD;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txbInfo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
     }
 }

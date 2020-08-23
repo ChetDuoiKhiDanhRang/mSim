@@ -72,7 +72,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.trb = new System.Windows.Forms.TrackBar();
-            this.btnLanguage = new System.Windows.Forms.Button();
+            this.picLanguage = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nud_timeOffset = new System.Windows.Forms.NumericUpDown();
@@ -691,6 +691,7 @@
             this.imageList1.Images.SetKeyName(3, "reset.png");
             this.imageList1.Images.SetKeyName(4, "video.png");
             this.imageList1.Images.SetKeyName(5, "about.png");
+            this.imageList1.Images.SetKeyName(6, "Languages.png");
             // 
             // trb
             // 
@@ -709,17 +710,15 @@
             // 
             // btnLanguage
             // 
-            this.btnLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLanguage.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLanguage.Location = new System.Drawing.Point(931, 13);
-            this.btnLanguage.Name = "btnLanguage";
-            this.btnLanguage.Size = new System.Drawing.Size(64, 28);
-            this.btnLanguage.TabIndex = 6;
-            this.btnLanguage.Text = "VI ↔ EN";
-            this.toolTip1.SetToolTip(this.btnLanguage, "Ctrl+L");
-            this.btnLanguage.UseVisualStyleBackColor = true;
-            this.btnLanguage.Click += new System.EventHandler(this.btnLanguage_Click);
+            this.picLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picLanguage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picLanguage.Location = new System.Drawing.Point(947, 13);
+            this.picLanguage.Name = "btnLanguage";
+            this.picLanguage.Size = new System.Drawing.Size(48, 48);
+            this.picLanguage.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.picLanguage, "Ctrl+L");
+            this.picLanguage.Click += new System.EventHandler(this.picLanguage_Click);
             // 
             // label1
             // 
@@ -967,7 +966,7 @@
             this.Controls.Add(this.lbl_trbSpeed);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLanguage);
+            this.Controls.Add(this.picLanguage);
             this.Controls.Add(this.trb);
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picReset);
@@ -1053,7 +1052,7 @@
         private System.Windows.Forms.RichTextBox rtb_cur_vx;
         private System.Windows.Forms.RichTextBox rtb_cur_y;
         private System.Windows.Forms.TrackBar trb;
-        private System.Windows.Forms.Button btnLanguage;
+        private System.Windows.Forms.PictureBox picLanguage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nud_timeOffset;

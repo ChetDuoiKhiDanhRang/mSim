@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace mSim
 {
     public partial class FormInfo : Form
     {
-        public FormInfo(string lang="")
+        public FormInfo(string lang = "")
         {
             InitializeComponent();
             if (lang == "en")
@@ -27,7 +28,8 @@ namespace mSim
                 lblNextFrame.Text = "Next (when paused only)";
                 lblPreviousFrame.Text = "Previous (when paused only)";
                 label6.Text = "Hot keys:";
-                txbInfo.Text = "Motion Simulator - a program that simulates arbitrary motions with constant acceleration in the Oxy coordinate system of a material point such as Free fall motion, projectile motion etc";
+                label14.Text = "Languages";
+                txbInfo.Text = "Motion simulator - a program that simulates arbitrary motions with constant acceleration in the Oxy coordinate system space of a material point such as Freefall motion, projectile motion, etc.";
             }
             else if (lang == "vi")
             {
@@ -40,7 +42,23 @@ namespace mSim
                 lblNextFrame.Text = "Vị trí liền sau (chỉ hiệu lực khi đang tạm dừng)";
                 lblPreviousFrame.Text = "vị trí liền trước (chỉ hiệu lực khi đang tạm dừng)";
                 label6.Text = "Các phím tắt:";
-                txbInfo.Text = "Motion simulator - chương trình giả lập chuyển động bất kì với gia tốc không đổi của chất điểm trong mặt phẳng tọa độ Oxy (chuyển động rơi tự do, chuyển động ném xiên,…)";
+                label14.Text = "Thay đối ngôn ngữ";
+                txbInfo.Text = "Motion Simulator - chương trình giả lập chuyển động bất kì với gia tốc không đổi của chất điểm trong mặt phẳng tọa độ Oxy (chuyển động rơi tự do, chuyển động ném xiên,…)";
+            }
+            else if (lang == "chi")
+            {
+                this.Text = "感谢您使用 Motion Simulator!!";
+                lblDonate.Text = "给作者捐助";
+                lblPlayPaused.Text = "开/暂停";
+                lblCapture.Text = "储存照片";
+                lblReSet.Text = "回到原始状态";
+                lblExportVideo.Text = "导出视频";
+                lblNextFrame.Text = "下一个位置 （仅在暂停状态有效）";
+                lblPreviousFrame.Text = "上一个位置 （仅在暂停状态有效）";
+                label6.Text = "快捷键";
+                label14.Text = "语言";
+                txbInfo.Text = "运动模拟软件 （Motion simulator）- 模拟质点在加速度不变的条件下在Oxy坐标系空间的任何一种运动，例如： 自由落体运动、抛体运动等。";
+                
             }
         }
 

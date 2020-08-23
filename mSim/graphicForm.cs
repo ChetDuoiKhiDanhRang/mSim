@@ -328,6 +328,7 @@ namespace mSim
             picReset.Image = imageList1.Images[3];
             picExportVideo.Image = imageList1.Images[4];
             picInfo.Image = imageList1.Images[5];
+            picLanguage.BackgroundImage = imageList1.Images[6];
 
             Obj_vx = Obj_v0x;
             Obj_vy = Obj_v0y;
@@ -403,7 +404,7 @@ namespace mSim
         {
             if (Lang == "en")
             {
-                grb_Params0.Text = "First parameters (t=0)";
+                grb_Params0.Text = "Initial parameters (t=0)";
                 rad_speedmode.Text = "Vx/Vy";
                 radioButton1.Text = "Magnitude/Angle";
                 panel1.Text = "Equations:";
@@ -423,7 +424,7 @@ namespace mSim
                 ckbSpeed.Text = "Velocity vector";
                 ckbAutoScaleVelocityVector.Text = "Auto scale velocity vector";
             }
-            else
+            else if (Lang == "vi")
             {
                 grb_Params0.Text = "Tham số ban đầu (t=0)";
                 rad_speedmode.Text = "H.chiếu vận tốc";
@@ -445,6 +446,29 @@ namespace mSim
                 ckbTrail.Text = "Đường dóng";
                 ckbSpeed.Text = "Véc-tơ vận tốc";
                 ckbAutoScaleVelocityVector.Text = "Tự động điều chỉnh véc-tơ";
+            }
+            else if (Lang == "chi")
+            {
+                grb_Params0.Text = "初始参数 (t=0)";
+                rad_speedmode.Text = "速度投影";
+                radioButton1.Text = "额度/角";
+                panel1.Text = "方程式";
+                label1.Text = "取样次数:";
+                label2.Text = "速度:";
+                groupBox1.Text = "显示:";
+                ctm_ObjColor.Text = "颜色";
+                ctm_ObjSize.Text = "尺寸";
+                ctm_MovingLineColor.Text = "弹道颜色";
+                ctm_VelocityColor.Text = "M矢量颜色";
+                ctm_Capture.Text = "储存照片";
+                ctm_Info.Text = "信息";
+
+                ckbGid.Text = "网格线";
+                ckbCoordinates.Text = "坐标";
+                ckbHighQuality.Text = "去网格";
+                ckbTrail.Text = "延长线";
+                ckbSpeed.Text = "速度矢量";
+                ckbAutoScaleVelocityVector.Text = "自动调整矢量";
             }
         }
 
@@ -653,7 +677,7 @@ namespace mSim
             }
             else if (e.KeyData == (Keys.Control | Keys.L))
             {
-                btnLanguage.PerformClick();
+                picLanguage_Click(null,null);
                 e.Handled = true;
             }
         }
@@ -848,13 +872,17 @@ namespace mSim
         }
 
         //---------------------------------------------------------------------------
-        private void btnLanguage_Click(object sender, EventArgs e)
+        private void picLanguage_Click(object sender, EventArgs e)
         {
             if (Lang == "vi")
             {
                 Lang = "en";
             }
-            else
+            else if (Lang == "en")
+            {
+                Lang = "chi";
+            }
+            else if (Lang == "chi")
             {
                 Lang = "vi";
             }
