@@ -41,8 +41,16 @@ namespace mSim
                 this.Text = "EXPORT VIDEO...";
                 lblStartTime.Text = "Start time:";
                 lblDuration.Text  = "Duration:";
-                lblFPS.Text       = "Frame rate:";
+                lblFPS.Text       = "FPS:";
             }
+            else if (lang == "chi")
+            {
+                this.Text = "导出视频...";
+                lblStartTime.Text = "开始时间:";
+                lblDuration.Text = "长短:";
+                lblFPS.Text = "FPS:";
+            }
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)

@@ -100,6 +100,7 @@
             this.panel1.SuspendLayout();
             this.grbStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLanguage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
@@ -119,7 +120,7 @@
             this.groupBox1.Controls.Add(this.ckbTrail);
             this.groupBox1.Controls.Add(this.ckbCoordinates);
             this.groupBox1.Controls.Add(this.ckbGid);
-            this.groupBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(420, 548);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(317, 105);
@@ -130,10 +131,10 @@
             // ckbHighQuality
             // 
             this.ckbHighQuality.AutoSize = true;
-            this.ckbHighQuality.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbHighQuality.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbHighQuality.Location = new System.Drawing.Point(6, 76);
             this.ckbHighQuality.Name = "ckbHighQuality";
-            this.ckbHighQuality.Size = new System.Drawing.Size(110, 17);
+            this.ckbHighQuality.Size = new System.Drawing.Size(107, 19);
             this.ckbHighQuality.TabIndex = 1;
             this.ckbHighQuality.Text = "Khử \"răng cưa\"";
             this.ckbHighQuality.UseVisualStyleBackColor = true;
@@ -141,10 +142,10 @@
             // ckbAutoScaleVelocityVector
             // 
             this.ckbAutoScaleVelocityVector.AutoSize = true;
-            this.ckbAutoScaleVelocityVector.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbAutoScaleVelocityVector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbAutoScaleVelocityVector.Location = new System.Drawing.Point(133, 76);
             this.ckbAutoScaleVelocityVector.Name = "ckbAutoScaleVelocityVector";
-            this.ckbAutoScaleVelocityVector.Size = new System.Drawing.Size(176, 17);
+            this.ckbAutoScaleVelocityVector.Size = new System.Drawing.Size(166, 19);
             this.ckbAutoScaleVelocityVector.TabIndex = 0;
             this.ckbAutoScaleVelocityVector.Text = "Tự động điều chỉnh véc-tơ";
             this.ckbAutoScaleVelocityVector.UseVisualStyleBackColor = true;
@@ -152,10 +153,10 @@
             // ckbSpeed
             // 
             this.ckbSpeed.AutoSize = true;
-            this.ckbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbSpeed.Location = new System.Drawing.Point(133, 49);
             this.ckbSpeed.Name = "ckbSpeed";
-            this.ckbSpeed.Size = new System.Drawing.Size(110, 17);
+            this.ckbSpeed.Size = new System.Drawing.Size(101, 19);
             this.ckbSpeed.TabIndex = 0;
             this.ckbSpeed.Text = "Véc-tơ vận tốc";
             this.ckbSpeed.UseVisualStyleBackColor = true;
@@ -163,10 +164,10 @@
             // ckbTrail
             // 
             this.ckbTrail.AutoSize = true;
-            this.ckbTrail.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbTrail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbTrail.Location = new System.Drawing.Point(133, 22);
             this.ckbTrail.Name = "ckbTrail";
-            this.ckbTrail.Size = new System.Drawing.Size(86, 17);
+            this.ckbTrail.Size = new System.Drawing.Size(94, 19);
             this.ckbTrail.TabIndex = 0;
             this.ckbTrail.Text = "Đường dóng";
             this.ckbTrail.UseVisualStyleBackColor = true;
@@ -174,10 +175,10 @@
             // ckbCoordinates
             // 
             this.ckbCoordinates.AutoSize = true;
-            this.ckbCoordinates.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbCoordinates.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbCoordinates.Location = new System.Drawing.Point(6, 49);
             this.ckbCoordinates.Name = "ckbCoordinates";
-            this.ckbCoordinates.Size = new System.Drawing.Size(62, 17);
+            this.ckbCoordinates.Size = new System.Drawing.Size(64, 19);
             this.ckbCoordinates.TabIndex = 0;
             this.ckbCoordinates.Text = "Tọa độ";
             this.ckbCoordinates.UseVisualStyleBackColor = true;
@@ -185,10 +186,10 @@
             // ckbGid
             // 
             this.ckbGid.AutoSize = true;
-            this.ckbGid.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbGid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbGid.Location = new System.Drawing.Point(6, 22);
             this.ckbGid.Name = "ckbGid";
-            this.ckbGid.Size = new System.Drawing.Size(50, 17);
+            this.ckbGid.Size = new System.Drawing.Size(50, 19);
             this.ckbGid.TabIndex = 0;
             this.ckbGid.Text = "Lưới";
             this.ckbGid.UseVisualStyleBackColor = true;
@@ -215,7 +216,7 @@
             this.grb_Params0.Controls.Add(this.rtb_v0x);
             this.grb_Params0.Controls.Add(this.rtb_y0);
             this.grb_Params0.Controls.Add(this.rtb_x0);
-            this.grb_Params0.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_Params0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_Params0.ForeColor = System.Drawing.Color.Black;
             this.grb_Params0.Location = new System.Drawing.Point(12, 548);
             this.grb_Params0.Name = "grb_Params0";
@@ -236,88 +237,88 @@
             // 
             // txb_alpha0
             // 
-            this.txb_alpha0.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_alpha0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_alpha0.Location = new System.Drawing.Point(185, 136);
             this.txb_alpha0.MaxLength = 7;
             this.txb_alpha0.Name = "txb_alpha0";
-            this.txb_alpha0.Size = new System.Drawing.Size(51, 20);
+            this.txb_alpha0.Size = new System.Drawing.Size(51, 21);
             this.txb_alpha0.TabIndex = 5;
             this.txb_alpha0.Text = "45";
             this.txb_alpha0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_v0y
             // 
-            this.txb_v0y.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_v0y.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_v0y.Location = new System.Drawing.Point(49, 136);
             this.txb_v0y.MaxLength = 7;
             this.txb_v0y.Name = "txb_v0y";
-            this.txb_v0y.Size = new System.Drawing.Size(51, 20);
+            this.txb_v0y.Size = new System.Drawing.Size(51, 21);
             this.txb_v0y.TabIndex = 3;
             this.txb_v0y.Text = "100";
             this.txb_v0y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_v0
             // 
-            this.txb_v0.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_v0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_v0.Location = new System.Drawing.Point(185, 105);
             this.txb_v0.MaxLength = 7;
             this.txb_v0.Name = "txb_v0";
-            this.txb_v0.Size = new System.Drawing.Size(51, 20);
+            this.txb_v0.Size = new System.Drawing.Size(51, 21);
             this.txb_v0.TabIndex = 4;
             this.txb_v0.Text = "10";
             this.txb_v0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_ay
             // 
-            this.txb_ay.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_ay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_ay.Location = new System.Drawing.Point(185, 47);
             this.txb_ay.MaxLength = 7;
             this.txb_ay.Name = "txb_ay";
-            this.txb_ay.Size = new System.Drawing.Size(51, 20);
+            this.txb_ay.Size = new System.Drawing.Size(51, 21);
             this.txb_ay.TabIndex = 7;
             this.txb_ay.Text = "0";
             this.txb_ay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_y0
             // 
-            this.txb_y0.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_y0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_y0.Location = new System.Drawing.Point(49, 47);
             this.txb_y0.MaxLength = 7;
             this.txb_y0.Name = "txb_y0";
-            this.txb_y0.Size = new System.Drawing.Size(51, 20);
+            this.txb_y0.Size = new System.Drawing.Size(51, 21);
             this.txb_y0.TabIndex = 1;
             this.txb_y0.Text = "0";
             this.txb_y0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_v0x
             // 
-            this.txb_v0x.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_v0x.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_v0x.Location = new System.Drawing.Point(49, 105);
             this.txb_v0x.MaxLength = 7;
             this.txb_v0x.Name = "txb_v0x";
-            this.txb_v0x.Size = new System.Drawing.Size(51, 20);
+            this.txb_v0x.Size = new System.Drawing.Size(51, 21);
             this.txb_v0x.TabIndex = 2;
             this.txb_v0x.Text = "100";
             this.txb_v0x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_ax
             // 
-            this.txb_ax.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_ax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_ax.Location = new System.Drawing.Point(185, 18);
             this.txb_ax.MaxLength = 7;
             this.txb_ax.Name = "txb_ax";
-            this.txb_ax.Size = new System.Drawing.Size(51, 20);
+            this.txb_ax.Size = new System.Drawing.Size(51, 21);
             this.txb_ax.TabIndex = 6;
             this.txb_ax.Text = "-9,80";
             this.txb_ax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txb_x0
             // 
-            this.txb_x0.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_x0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_x0.Location = new System.Drawing.Point(49, 18);
             this.txb_x0.MaxLength = 7;
             this.txb_x0.Name = "txb_x0";
-            this.txb_x0.Size = new System.Drawing.Size(51, 20);
+            this.txb_x0.Size = new System.Drawing.Size(51, 21);
             this.txb_x0.TabIndex = 0;
             this.txb_x0.Text = "0";
             this.txb_x0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -326,10 +327,10 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(125, 82);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.Size = new System.Drawing.Size(82, 19);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "độ lớn/góc";
@@ -338,10 +339,10 @@
             // rad_speedmode
             // 
             this.rad_speedmode.AutoSize = true;
-            this.rad_speedmode.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rad_speedmode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rad_speedmode.Location = new System.Drawing.Point(7, 82);
             this.rad_speedmode.Name = "rad_speedmode";
-            this.rad_speedmode.Size = new System.Drawing.Size(115, 17);
+            this.rad_speedmode.Size = new System.Drawing.Size(106, 19);
             this.rad_speedmode.TabIndex = 1;
             this.rad_speedmode.Text = "h.chiếu vận tốc";
             this.rad_speedmode.UseVisualStyleBackColor = true;
@@ -370,7 +371,7 @@
             this.rtb_alpha0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_alpha0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_alpha0.DetectUrls = false;
-            this.rtb_alpha0.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_alpha0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_alpha0.Location = new System.Drawing.Point(152, 138);
             this.rtb_alpha0.Name = "rtb_alpha0";
             this.rtb_alpha0.ReadOnly = true;
@@ -404,7 +405,7 @@
             this.rtb_v0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0.DetectUrls = false;
-            this.rtb_v0.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0.Location = new System.Drawing.Point(152, 107);
             this.rtb_v0.Name = "rtb_v0";
             this.rtb_v0.ReadOnly = true;
@@ -421,7 +422,7 @@
             this.rtb_v0y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0y.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0y.DetectUrls = false;
-            this.rtb_v0y.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0y.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0y.Location = new System.Drawing.Point(7, 138);
             this.rtb_v0y.Name = "rtb_v0y";
             this.rtb_v0y.ReadOnly = true;
@@ -438,7 +439,7 @@
             this.rtb_v0x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_v0x.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_v0x.DetectUrls = false;
-            this.rtb_v0x.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_v0x.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_v0x.Location = new System.Drawing.Point(7, 107);
             this.rtb_v0x.Name = "rtb_v0x";
             this.rtb_v0x.ReadOnly = true;
@@ -455,7 +456,7 @@
             this.rtb_y0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_y0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_y0.DetectUrls = false;
-            this.rtb_y0.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_y0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_y0.Location = new System.Drawing.Point(6, 49);
             this.rtb_y0.Name = "rtb_y0";
             this.rtb_y0.ReadOnly = true;
@@ -472,7 +473,7 @@
             this.rtb_x0.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_x0.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_x0.DetectUrls = false;
-            this.rtb_x0.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtb_x0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_x0.Location = new System.Drawing.Point(6, 21);
             this.rtb_x0.Name = "rtb_x0";
             this.rtb_x0.ReadOnly = true;
@@ -491,8 +492,7 @@
             this.panel1.Controls.Add(this.rtb_vy);
             this.panel1.Controls.Add(this.rtb_xt);
             this.panel1.Controls.Add(this.rtb_yt);
-            this.panel1.Enabled = false;
-            this.panel1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.DarkBlue;
             this.panel1.Location = new System.Drawing.Point(271, 548);
             this.panel1.Name = "panel1";
@@ -508,7 +508,7 @@
             this.rtb_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_vx.Enabled = false;
-            this.rtb_vx.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_vx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_vx.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vx.Location = new System.Drawing.Point(14, 60);
             this.rtb_vx.Multiline = false;
@@ -526,7 +526,7 @@
             this.rtb_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_vy.Enabled = false;
-            this.rtb_vy.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_vy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_vy.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_vy.Location = new System.Drawing.Point(14, 80);
             this.rtb_vy.Multiline = false;
@@ -544,7 +544,7 @@
             this.rtb_xt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_xt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_xt.Enabled = false;
-            this.rtb_xt.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_xt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_xt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_xt.Location = new System.Drawing.Point(14, 20);
             this.rtb_xt.Multiline = false;
@@ -562,7 +562,7 @@
             this.rtb_yt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_yt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtb_yt.Enabled = false;
-            this.rtb_yt.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_yt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_yt.ForeColor = System.Drawing.Color.DarkBlue;
             this.rtb_yt.Location = new System.Drawing.Point(14, 40);
             this.rtb_yt.Multiline = false;
@@ -594,7 +594,7 @@
             // 
             this.rtb_cur_y.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_y.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_y.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_y.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_cur_y.ForeColor = System.Drawing.Color.Black;
             this.rtb_cur_y.Location = new System.Drawing.Point(150, 41);
             this.rtb_cur_y.Multiline = false;
@@ -616,7 +616,7 @@
             // 
             // lbl_time
             // 
-            this.lbl_time.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time.ForeColor = System.Drawing.Color.Black;
             this.lbl_time.Location = new System.Drawing.Point(1, 28);
             this.lbl_time.Name = "lbl_time";
@@ -629,7 +629,7 @@
             // 
             this.rtb_cur_vy.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_vy.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_vy.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_vy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_cur_vy.ForeColor = System.Drawing.Color.DarkRed;
             this.rtb_cur_vy.Location = new System.Drawing.Point(297, 41);
             this.rtb_cur_vy.Multiline = false;
@@ -646,7 +646,7 @@
             // 
             this.rtb_cur_vx.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_vx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_vx.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_vx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_cur_vx.ForeColor = System.Drawing.Color.DarkRed;
             this.rtb_cur_vx.Location = new System.Drawing.Point(297, 13);
             this.rtb_cur_vx.Multiline = false;
@@ -663,7 +663,7 @@
             // 
             this.rtb_cur_x.BackColor = System.Drawing.Color.WhiteSmoke;
             this.rtb_cur_x.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_cur_x.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Italic);
+            this.rtb_cur_x.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_cur_x.ForeColor = System.Drawing.Color.Black;
             this.rtb_cur_x.Location = new System.Drawing.Point(150, 13);
             this.rtb_cur_x.Multiline = false;
@@ -708,15 +708,16 @@
             this.trb.Value = 1000;
             this.trb.ValueChanged += new System.EventHandler(this.trb_ValueChanged);
             // 
-            // btnLanguage
+            // picLanguage
             // 
             this.picLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picLanguage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.picLanguage.Location = new System.Drawing.Point(947, 13);
-            this.picLanguage.Name = "btnLanguage";
+            this.picLanguage.Name = "picLanguage";
             this.picLanguage.Size = new System.Drawing.Size(48, 48);
             this.picLanguage.TabIndex = 6;
+            this.picLanguage.TabStop = false;
             this.toolTip1.SetToolTip(this.picLanguage, "Ctrl+L");
             this.picLanguage.Click += new System.EventHandler(this.picLanguage_Click);
             // 
@@ -724,10 +725,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(753, 640);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(99, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "\"Số lần lấy mẫu\":";
             // 
@@ -735,10 +736,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(753, 687);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Tốc độ:";
             // 
@@ -746,7 +747,7 @@
             // 
             this.nud_timeOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nud_timeOffset.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.nud_timeOffset.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_timeOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud_timeOffset.Increment = new decimal(new int[] {
             5,
             0,
@@ -764,7 +765,7 @@
             0,
             0});
             this.nud_timeOffset.Name = "nud_timeOffset";
-            this.nud_timeOffset.Size = new System.Drawing.Size(113, 20);
+            this.nud_timeOffset.Size = new System.Drawing.Size(113, 21);
             this.nud_timeOffset.TabIndex = 8;
             this.nud_timeOffset.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nud_timeOffset.Value = new decimal(new int[] {
@@ -841,7 +842,7 @@
             // lbl_trbSpeed
             // 
             this.lbl_trbSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_trbSpeed.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_trbSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_trbSpeed.Location = new System.Drawing.Point(823, 687);
             this.lbl_trbSpeed.Name = "lbl_trbSpeed";
             this.lbl_trbSpeed.Size = new System.Drawing.Size(49, 13);
@@ -863,7 +864,7 @@
             this.toolStripSeparator3,
             this.ctm_Info});
             this.ctm.Name = "ctm";
-            this.ctm.Size = new System.Drawing.Size(173, 154);
+            this.ctm.Size = new System.Drawing.Size(178, 154);
             this.ctm.Opened += new System.EventHandler(this.ctm_Opened);
             // 
             // ctm_ObjSize
@@ -871,7 +872,7 @@
             this.ctm_ObjSize.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctm_objsize_values});
             this.ctm_ObjSize.Name = "ctm_ObjSize";
-            this.ctm_ObjSize.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjSize.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjSize.Text = "Kích thước vật thể";
             // 
             // ctm_objsize_values
@@ -887,18 +888,18 @@
             "24",
             "32"});
             this.ctm_objsize_values.Name = "ctm_objsize_values";
-            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 22);
+            this.ctm_objsize_values.Size = new System.Drawing.Size(120, 23);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_ObjColor
             // 
             this.ctm_ObjColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_ObjColor.Image")));
             this.ctm_ObjColor.Name = "ctm_ObjColor";
-            this.ctm_ObjColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_ObjColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_ObjColor.Text = "Màu vật thể";
             this.ctm_ObjColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -906,7 +907,7 @@
             // 
             this.ctm_MovingLineColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_MovingLineColor.Image")));
             this.ctm_MovingLineColor.Name = "ctm_MovingLineColor";
-            this.ctm_MovingLineColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_MovingLineColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_MovingLineColor.Text = "Màu quỹ đạo";
             this.ctm_MovingLineColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
@@ -914,32 +915,32 @@
             // 
             this.ctm_VelocityColor.Image = ((System.Drawing.Image)(resources.GetObject("ctm_VelocityColor.Image")));
             this.ctm_VelocityColor.Name = "ctm_VelocityColor";
-            this.ctm_VelocityColor.Size = new System.Drawing.Size(172, 22);
+            this.ctm_VelocityColor.Size = new System.Drawing.Size(177, 22);
             this.ctm_VelocityColor.Text = "Màu vec-tơ vận tốc";
             this.ctm_VelocityColor.Click += new System.EventHandler(this.ctm_ObjColor_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_Capture
             // 
             this.ctm_Capture.Image = ((System.Drawing.Image)(resources.GetObject("ctm_Capture.Image")));
             this.ctm_Capture.Name = "ctm_Capture";
-            this.ctm_Capture.Size = new System.Drawing.Size(172, 22);
+            this.ctm_Capture.Size = new System.Drawing.Size(177, 22);
             this.ctm_Capture.Text = "Lưu ảnh";
             this.ctm_Capture.Click += new System.EventHandler(this.picCapture_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(174, 6);
             // 
             // ctm_Info
             // 
             this.ctm_Info.Name = "ctm_Info";
-            this.ctm_Info.Size = new System.Drawing.Size(172, 22);
+            this.ctm_Info.Size = new System.Drawing.Size(177, 22);
             this.ctm_Info.Text = "About";
             this.ctm_Info.Click += new System.EventHandler(this.ctm_Info_Click);
             // 
@@ -994,6 +995,7 @@
             this.panel1.ResumeLayout(false);
             this.grbStatus.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLanguage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_timeOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();

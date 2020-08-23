@@ -31,11 +31,11 @@ namespace mSim
         string axis_fontname = "Consolas";
         float axis_fontsize = 8F;
 
-        string interval_fontname = "consolas";
+        string interval_fontname = "Consolas";
         float interval_fontsize = 8F;
 
-        string object_fontname = "consolas";
-        float object_fontsize = 8F;
+        string object_fontname = "Consolas";
+        float object_fontsize = 9F;
 
 
         Font myFont_script;
@@ -469,6 +469,7 @@ namespace mSim
                 ckbTrail.Text = "延长线";
                 ckbSpeed.Text = "速度矢量";
                 ckbAutoScaleVelocityVector.Text = "自动调整矢量";
+
             }
         }
 
@@ -677,7 +678,7 @@ namespace mSim
             }
             else if (e.KeyData == (Keys.Control | Keys.L))
             {
-                picLanguage_Click(null,null);
+                picLanguage_Click(null, null);
                 e.Handled = true;
             }
         }
@@ -690,7 +691,7 @@ namespace mSim
 
             if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
             {
-                string content ="";
+                string content = "";
                 if (Lang == "vi")
                 {
                     content = "Không tìm thấy tập tin \"ffmpeg.exe\"!\nTải và giải nén tập tin \"ffmpeg.exe\" vào thư mục chương trình.\nĐến trang tải về?";
@@ -729,7 +730,7 @@ namespace mSim
                 {
                     Bitmap bmp = MovingLineLayer.Clone() as Bitmap;
                     DrawObject(bmp, obj_xy[index].X, obj_xy[index].Y, x0, y0, showSpeeds, showTrails, obj_vx_values[index], obj_vy_values[index],
-                        ("t=" + ((index - timeOffset) * 0.01F).ToString("0.000")));
+                        ("t = " + ((index - timeOffset) * 0.01F).ToString("0.000")));
                     bmp.Save(tmpPath + "\\" + baseName + suffix.ToString("0000000") + ".png", ImageFormat.Png);
                     bmp.Dispose();
                     suffix++;
@@ -1678,7 +1679,17 @@ namespace mSim
             Pen obj_p = new Pen(Brushes.Black, 1F);
             if (timelabel != "")
             {
-                g.DrawString(timelabel, myFont_Object, Brushes.Black, 0, 0);
+                float stringHeight = g.MeasureString("O", myFont_Object).Height;
+                g.DrawString(timelabel, new Font(myFont_Object.Name, myFont_Object.Size, FontStyle.Bold), Brushes.Black, 0, 0);
+                g.DrawString(" vx = " + vx.ToString("0.000").PadLeft(8), myFont_Object, Brushes.Black, 0, stringHeight + 2);
+                g.DrawString(" vy = " + vy.ToString("0.000").PadLeft(8), myFont_Object, Brushes.Black, 0, (stringHeight +2) * 2);
+                double v = Math.Sqrt(vx * vx + vy * vy);
+                g.DrawString(" v  = " + v.ToString("0.000").PadLeft(8), myFont_Object, Brushes.Black, 0, (stringHeight + 2) * 3);
+                double angle = Math.Atan2(vy, vx) * 180 / Math.PI;
+                g.DrawString(" ɑ  = " + angle.ToString("0.000").PadLeft(8) + "°", myFont_Object, Brushes.Black, 0, (stringHeight + 2) * 4);
+                g.DrawString(" x  = " + obj_x.ToString("0.000").PadLeft(8), myFont_Object, Brushes.Black, 0, (stringHeight + 2) * 5);
+                g.DrawString(" y  = " + obj_y.ToString("0.000").PadLeft(8), myFont_Object, Brushes.Black, 0, (stringHeight + 2) * 6);
+
             }
             if (showTrails)
             {
