@@ -35,7 +35,7 @@ namespace mSim
         float interval_fontsize = 8F;
 
         string object_fontname = "Consolas";
-        float object_fontsize = 9F;
+        float object_fontsize = 8F;
 
 
         Font myFont_script;
@@ -686,12 +686,12 @@ namespace mSim
         FormExportVideo formExportVideo;
         private void ExportVideo()
         {
-            string tmpPath = ".\\tmp";
+            string tmpPath = Environment.SpecialFolder.Templates + "\\msim";
             string baseName = "tmpvid_";
 
             if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
             {
-                string content = "";
+                string content = "Cannot find \"ffmpeg.exe\" file!\nDownload and extract \"ffmpeg.exe\" file to application folder plz.\nGo to download site?";
                 if (Lang == "vi")
                 {
                     content = "Không tìm thấy tập tin \"ffmpeg.exe\"!\nTải và giải nén tập tin \"ffmpeg.exe\" vào thư mục chương trình.\nĐến trang tải về?";
@@ -756,7 +756,7 @@ namespace mSim
                 this.Cursor = Cursors.WaitCursor;
                 p.Start();
                 p.WaitForExit();
-                //Directory.Delete(tmpPath, true);
+                Directory.Delete(tmpPath, true);
                 this.Cursor = Cursors.Default;
 
                 Process exp = new Process();
