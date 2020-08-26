@@ -984,7 +984,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "drawForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Motion Simulator (v3.0.1)";
+            this.Text = "Motion Simulator (v3.0.3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.drawForm_FormClosed);
             this.Shown += new System.EventHandler(this.drawForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.drawForm_KeyDown);

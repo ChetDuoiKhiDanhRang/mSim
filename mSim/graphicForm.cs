@@ -686,8 +686,8 @@ namespace mSim
         FormExportVideo formExportVideo;
         private void ExportVideo()
         {
-            string tmpPath = /*Environment.SpecialFolder.Templates + */"%tmp%\\msim";
-            MessageBox.Show(tmpPath);
+            string tmpPath = Environment.GetFolderPath(Environment.SpecialFolder.Templates) + "\\msim";
+            //MessageBox.Show(tmpPath);
             string baseName = "tmpvid_";
 
             if (!File.Exists(Application.StartupPath + "\\ffmpeg.exe"))
