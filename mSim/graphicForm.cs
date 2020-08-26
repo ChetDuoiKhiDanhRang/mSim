@@ -739,16 +739,16 @@ namespace mSim
 
                 string mmpeg = Application.StartupPath + "\\ffmpeg.exe";
                 string frameRate = "-framerate " + FPS.ToString();
-                string fileindex = "-i " + tmpPath + "\\" + baseName + "%07d.png";
+                string fileindex = "-i " + "\"" + tmpPath + "\\" + baseName + "%07d.png" + "\"";
                 string libx264 = "-c:v libx264";
                 string vsync = "-vsync vfr";
                 string videoFormat = "-pix_fmt yuv420p";
-                string outputPath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\mSim";
+                string outputPath =  Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\mSim" ;
                 if (!Directory.Exists(outputPath))
                 {
                     Directory.CreateDirectory(outputPath);
                 }
-                string outputFile = outputPath + "\\mSim_" + DateTime.Now.ToString("yyMMdd_HHmmss") + ".mp4";
+                string outputFile = "\"" + outputPath + "\\mSim_" + DateTime.Now.ToString("yyMMdd_HHmmss") + ".mp4" + "\"";
 
                 string pars = /*mmpeg + " " +*/ frameRate + " " + fileindex + " " + libx264 + " " + vsync + " " + videoFormat + " " + outputFile;
 
