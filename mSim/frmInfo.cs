@@ -29,7 +29,7 @@ namespace mSim
                 lblPreviousFrame.Text = "Previous (when paused only)";
                 label6.Text = "Hot keys:";
                 label14.Text = "Languages";
-                txbInfo.Text = "Motion simulator - a program that simulates arbitrary motions with constant acceleration in the Oxy coordinate system space of a material point such as Freefall motion, projectile motion, etc.";
+                txbInfo.Text = "Motion simulator - a program that simulates arbitrary motions with constant acceleration in the Oxy coordinate system space of a material point such as freefall motion, projectile motion, etc.";
             }
             else if (lang == "vi")
             {
