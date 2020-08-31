@@ -469,7 +469,6 @@ namespace mSim
                 ckbTrail.Text = "延长线";
                 ckbSpeed.Text = "速度矢量";
                 ckbAutoScaleVelocityVector.Text = "自动调整矢量";
-
             }
         }
 
