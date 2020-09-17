@@ -10,3 +10,14 @@ C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.pdb
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormExportVideo.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.FormInfo.resources
 C:\Users\Administrator\Documents\GitHub\mSim\mSim\obj\Debug\mSim.csprojAssemblyReference.cache
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\bin\Debug\mSim.exe.config
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\bin\Debug\mSim.exe
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\bin\Debug\mSim.pdb
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.FormExportVideo.resources
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.FormInfo.resources
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.Properties.Resources.resources
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.drawForm.resources
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.csproj.GenerateResource.cache
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.csproj.CoreCompileInputs.cache
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.exe
+D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.pdb
