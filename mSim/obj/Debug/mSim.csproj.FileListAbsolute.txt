@@ -21,3 +21,16 @@ D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.csproj.GenerateResource.cac
 D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.csproj.CoreCompileInputs.cache
 D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.exe
 D:\Z.NguyenNgocCuong\Github\mSim\mSim\obj\Debug\mSim.pdb
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\bin\Debug\mSim.exe.config
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\bin\Debug\mSim.exe
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\bin\Debug\mSim.pdb
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.FormExportVideo.resources
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.FormInfo.resources
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.Properties.Resources.resources
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.drawForm.resources
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.exe
+C:\Users\Administrator\source\repos\ChetDuoiKhiDanhRang\mSim\mSim\obj\Debug\mSim.pdb
