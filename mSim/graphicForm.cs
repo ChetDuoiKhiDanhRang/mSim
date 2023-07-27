@@ -1627,8 +1627,8 @@ namespace mSim
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             }
 
-            Pen p = new Pen(MovingLine_Color, 2F);
-            p.DashStyle = DashStyle.Dash;
+            Pen p = new Pen(MovingLine_Color, 1F);
+            p.DashStyle = DashStyle.DashDot;
             p.LineJoin = LineJoin.Miter;
             p.DashCap = DashCap.Triangle;
             p.StartCap = LineCap.Round;
@@ -1783,12 +1783,12 @@ namespace mSim
             if (stepX < MIN_STEP_X)
             {
                 stepX = MAX_STEP_X;
-                stepValueX = stepValueX * 2;
+                stepValueX *= 2;
             }
             if (stepY < MIN_STEP_Y)
             {
                 stepY = MAX_STEP_Y;
-                stepValueY = stepValueY * 2;
+                stepValueY *= 2;
             }
         }
 
