@@ -1760,8 +1760,6 @@ namespace mSim
                     g.DrawString(_vy, myFont_Object, obj_p.Brush, 0, 0);
                     g.ResetTransform();
                 }
-
-
             }
 
             obj_p.Color = Color.Black;
